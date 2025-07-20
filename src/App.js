@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
+import { useState } from 'react';
+
+import VerticalNavbarPermanent from './components/navbars';
 function App() {
+
+  const [viz_type, setVizType] = useState('Role');
+  const handleTabChange = (key) => {
+    setVizType(key);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tabs defaultActiveKey="Role" className="mb-2" onSelect={handleTabChange}>
+          <Tab eventKey="Role" title="Role">
+            <VerticalNavbarPermanent viz_type={viz_type}/>
+
+          </Tab>
+          <Tab eventKey="Bottleneck" title="Bottleneck">
+          <VerticalNavbarPermanent viz_type={viz_type}/>
+        </Tab>
+      </Tabs>
+
     </div>
   );
 }
