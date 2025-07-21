@@ -23,6 +23,11 @@ function VerticalNavbarPermanent(props) {
 
             {/* Navigation Links */}
             <Nav className="nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu" onSelect={(o)=>handleSelect(o)}>
+                <Nav.Item className="w-100">
+                <Nav.Link eventKey="All Outcomes" className="text-dark px-2">
+                  <i className="bi bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">All Outcomes</span>
+                </Nav.Link>
+              </Nav.Item>
               <Nav.Item className="w-100">
                 <Nav.Link eventKey="Education" className="text-dark px-2">
                   <i className="bi bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Education</span>
