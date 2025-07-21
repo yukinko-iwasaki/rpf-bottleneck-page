@@ -24,23 +24,13 @@ function VerticalNavbarPermanent(props) {
             {/* Navigation Links */}
             <Nav className="nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu" onSelect={(o)=>handleSelect(o)}>
                 <Nav.Item className="w-100">
-                <Nav.Link eventKey="All Outcomes" className="text-dark px-2">
-                  <i className="bi bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">All Outcomes</span>
+                <Nav.Link eventKey="Bottlenecks" className="text-dark px-2">
+                  <i className="bi bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Public Finance Bottlenecks</span>
                 </Nav.Link>
               </Nav.Item>
-              <Nav.Item className="w-100">
-                <Nav.Link eventKey="Education" className="text-dark px-2">
-                  <i className="bi bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Education</span>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item className="w-100">
-                <Nav.Link eventKey="EconomicResilience" className="text-dark px-2">
-                  <i className="bi bi-table"></i> <span className="ms-1 d-none d-sm-inline">Economic Resilience</span>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item className="w-100">
-                <Nav.Link eventKey="Outcome3" className="text-dark px-2">
-                  <i className="bi bi-people"></i> <span className="ms-1 d-none d-sm-inline">Outcome3</span>
+                           <Nav.Item className="w-100">
+                <Nav.Link eventKey="Roles" className="text-dark px-2">
+                  <i className="bi bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Public Finance Roles</span>
                 </Nav.Link>
               </Nav.Item>
             </Nav>

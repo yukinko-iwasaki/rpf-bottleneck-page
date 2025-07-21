@@ -13,8 +13,8 @@ function Content(props){
         <div className="test">
             <div style={{"display":'flex'}}>
                  <CustomFilter 
-                    filterType="Bottleneck"
-                    filterOptions={['Bottleneck1', 'Bottleneck2', 'Bottleneck3S']}
+                    filterType={outcome}
+                    filterOptions={outcome=='roles' ? ['Role1', 'Role2'] : ['Bottleneck1', 'Bottleneck2']}
                     onFilterChange={(selected) => console.log(`Selected outcome: ${selected}`)}/>
                 <CustomFilter 
                     filterType="Country"
