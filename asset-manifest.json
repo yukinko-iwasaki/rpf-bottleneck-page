@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rpf-bottleneck-page/static/css/main.15f8ca78.css",
+    "main.js": "/rpf-bottleneck-page/static/js/main.d342c49f.js",
+    "static/js/453.c3571956.chunk.js": "/rpf-bottleneck-page/static/js/453.c3571956.chunk.js",
+    "index.html": "/rpf-bottleneck-page/index.html",
+    "main.15f8ca78.css.map": "/rpf-bottleneck-page/static/css/main.15f8ca78.css.map",
+    "main.d342c49f.js.map": "/rpf-bottleneck-page/static/js/main.d342c49f.js.map",
+    "453.c3571956.chunk.js.map": "/rpf-bottleneck-page/static/js/453.c3571956.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15f8ca78.css",
+    "static/js/main.d342c49f.js"
+  ]
+}
