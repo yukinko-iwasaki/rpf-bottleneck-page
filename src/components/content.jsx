@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import CustomFilter from "./filter";
 import WorldChoroplethMap from "./map"; // Assuming you have a map component
 import ContentText from "./contentText";
-const texts = ['', '', '']
+const data = require('../data/bottleneck.json');
+
 function Content(props){
     const {viz_type, outcome} = props;
     return (
@@ -11,6 +12,10 @@ function Content(props){
         <h2>{outcome} - {viz_type}</h2>
         <div className="test">
             <div style={{"display":'flex'}}>
+                 <CustomFilter 
+                    filterType="Bottleneck"
+                    filterOptions={['Bottleneck1', 'Bottleneck2', 'Bottleneck3S']}
+                    onFilterChange={(selected) => console.log(`Selected outcome: ${selected}`)}/>
                 <CustomFilter 
                     filterType="Country"
                     filterOptions={['Albania', 'Kenya', 'South Africa']}
@@ -25,9 +30,11 @@ function Content(props){
             </div>
         </div>
         <div class='container' style={{"display": 'flex', height: '50vh'}}>
-            <div className="textContainer" style={{"width": '100%', "maxHeight": '80%', 'overflow':'scroll','boxShadow':'0px 4px 8px rgba(0, 0, 0, 0.1)'}}>
-                {texts.map((text, index) => (
-                    <ContentText key={index} text={text} />
+            <div className="textContainer" style={{"width": '100%', "maxHeight": '80%', 'overflow':'scroll','boxShadow':'0px 4px 8px rgba(0, 0, 0, 0.1)', 'backgroundColor': 'rgba(76, 159, 210, 0.1)', 'borderRadius': '8px', 'padding': '10px', 'border': '1px solid rgba(76, 159, 210, 0.5)'}}>
+                {data.map((text, index) => (
+                    <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
+                        <ContentText data={text} />
+                    </div>
                 ))
                 }
             </div>
