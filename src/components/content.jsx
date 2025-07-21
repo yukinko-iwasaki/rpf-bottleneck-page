@@ -13,8 +13,8 @@ function Content(props){
         <div className="test">
             <div style={{"display":'flex'}}>
                  <CustomFilter 
-                    filterType={outcome}
-                    filterOptions={outcome=='roles' ? ['Role1', 'Role2'] : ['Bottleneck1', 'Bottleneck2']}
+                    filterType={viz_type}
+                    filterOptions={viz_type=='Roles' ? ['Role1', 'Role2'] : ['Bottleneck1', 'Bottleneck2']}
                     onFilterChange={(selected) => console.log(`Selected outcome: ${selected}`)}/>
                 <CustomFilter 
                     filterType="Country"
@@ -22,7 +22,7 @@ function Content(props){
                     onFilterChange={(selected) => console.log(`Selected outcome: ${selected}`)}/>
                 <CustomFilter 
                     filterType="sources"
-                    filterOptions={['source1', 'source2', 'source2']}
+                    filterOptions={['RPF Outcome Study', 'source2', 'source2']}
                     onFilterChange={(selected) => console.log(`Selected outcome: ${selected}`)}/>
             </div>
             <div className="map-container">

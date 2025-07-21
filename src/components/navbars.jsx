@@ -7,11 +7,11 @@ import Content from './content'; // Assuming you have a Content component
 
 
 function VerticalNavbarPermanent(props) {
-    const [outcome, setOutcome] = useState('Health'); // Default outcome
+    const [viz_type, setVizType] = useState('Bottlenecks'); // Default viz_type
     const handleSelect = (eventKey) => {
-        setOutcome(eventKey);
+        setVizType(eventKey);
     }
-    const {viz_type} = props;
+    const {outcome} = props;
   return (
     <Container fluid>
       <Row className="flex-nowrap"> {/* flex-nowrap prevents column wrapping */}
@@ -22,7 +22,7 @@ function VerticalNavbarPermanent(props) {
             <hr className="d-none d-sm-block w-100" /> {/* Separator */}
 
             {/* Navigation Links */}
-            <Nav className="nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu" onSelect={(o)=>handleSelect(o)}>
+            <Nav defaultActiveKey="Bottlenecks" className="nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu" onSelect={(o)=>handleSelect(o)}>
                 <Nav.Item className="w-100">
                 <Nav.Link eventKey="Bottlenecks" className="text-dark px-2">
                   <i className="bi bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Public Finance Bottlenecks</span>
