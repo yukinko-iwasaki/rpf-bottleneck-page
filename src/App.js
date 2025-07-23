@@ -1,18 +1,21 @@
 import './App.css';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-
-import { useState } from 'react';
-
+import { useState , useRef, useEffect} from 'react';
 import VerticalNavbarPermanent from './components/navbars';
 function App() {
+  const svgRef = useRef(null);
 
   const [outcome, setOutcome] = useState('Education');
   const handleTabChange = (key) => {
     setOutcome(key);
   };
+
+
+
   return (
     <div className="App">
+
       <Tabs defaultActiveKey="Education" className="mb-2" onSelect={handleTabChange}>
           <Tab eventKey="Education" title="Basic Education">
             <VerticalNavbarPermanent outcome={outcome}/>
@@ -30,7 +33,6 @@ function App() {
             <VerticalNavbarPermanent outcome={outcome}/>
          </Tab>
       </Tabs>
-
     </div>
   );
 }

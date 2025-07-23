@@ -8,10 +8,10 @@ const createText = (data) => {
     return (
         <div style={{ padding: '10px', lineHeight: '1.6', fontFamily: 'Arial, sans-serif', textAlign: 'left' }}>
             <p><span style={{ fontWeight: 'bold', color: '#4C9FD2' }}>Bottleneck:</span> {data.bottleneck}</p>
-            <p><span style={{ fontWeight: 'bold', color: '#4C9FD2' }}>Outcome:</span> {data.outcome_bottleneck}</p>
+            <p><span style={{ fontWeight: 'bold', color: '#4C9FD2' }}>Description:</span> {data.outcome_bottleneck}</p>
             <p><span style={{ fontWeight: 'bold', color: '#4C9FD2' }}>Example:</span> {data.example}</p>
-            <p><span style={{ fontWeight: 'bold', color: '#4C9FD2' }}>Reference:</span> {data.ref}</p>
-            <p><span style={{ fontWeight: 'bold', color: '#4C9FD2' }}>Source:</span> {data.source}</p>
+            <p style={{fontSize: '15px', fontStyle: 'italic'}}><span style={{  color: '#4C9FD2' }}>Reference:</span> {data.ref}</p>
+            <p style={{fontSize: '15px', fontStyle: 'italic'}}><span style={{  color: '#4C9FD2' }}>Source:</span> {data.source}</p>
         </div>
     )
 }

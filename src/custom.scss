@@ -8,14 +8,14 @@
 // Copy the variables you want to change here and set their new values.
 
 // Primary color (used for buttons, links, active states, etc.)
-$primary: #4C9FD2; // A custom purple
-$secondary: #C9E7F8;
-$success: #C9E7F8;
-$info: #17a2b8;
-$warning: #ffc107;
-$danger: #dc3545;
-$light: #C9E7F8;
-$dark: #343a40;
+// $primary: #4C9FD2; // A custom purple
+// $secondary: #C9E7F8;
+// $success: #C9E7F8;
+// $info: #17a2b8;
+// $warning: #ffc107;
+// $danger: #dc3545;
+// $light: #C9E7F8;
+// $dark: #343a40;
 
 // // You can also adjust grayscale colors
 // $gray-100: #f8f9fa;
@@ -46,3 +46,10 @@ $dark: #343a40;
 //   background-color: blue;
 //   color: white;
 // }
+
+.sidebar-wrapper-35 {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
