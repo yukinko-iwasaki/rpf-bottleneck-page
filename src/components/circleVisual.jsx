@@ -13,16 +13,16 @@ const CircleVisual = ({ onClick, selectedItem }) => {
         if (svgRef.current) {
             for (const node of svgRef.current.children) {
                 if (node.tagName === 'g' && node.id !== selectedItem) {
-                    node.style.opacity = 0.5;
+                    node.classList.remove('highlighted');
                 }else{
-                    node.style.opacity = 1;
+                    node.classList.add('highlighted');
                 }
             }
         }
     }, [selectedItem]);
 
   return (
-    <div className="svg-container" style={{ position: 'relative', padding: '10px' , height:'50%'}}>
+    <div className="svg-container" style={{ position: 'relative', padding: '10px', maxHeight:'70%' , maxWidth: '100%', overflow: 'hidden' }}>
       <MySvg ref={svgRef} className="file-svg" onClick={onClick} />
     </div>
   );

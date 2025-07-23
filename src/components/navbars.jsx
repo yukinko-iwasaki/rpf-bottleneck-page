@@ -20,10 +20,12 @@ function VerticalNavbarPermanent(props) {
       <Row className="flex-nowrap"> {/* flex-nowrap prevents column wrapping */}
         {/* Sidebar Column */}
         <Col xs={12} md={3} lg={2} className="bg-light sidebar-wrapper-35">
-          <CircleVisual onClick={handleVizClick} selectedItem={selectedItem} />
-          <div style={{ width: '100%', borderRadius: '100px', overflow: 'hidden' }}>
-            <MapSvg />
-          </div>
+    <div style={{ width: '100%', height: '30vh', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', overflow: 'hidden' , paddingTop: '10px'}}>
+      <p>Select a region</p>
+      <MapSvg />
+    </div>
+              <CircleVisual onClick={handleVizClick} selectedItem={selectedItem} />
+
         </Col>
         <Content outcome={outcome} selectedItem={selectedItem} />
 

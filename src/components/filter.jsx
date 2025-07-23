@@ -5,7 +5,7 @@ function CustomFilter(props) {
     const { filterType, filterOptions, onFilterChange } = props;
 
     return (
-        <Dropdown style={{ 'width': '100%', padding: '10px'}}>
+        <Dropdown style={{ 'width': '100%'}}>
             <Dropdown.Toggle variant="success" id="dropdown-basic" style={{'width': '100%'}}>
                 {filterType} 
             </Dropdown.Toggle>

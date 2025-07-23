@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import CustomFilter from "./filter";
 import ContentText from "./contentText";
 
-const data = require('../data/bottleneck.json');
-
+const bottleneckData = require('../data/bottleneck.json');
+const roleData = require('../data/roles.json');
 
 const bottlenectDict = {
   'group1': {
@@ -84,10 +84,10 @@ const bottlenectDict = {
 };
 
 const roleDict = {
-  'groupA': { name: 'Insufficient Stakeholder Commitment to Policy Action' },
-  'groupB': { name: 'Unsustainable fiscal situation of governments and organizations' },
-  'groupC': { name: 'Inadequate and inequitable resources mobilized and deployed for policy implementation' },
-  'groupD': { name: 'Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements' }
+  'groupA': { name: 'A. Insufficient Stakeholder Commitment to Policy Action' },
+  'groupB': { name: 'B. Unsustainable fiscal situation of governments and organizations' },
+  'groupC': { name: 'C. Inadequate and inequitable resources mobilized and deployed for policy implementation' },
+  'groupD': { name: 'D. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements' }
 };
 function Content(props){
     const {outcome, selectedItem} = props;
@@ -95,35 +95,44 @@ function Content(props){
 
 
 
-    const viz_type = Object.keys(bottlenectDict).includes(selectedItem) ? 'bottleneck group' : 'roles'; // Default to group1 if viz_type is not found
-    const type_options = viz_type === 'bottleneck group' ?bottlenectDict[selectedItem].children: [];
+    const viz_type = Object.keys(bottlenectDict).includes(selectedItem) ? 'Bottleneck Group' : 'Role'; // Default to group1 if viz_type is not found
+    const type_options = viz_type === 'Bottleneck Group' ? bottlenectDict[selectedItem].children : [];
     const selectedItemDisplay = bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group1'; // Default to group1 if not found
-
+    const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
     return (
-        <div className="content" style={{width:'65%'}}>
-        <h2>{outcome} - {viz_type} - {selectedItemDisplay}</h2>
-
+        <div className="content" style={{width:'65%', height:'90vh'}}>
+                <h2 style={{
+            fontFamily: 'Roboto, sans-serif',
+            fontWeight: 'bold',
+            textShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
+            padding: '10px',
+            marginBottom: '20px',
+            background: 'linear-gradient(90deg, rgba(76, 159, 210, 0.1), rgba(76, 159, 210, 0.3))',
+            borderRadius: '8px',
+            fontSize: '1.2rem', // Adjusted font size to fit text within each line
+            lineHeight: '1.5' // Improved line spacing for readability
+        }}>
+            {outcome}<br />
+            {viz_type} {selectedItemDisplay}
+        </h2>
        <div className="test">
             <div style={{"display":'flex'}}>
-                 {viz_type== 'bottleneck group' && <CustomFilter 
+                 {viz_type== 'Bottleneck Group' && <CustomFilter 
                     filterType={'Bottleneck'}
                     filterOptions={type_options}
                     onFilterChange={(selected) => console.log(`Selected outcome: ${selected}`)}/>}
             </div>
         </div>
-        <div class='container' style={{"display": 'flex', height: '50vh'}}>
-            <div className="textContainer" style={{"width": '100%', "maxHeight": '80%', 'overflow':'scroll','boxShadow':'0px 4px 8px rgba(0, 0, 0, 0.1)', 'backgroundColor': 'rgba(76, 159, 210, 0.1)', 'borderRadius': '8px', 'padding': '10px', 'border': '1px solid rgba(76, 159, 210, 0.5)'}}>
+        <div class='container' style={{height: '100%'}}>
+            <div className="textContainer" style={{"width": '100%', "height": '90%', 'overflow':'scroll','boxShadow':'0px 4px 8px rgba(0, 0, 0, 0.1)', 'borderRadius': '8px', 'padding': '10px', 'border': '1px solid rgba(76, 159, 210, 0.5)'}}>
                 {data.map((text, index) => (
                     <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
-                        <ContentText data={text} />
+                        <ContentText data={text} viz_type={viz_type} />
                     </div>
                 ))
                 }
             </div>
         </div>
-        {/* You can replace the above line with any other visualization component based on viz_type */}
-        <p>This is the content area for {outcome} with visualization type {viz_type}.</p>
-        {/* Additional content can be added here */}
         </div>
     );
 }

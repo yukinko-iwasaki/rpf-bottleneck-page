@@ -16,20 +16,20 @@ function App() {
   return (
     <div className="App">
 
-      <Tabs defaultActiveKey="Education" className="mb-2" onSelect={handleTabChange}>
-          <Tab eventKey="Education" title="Basic Education">
+      <Tabs defaultActiveKey="Education" className="mb-2"  fill justify onSelect={handleTabChange}>
+          <Tab eventKey="Education" title="Basic Education" style={{height: '100%'}}>
             <VerticalNavbarPermanent outcome={outcome}/>
           </Tab>
-          <Tab eventKey="EconomicResilience" title="Economic Resilience">
+          <Tab eventKey="EconomicResilience" title="Economic Resilience" style={{height: '100%'}} >
             <VerticalNavbarPermanent outcome={outcome}/>
          </Tab>
-        <Tab eventKey="Violence" title="Gender-Based Violence">
+        <Tab eventKey="Violence" title="Gender-Based Violence" style={{height: '100%'}}>
             <VerticalNavbarPermanent outcome={outcome}/>
          </Tab>
-        <Tab eventKey="RenewableEnergy" title="Renewable Energy">
+        <Tab eventKey="RenewableEnergy" title="Renewable Energy" style={{height: '100%'}}>
             <VerticalNavbarPermanent outcome={outcome}/>
          </Tab>
-        <Tab eventKey="UniversalHealthCare" title="Universal Health Care">
+        <Tab eventKey="UniversalHealthCare" title="Universal Health Care" style={{height: '100%'}}>
             <VerticalNavbarPermanent outcome={outcome}/>
          </Tab>
       </Tabs>
