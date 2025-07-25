@@ -16,7 +16,7 @@ import { useState, useEffect } from 'react';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/rpf-bottleneck-page">
       <Header /> {/* Include the Header component */}
       <Routes>
         <Route path="/" element={<HomePage />} />
