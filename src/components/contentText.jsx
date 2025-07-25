@@ -18,9 +18,8 @@ const createText = (data, viz_type) => {
                 {data.examples && data.examples.map((example, index) => (
                     <p key={index} style={{ fontSize: '16px', marginLeft:'20px'}}>
                        {example.text}
-                        {example.ref && <span style={{ fontStyle: 'italic',fontSize: '12px' }}><br /><span style={{ color: '#4C9FD2' }}>Reference:</span> {example.ref}</span>}
-                        {example.source && <span style={{ fontStyle: 'italic' , fontSize: '12px'}}><br /><span style={{ color: '#4C9FD2' }}>Source:</span> {example.source}</span>}
-                    </p>
+                        {example.ref && <span style={{ fontStyle: 'italic',fontSize: '12px' }}><br/> Reference:  {example.ref}, Source: {example.source}</span>}
+                   </p>
                 ))}
             </div>
 

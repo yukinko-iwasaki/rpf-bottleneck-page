@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import OutcomeContext from '../OutcomeContext';
+
 import Content from './content'; // Assuming you have a Content component
 import CircleVisual from './circleVisual';
 import {ReactComponent as MapSvg} from '../assets/map.svg'; // Adjust the path as necessary
-function VerticalNavbarPermanent(props) {
+function VerticalNavbarPermanent() {
     const [selectedItem, setSelectedItem] = useState('group1');
+    const { outcome } = useContext(OutcomeContext);
 
     const handleVizClick = (event) => {
         const target = event.target.closest('g');
         if (!target) return; // Ensure target is valid
         setSelectedItem(target.id); // Update selected item based on click
     }
-    const {outcome} = props;
   return (
     <Container fluid>
       <Row className="flex-nowrap"> {/* flex-nowrap prevents column wrapping */}
@@ -35,7 +37,5 @@ function VerticalNavbarPermanent(props) {
   );
 }
 
-VerticalNavbarPermanent.propTypes = {
-    viz_type: PropTypes.string.isRequired,
-};
+
 export default VerticalNavbarPermanent;
