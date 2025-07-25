@@ -5,7 +5,8 @@ import { FaHome } from "react-icons/fa";
 import OutcomeContext from '../OutcomeContext';
 
 function Header() {
-  const { outcome } = useContext(OutcomeContext);
+  const { outcome, setOutcome } = useContext(OutcomeContext);
+
   return (
     <header style={{
       width: '100%',
@@ -21,7 +22,7 @@ function Header() {
       <h1 style={{ margin: 0, fontSize: '24px', fontWeight: 'bold' }}>Reimagine Public Finance</h1>
       <h1 style={{ margin: 0, fontSize: '24px', fontWeight: 'italic' }}>{outcome}</h1>
       <nav>
-        <Link to="/" style={{ textDecoration: 'none', color: '#ffffff', fontSize: '18px' }}> {/* Adjust link color */}
+        <Link to="/" onClick={() => { setOutcome(''); }} style={{ textDecoration: 'none', color: '#ffffff', fontSize: '18px' }}> {/* Adjust link color */}
           <FaHome size={40} />
         </Link>
       </nav>
