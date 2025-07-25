@@ -92,30 +92,29 @@ const roleDict = {
 function Content(props){
     const {outcome, selectedItem} = props;
 
-
-
-
     const viz_type = Object.keys(bottlenectDict).includes(selectedItem) ? 'Bottleneck Group' : 'Role'; // Default to group1 if viz_type is not found
     const type_options = viz_type === 'Bottleneck Group' ? bottlenectDict[selectedItem].children : [];
     const selectedItemDisplay = bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group1'; // Default to group1 if not found
     const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
     return (
         <div className="content" style={{width:'65%', height:'90vh'}}>
-                <h2 style={{
+                {selectedItem && <h2 style={{
+                  textAlign: 'center',
             fontFamily: 'Roboto, sans-serif',
             fontWeight: 'bold',
             textShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
-            padding: '10px',
+            padding: '20px',
+            marginTop: '20px',
             marginBottom: '20px',
             background: 'linear-gradient(90deg, rgba(76, 159, 210, 0.1), rgba(76, 159, 210, 0.3))',
             borderRadius: '8px',
             fontSize: '1.2rem', // Adjusted font size to fit text within each line
             lineHeight: '1.5' // Improved line spacing for readability
         }}>
-            {outcome}<br />
-            {viz_type} {selectedItemDisplay}
-        </h2>
-       <div className="test">
+            {selectedItem ? `${viz_type} ${selectedItemDisplay}` : ""}
+        </h2>}
+        
+        <div className="test">
             <div style={{"display":'flex'}}>
                  {viz_type== 'Bottleneck Group' && <CustomFilter 
                     filterType={'Bottleneck'}
@@ -123,7 +122,7 @@ function Content(props){
                     onFilterChange={(selected) => console.log(`Selected outcome: ${selected}`)}/>}
             </div>
         </div>
-        <div class='container' style={{height: '100%'}}>
+        {selectedItem && <div class='container' style={{height: '100%'}}>
             <div className="textContainer" style={{"width": '100%', "height": '90%', 'overflow':'scroll','boxShadow':'0px 4px 8px rgba(0, 0, 0, 0.1)', 'borderRadius': '8px', 'padding': '10px', 'border': '1px solid rgba(76, 159, 210, 0.5)'}}>
                 {data.map((text, index) => (
                     <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
@@ -132,7 +131,10 @@ function Content(props){
                 ))
                 }
             </div>
-        </div>
+        </div>}
+          {
+          !selectedItem && <div style={{height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}> <span style={{ color: 'black', fontSize: '1.5rem', fontStyle: 'italic' , textAlign:'center'}}>Please select a public finance concept/region from the left navigation to explore detailed insights and data</span> </div>
+        }
         </div>
     );
 }

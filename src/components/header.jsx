@@ -1,8 +1,11 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHome } from "react-icons/fa";
+import OutcomeContext from '../OutcomeContext';
 
 function Header() {
+  const { outcome } = useContext(OutcomeContext);
   return (
     <header style={{
       width: '100%',
@@ -15,7 +18,8 @@ function Header() {
       alignItems: 'center',
       color: '#ffffff', // Adjust text color for better contrast
     }}>
-      <h1 style={{ margin: 0, fontSize: '24px', fontWeight: 'bold' }}>My Application</h1>
+      <h1 style={{ margin: 0, fontSize: '24px', fontWeight: 'bold' }}>Reimagine Public Finance</h1>
+      <h1 style={{ margin: 0, fontSize: '24px', fontWeight: 'italic' }}>{outcome}</h1>
       <nav>
         <Link to="/" style={{ textDecoration: 'none', color: '#ffffff', fontSize: '18px' }}> {/* Adjust link color */}
           <FaHome size={40} />

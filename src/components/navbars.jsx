@@ -9,7 +9,7 @@ import Content from './content'; // Assuming you have a Content component
 import CircleVisual from './circleVisual';
 import {ReactComponent as MapSvg} from '../assets/map.svg'; // Adjust the path as necessary
 function VerticalNavbarPermanent() {
-    const [selectedItem, setSelectedItem] = useState('group1');
+    const [selectedItem, setSelectedItem] = useState('');
     const { outcome } = useContext(OutcomeContext);
 
     const handleVizClick = (event) => {

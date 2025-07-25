@@ -40,9 +40,8 @@ function HomePage() {
 
   return (
     <div className="home-page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
-      <h1 style={{ textAlign: 'center' }}>Welcome to the Home Page</h1>
-      <p style={{ textAlign: 'center' }}>Select a goal to explore:</p>
-      <div className="tile-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center' }}>
+      <h2 style={{ textAlign: 'center' }}>Select an outcome to explore</h2>
+      <div className="tile-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', paddingTop: '50px' }}>
         {tiles_images.map((tile) => (
           <div
             key={tile.title}

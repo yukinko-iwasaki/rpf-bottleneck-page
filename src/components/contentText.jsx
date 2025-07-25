@@ -4,6 +4,16 @@ import PropTypes from 'prop-types';
 const createSampleText = (length = 50) =>{
     return Array.from({ length }, () => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.").join(" ");
 }
+
+const COUNTRIES = ["Rwanda"]
+const anonymizeCountry = (text) => {
+    COUNTRIES.forEach(country => {
+        const regex = new RegExp(`\\b${country}\\b`, 'gi');
+        text = text.replace(regex, "[REDACTED]");
+    });
+    return text;
+}
+
 const createText = (data, viz_type) => {
     const title = viz_type === 'Bottleneck Group' ? "Public Finance Bottleneck" : "Public Finance Role";
     return (
@@ -17,8 +27,8 @@ const createText = (data, viz_type) => {
                  <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples</div> 
                 {data.examples && data.examples.map((example, index) => (
                     <p key={index} style={{ fontSize: '16px', marginLeft:'20px'}}>
-                       {example.text}
-                        {example.ref && <span style={{ fontStyle: 'italic',fontSize: '12px' }}><br/> Reference:  {example.ref}, Source: {example.source}</span>}
+                       {anonymizeCountry(example.text)}
+                        {example.ref && <span style={{ fontStyle: 'italic',fontSize: '12px' }}><br/> Reference:  {anonymizeCountry(example.ref)}, Source: {anonymizeCountry(example.source)}</span>}
                    </p>
                 ))}
             </div>
