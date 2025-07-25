@@ -23,11 +23,11 @@ function HomePage() {
   };
 
   const tiles_custom = [
-    { title: 'Education', icon: <FaGraduationCap size={50} />, path: '/Education' },
-    { title: 'Economic Resilience', icon: <FaChartLine size={50} />, path: '/EconomicResilience' },
-    { title: 'Gender-Based Violence', icon: <FaShieldAlt size={50} />, path: '/GenderBasedViolence' },
-    { title: 'Renewable Energy', icon: <FaLeaf size={50} />, path: '/RenewableEnergy' },
-    { title: 'Universal Health Care', icon: <FaHeartbeat size={50} />, path: '/UniversalHealthCare' },
+    { title: 'Education', icon: <div style={{ backgroundColor: 'pink', borderRadius: '50%', padding: '10px' }}><FaGraduationCap size={50} color='red' /></div>, path: '/Education' },
+    { title: 'Economic Resilience', icon: <div style={{ backgroundColor: 'lightblue', borderRadius: '50%', padding: '10px' }}><FaChartLine size={50} color='blue' /></div>, path: '/EconomicResilience' },
+    { title: 'Gender-Based Violence', icon: <div style={{ backgroundColor: 'lightgreen', borderRadius: '50%', padding: '10px' }}><FaShieldAlt size={50} color='green' /></div>, path: '/GenderBasedViolence' },
+    { title: 'Renewable Energy', icon: <div style={{ backgroundColor: 'yellow', borderRadius: '50%', padding: '10px' }}><FaLeaf size={50} /></div>, path: '/RenewableEnergy' },
+    { title: 'Universal Health Care', icon: <div style={{ backgroundColor: 'lavender', borderRadius: '50%', padding: '10px' }}><FaHeartbeat color='purple' size={50} /></div>, path: '/UniversalHealthCare' },
   ];
 
   const tiles_images = [
@@ -39,10 +39,10 @@ function HomePage() {
   ];
 
   return (
-    <div className="home-page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+    <div className="home-page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' , background:'#E1E1E1'}}>
       <h2 style={{ textAlign: 'center' }}>Select an outcome to explore</h2>
       <div className="tile-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', paddingTop: '50px' }}>
-        {tiles_images.map((tile) => (
+        {tiles_custom.map((tile) => (
           <div
             key={tile.title}
             className="tile"
@@ -58,10 +58,12 @@ function HomePage() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
+              background: 'white'
             }}
             onClick={() => handleNavigation(tile.title, tile.path)}
           >
-            <img src={tile.image} alt={tile.title} style={{ width: '70%', height: '100%', objectFit: 'cover' }} />
+            {tile.icon}
+            {/* <img src={tile.image} alt={tile.title} style={{ width: '70%', height: '100%', objectFit: 'cover' }} /> */}
             <p style={{ margin: '10px 0', fontWeight: 'bold' }}>{tile.title}</p>
           </div>
         ))}
