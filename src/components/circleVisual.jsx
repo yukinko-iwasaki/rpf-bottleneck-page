@@ -23,7 +23,7 @@ const CircleVisual = ({ onClick, selectedItem }) => {
 
   return (
     <div className="svg-container" style={{ position: 'relative', padding: '10px', maxHeight:'70%' , maxWidth: '100%', overflow: 'hidden' }}>
-      <MySvg ref={svgRef} className="file-svg" onClick={onClick} />
+      <MySvg ref={svgRef} className="file-svg" onClick={onClick} style={{ cursor: 'pointer' }} />
     </div>
   );
 };
