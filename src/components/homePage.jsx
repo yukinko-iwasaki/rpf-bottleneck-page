@@ -42,7 +42,7 @@ function HomePage() {
     <div className="home-page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' , background:'#E1E1E1'}}>
       <h2 style={{ textAlign: 'center' }}>Select an outcome to explore</h2>
       <div className="tile-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', paddingTop: '50px', }}>
-        {tiles_images.map((tile) => (
+        {tiles_custom.map((tile) => (
           <div
             key={tile.title}
             className="tile"
@@ -61,8 +61,8 @@ function HomePage() {
             }}
             onClick={() => handleNavigation(tile.title, tile.path)}
           >
-            {/* {<div style={{ width: '70%', height: '100%', objectFit: 'cover', padding: '10px' }}>{tile.icon}</div>} */}
-            <img src={tile.image} alt={tile.title} style={{ width: '70%', height: '100%', objectFit: 'cover' }} />
+            {<div style={{ width: '70%', height: '100%', objectFit: 'cover', padding: '10px' }}>{tile.icon}</div>}
+            {/* <img src={tile.image} alt={tile.title} style={{ width: '70%', height: '100%', objectFit: 'cover' }} /> */}
             <p style={{ margin: '10px 0', fontWeight: 'bold' }}>{tile.title}</p>
           </div>
         ))}
