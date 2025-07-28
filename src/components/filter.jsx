@@ -6,7 +6,7 @@ function CustomFilter(props) {
 
     return (
         <Dropdown style={{ 'width': '100%'}}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic" style={{'width': '100%', marginBottom: '10px'}}>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic" style={{'width': '100%', marginBottom: '10px'}}>
                 {filterType} 
             </Dropdown.Toggle>
 
