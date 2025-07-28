@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import PropTypes from 'prop-types';
 import CustomFilter from "./filter";
 import ContentText from "./contentText";
+import Accordion from 'react-bootstrap/Accordion';
 
 const bottleneckData = require('../data/bottleneck.json');
 const roleData = require('../data/roles.json');
@@ -114,23 +115,26 @@ function Content(props){
             {selectedItem ? `${viz_type} ${selectedItemDisplay}` : ""}
         </h2>}
         
-        <div className="test">
-            <div style={{"display":'flex'}}>
-                 {viz_type== 'Bottleneck Group' && <CustomFilter 
-                    filterType={'Bottleneck'}
-                    filterOptions={type_options}
-                    onFilterChange={(selected) => console.log(`Selected outcome: ${selected}`)}/>}
-            </div>
-        </div>
-        {selectedItem && <div class='container' style={{height: '100%'}}>
-            <div className="textContainer" style={{"width": '100%', "height": '90%', 'overflow':'scroll','boxShadow':'0px 4px 8px rgba(0, 0, 0, 0.1)', 'borderRadius': '8px', 'padding': '10px', 'border': '1px solid rgba(76, 159, 210, 0.5)'}}>
-                {data.map((text, index) => (
-                    <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
+         {selectedItem && <div class='container' style={{height: '100%'}}>
+          <Accordion style={{ width: '100%', marginBottom: '20px' }}>
+            {bottleneckData.map((item, index) => {
+              const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
+              return (
+                <Accordion.Item eventKey={index.toString()} key={index}>
+                  <Accordion.Header>{item.title}</Accordion.Header>
+                  <Accordion.Body>
+                    {data.map((text, index) => (
+                      <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
                         <ContentText data={text} viz_type={viz_type} />
                     </div>
                 ))
                 }
-            </div>
+            </Accordion.Body>
+            </Accordion.Item> 
+          );
+        })}
+            
+          </Accordion>
         </div>}
           {
           !selectedItem && <div style={{height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}> <span style={{ color: 'black', fontSize: '1.5rem', fontStyle: 'italic' , textAlign:'center'}}>Please select a public finance concept/region from the left navigation to explore detailed insights and data</span> </div>
