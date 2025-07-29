@@ -23,18 +23,18 @@ function HomePage() {
   };
 
   const tiles_custom = [
-    { title: 'Education', icon: <div style={{ backgroundColor: 'pink', borderRadius: '50%', padding: '10px' }}><FaGraduationCap size={50} color='red' /></div>, path: '/Education' },
-    { title: 'Economic Resilience', icon: <div style={{ backgroundColor: 'lightblue', borderRadius: '50%', padding: '10px' }}><FaChartLine size={50} color='blue' /></div>, path: '/EconomicResilience' },
-    { title: 'Gender-Based Violence', icon: <div style={{ backgroundColor: 'lightgreen', borderRadius: '50%', padding: '10px' }}><FaShieldAlt size={50} color='green' /></div>, path: '/GenderBasedViolence' },
-    { title: 'Renewable Energy', icon: <div style={{ backgroundColor: 'yellow', borderRadius: '50%', padding: '10px' }}><FaLeaf size={50} /></div>, path: '/RenewableEnergy' },
-    { title: 'Universal Health Care', icon: <div style={{ backgroundColor: 'lavender', borderRadius: '50%', padding: '10px' }}><FaHeartbeat color='purple' size={50} /></div>, path: '/UniversalHealthCare' },
+    { title: 'Education', icon: <div style={{ backgroundColor: 'pink', borderRadius: '50%', padding: '5px' }}><FaGraduationCap size={30} color='red' /></div>, path: '/Education' },
+    { title: 'Economic Resilience', icon: <div style={{ backgroundColor: 'lightblue', borderRadius: '50%', padding: '5px' }}><FaChartLine size={30} color='blue' /></div>, path: '/EconomicResilience' },
+    { title: 'Gender-Based Violence', icon: <div style={{ backgroundColor: 'lightgreen', borderRadius: '50%', padding: '5px' }}><FaShieldAlt size={30} color='green' /></div>, path: '/GenderBasedViolence' },
+    { title: 'Renewable Energy', icon: <div style={{ backgroundColor: 'yellow', borderRadius: '50%', padding: '5px' }}><FaLeaf size={30} /></div>, path: '/RenewableEnergy' },
+    { title: 'Universal Health Care', icon: <div style={{ backgroundColor: 'lavender', borderRadius: '50%', padding: '5px' }}><FaHeartbeat color='purple' size={30} /></div>, path: '/UniversalHealthCare' },
   ];
 
   return (
-    <div className="home-page" style={{ padding: '40px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> {/* Ensure full viewport height and no scrolling */}
+    <div className="home-page" style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> {/* Ensure full viewport height and no scrolling */}
       <div style={{
         maxWidth: '1200px',
-        padding: '30px',
+        padding: '20px',
         border: '1px solid #ccc',
         borderRadius: '12px',
         boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
@@ -95,14 +95,14 @@ function HomePage() {
           textAlign: 'justify'
         }}>Select a development outcome below to start exploring:</p>
       </div>
-      <div className="tile-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', paddingTop: '20px' }}> {/* Adjusted icon positioning */}
+      <div className="tile-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', paddingTop: '10px' }}> {/* Adjusted icon positioning */}
         {tiles_custom.map((tile) => (
           <div
             key={tile.title}
             className="tile"
             style={{
-              width: '220px',
-              height: '200px',
+              width: '150px',
+              height: '120px',
               textAlign: 'center',
               cursor: 'pointer',
               boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',

@@ -3,10 +3,14 @@ import { useState, useRef } from "react";
 import PropTypes from 'prop-types';
 import ContentText from "./contentText";
 import Accordion from 'react-bootstrap/Accordion';
-
+import {ReactComponent as Map} from '../assets/map.svg';
 const bottleneckData = require('../data/bottleneck.json');
 const roleData = require('../data/roles.json');
 
+const texts = {
+  'Role': {'title': 'The outcome-led framework identifies four broad roles that public finance plays in the achievement of public sector results as it interacts with broader public policy and public sector institutions. \n You have selected: ', 'sub_title': ' This role contributes to the sector outcome as follows: '},
+  'Bottleneck Group': {'title': 'The outcome-led framework then identifies nine common bottlenecks which undermine the potential role of public finance across development outcomes.\n  You have selected:', 'sub_title': ' This typically constrains the achievement of public sector results as follows:  '}
+}
 const bottlenectDict = {
   'group1': {
     name: "1. Insufficient Stakeholder Commitment to Policy Action",
@@ -98,23 +102,25 @@ function Evidence(props){
     const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
     return (
         <div className="content" style={{height:'90vh'}}>
-                {selectedItem && <h2 style={{
+                {selectedItem && <div style={{
                   textAlign: 'center',
-            fontFamily: 'Roboto, sans-serif',
-            fontWeight: 'bold',
-            textShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
             padding: '20px',
             marginTop: '20px',
             marginBottom: '20px',
+            textAlign: 'left',
             background: 'linear-gradient(90deg, rgba(76, 159, 210, 0.1), rgba(76, 159, 210, 0.3))',
             borderRadius: '8px',
-            fontSize: '1.2rem', // Adjusted font size to fit text within each line
+            fontFamily: 'Arial, sans-serif',
+            fontSize: '1.0rem', // Adjusted font size to fit text within each line
             lineHeight: '1.5' // Improved line spacing for readability
         }}>
-            {selectedItem ? `${viz_type} ${selectedItemDisplay}` : ""}
-        </h2>}
-        
-         {selectedItem && <div class='container' style={{height: '100%'}}>
+        {texts[viz_type].title} <br/> <b>{selectedItemDisplay}</b>
+        </div>}
+        <div style={{height: '200px', width: '80%'}}>    
+              <Map />
+         </div>
+         {texts[viz_type].sub_title}
+                  {selectedItem && <div class='container' style={{height: '100%'}}>
           <Accordion style={{ width: '100%', marginBottom: '20px' }}>
             {data.map((item, index) => {
               return (
