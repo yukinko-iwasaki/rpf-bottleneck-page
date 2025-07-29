@@ -40,27 +40,29 @@ const pageTransition = {
   return (
     <AnimatePresence mode='wait'>
       <BrowserRouter basename="/rpf-bottleneck-page">
-        <Header /> {/* Include the Header component */}
-        <Routes>
-          <Route path="/" element={<motion.div
-                key="home" // Unique key for this specific motion.div for Framer Motion
-                variants={pageVariants}
-                initial="initial"
-                animate="in"
-                exit="out"
-                transition={pageTransition}
-                className="page-wrapper"
-              ><HomePage /></motion.div>} />
-          <Route path="/:outcome" element={<motion.div
-                key="outcome"
-                variants={pageVariants}
-                initial="initial"
-                animate="in"
-                exit="out"
-                transition={pageTransition}
-                className="page-wrapper"
-              ><VerticalNavbarPermanent /></motion.div>} />
-        </Routes>
+        <div style={{ minHeight: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}> {/* Ensure full viewport height and no scrolling */}
+          <Header /> {/* Include the Header component */}
+          <Routes>
+            <Route path="/" element={<motion.div
+                  key="home" // Unique key for this specific motion.div for Framer Motion
+                  variants={pageVariants}
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  transition={pageTransition}
+                  className="page-wrapper"
+                ><HomePage /></motion.div>} />
+            <Route path="/:outcome" element={<motion.div
+                  key="outcome"
+                  variants={pageVariants}
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  transition={pageTransition}
+                  className="page-wrapper"
+                ><VerticalNavbarPermanent /></motion.div>} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </AnimatePresence>
   );

@@ -7,43 +7,56 @@ function PublicSectorResult() {
     const { outcome } = useContext(OutcomeContext);
     const publicSectorResult = data[outcome] || {};
     return (
-        <div style={{ padding: '40px', textAlign: 'center', backgroundColor: '#f9f9f9', minHeight: '100vh' }}>
-            The public sector results which countries aim to deliver to achieve the outcome are: 
+        <div style={{ padding: '40px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> {/* Center content */}
             <div style={{
-                maxWidth: '800px',
-                margin: '0 auto',
-                padding: '20px',
-                border: '1px solid #ddd',
-                borderRadius: '10px',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                maxWidth: '900px',
+                padding: '30px',
+                border: '1px solid #ccc',
+                borderRadius: '12px',
+                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
                 backgroundColor: '#fff'
-            }}>
-                <h2 style={{
-                    fontFamily: 'Roboto, sans-serif',
+            }}> {/* Add container styling */}
+                <h5 style={{
+                    fontFamily: 'Arial, sans-serif',
                     fontWeight: 'bold',
                     color: '#333',
-                    marginBottom: '20px'
-                }}>{outcome}</h2>
+                    marginBottom: '25px'
+                }}>The public sector results which countries aim to deliver to achieve the outcome</h5>
                 <p style={{
-                    fontFamily: 'Roboto, sans-serif',
-                    color: '#555',
-                    lineHeight: '1.6',
-                    fontSize: '1.1rem'
+                    fontFamily: 'Arial, sans-serif',
+                    color: '#444',
+                    lineHeight: '1.8',
+                    fontSize: '1.2rem',
+                    textAlign: 'left' /* Align text to the left */
                 }}>{publicSectorResult.result}</p>
+                <h5 style={{
+                    fontFamily: 'Arial, sans-serif',
+                    fontWeight: 'bold',
+                    color: '#333',
+                    marginTop: '35px',
+                    marginBottom: '25px',
+                    textAlign: 'left' /* Align text to the left */
+                }}>The main public sector challenges in delivering these public sector results typically include:</h5>
+                <ul style={{
+                    listStyleType: 'disc',
+                    paddingLeft: '20px',
+                    fontFamily: 'Arial, sans-serif',
+                    color: '#444',
+                    lineHeight: '1.8',
+                    fontSize: '1.2rem',
+                    textAlign: 'left' /* Align text to the left */
+                }}>
+                    {publicSectorResult.publicSectorChallenges && publicSectorResult.publicSectorChallenges.map((challenge, index) => (
+                        <li key={index} style={{ marginBottom: '15px' }}>
+                            <strong style={{ color: '#333' }}>{challenge.name}:</strong> {challenge.description}
+                            <br />
+                            <em style={{ color: '#777' }}>Source: {challenge.source}</em>
+                        </li>
+                    ))}
+                </ul>
             </div>
-            The main public sector challenges in delivering these public sector results typically includes:
-            <ul>
-                {publicSectorResult.publicSectorChallenges && publicSectorResult.publicSectorChallenges.map((challenge, index) => (
-                    <li key={index}>
-                        <strong>{challenge.name}:</strong> {challenge.description}
-                        <br />
-                        <em>Source: {challenge.source}</em>
-                    </li>
-                ))}
-            </ul>
         </div>
     );
 }
 
 export default PublicSectorResult;
-    

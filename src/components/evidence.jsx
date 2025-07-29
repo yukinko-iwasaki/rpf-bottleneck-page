@@ -97,7 +97,7 @@ function Evidence(props){
     const selectedItemDisplay = bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group1'; // Default to group1 if not found
     const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
     return (
-        <div className="content" style={{width:'65%', height:'90vh'}}>
+        <div className="content" style={{height:'90vh'}}>
                 {selectedItem && <h2 style={{
                   textAlign: 'center',
             fontFamily: 'Roboto, sans-serif',
@@ -121,7 +121,7 @@ function Evidence(props){
               return (
                 <Accordion.Item eventKey={index.toString()} key={index}>
                   <Accordion.Header>{item.title}</Accordion.Header>
-                  <Accordion.Body>
+                  <Accordion.Body style={{maxHeight: '70vh', overflow: 'scroll'}}>
                     {data.map((text, index) => (
                       <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
                         <ContentText data={text} viz_type={viz_type} />
