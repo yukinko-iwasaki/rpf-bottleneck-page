@@ -7,10 +7,11 @@ function PublicSectorResult() {
     const { outcome } = useContext(OutcomeContext);
     const publicSectorResult = data[outcome] || {};
     return (
-        <div style={{ padding: '40px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> {/* Center content */}
+        <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> {/* Center content */}
             <div style={{
-                maxWidth: '900px',
-                padding: '30px',
+                padding: '20px',
+                height:'83vh',
+                overflow:'scroll',
                 border: '1px solid #ccc',
                 borderRadius: '12px',
                 boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
@@ -20,13 +21,13 @@ function PublicSectorResult() {
                     fontFamily: 'Arial, sans-serif',
                     fontWeight: 'bold',
                     color: '#333',
-                    marginBottom: '25px'
+                    marginBottom: '20px'
                 }}>The public sector results which countries aim to deliver to achieve the outcome</h5>
                 <p style={{
                     fontFamily: 'Arial, sans-serif',
                     color: '#444',
                     lineHeight: '1.8',
-                    fontSize: '1.2rem',
+                    fontSize: '1.0rem',
                     textAlign: 'left' /* Align text to the left */
                 }}>{publicSectorResult.result}</p>
                 <h5 style={{
@@ -43,7 +44,7 @@ function PublicSectorResult() {
                     fontFamily: 'Arial, sans-serif',
                     color: '#444',
                     lineHeight: '1.8',
-                    fontSize: '1.2rem',
+                    fontSize: '1.0rem',
                     textAlign: 'left' /* Align text to the left */
                 }}>
                     {publicSectorResult.publicSectorChallenges && publicSectorResult.publicSectorChallenges.map((challenge, index) => (

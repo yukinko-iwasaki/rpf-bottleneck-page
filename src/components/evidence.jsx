@@ -116,8 +116,7 @@ function Evidence(props){
         
          {selectedItem && <div class='container' style={{height: '100%'}}>
           <Accordion style={{ width: '100%', marginBottom: '20px' }}>
-            {bottleneckData.map((item, index) => {
-              const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
+            {data.map((item, index) => {
               return (
                 <Accordion.Item eventKey={index.toString()} key={index}>
                   <Accordion.Header>{item.title}</Accordion.Header>

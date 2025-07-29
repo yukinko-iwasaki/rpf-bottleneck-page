@@ -15,13 +15,14 @@ const anonymizeCountry = (text) => {
 }
 
 const createText = (data, viz_type) => {
-    const title = viz_type === 'Bottleneck Group' ? "Public Finance Bottleneck" : "Public Finance Role";
+    let title = null
+    if (viz_type === 'Bottleneck Group'){
+        title = data.outcomeBottleneck || data.description
+    }
     return (
         <div style={{ padding: '10px', lineHeight: '1.2', fontFamily: 'Arial, sans-serif', textAlign: 'left' }}>
             <div style={{ width:'100%'}}>
-                <p><span style={{'fontWeight':'bold'}}>{title}: </span>{data.title}</p>
-                <p>{data.description}</p>
-                <p>{data.description2}</p>
+                <p><span style={{'fontWeight':'bold'}}>{title}</span></p>
             </div>
             <div style={{ marginTop: '10px', fontSize: '16px', color: '#333' }}>
                  <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples</div> 
