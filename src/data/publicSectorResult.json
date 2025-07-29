@@ -1,0 +1,107 @@
+{
+    "Economic Resilience": {
+        "result": "Building and preserving fiscal space that is stable throughout the economic cycle (in terms of the fiscal balance, revenue, expenditure and debt levels), withstanding any shocks, through implementing prudent, timely and appropriate counter cyclical fiscal policy.",
+        "publicSectorChallenges": [
+            {
+                "name": "Incentives for fiscal policy action are usually pro-cyclical.",
+                "description": "Incentives for fiscal policy action are usually pro-cyclical.  In the expansionary phase of the business cycle governments tend be under pressure to spend more to satisfy short term demands and continue to borrow beyond what is sustainable, which results in the increased need for fiscal consolidation in times economic contraction, which amplifies economic fluctuations and undermines resilience.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "Many countries already face unsustainable fiscal situations.",
+                "description": "Many countries already face unsustainable fiscal situations.  Following multiple crises many countries face sluggish growth or contracting economies, persistently low revenues, and unsustainably high debt burdens and require significant fiscal consolidation. From this situation it is challenging to initiate pro-cyclical fiscal policy that establishes a sustainable fiscus, stimulates the economy and creates fiscal space.  ",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "Although counter-cyclical fiscal policies may be in place, policy action is the reverse.",
+                "description": "Although counter-cyclical fiscal policies may be in place, policy action is the reverse:  There is inconsistency and incoherence in policy action. For example, whilst issuance of short-term debt may be to smooth expenditure, in practice it is used to finance short term expenditure pressures. Monetary and fiscal policy and/or tax and expenditure policy may work against each other as a result. For example, during expansions, governments may continue to spend whist monetary policy is tightened.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "Poor quality, often over-optimistic, economic and fiscal policy, forecasting and management.",
+                "description": "Poor quality, often over-optimistic, economic and fiscal policy, forecasting and management. Macro-fiscal forecasts may be consistently biased – and typically towards being overly optimistic. This is often the result of weak technical capacity to produce quality data, and to make projections, to manage critical fiscal policy decision-making processes, to monitor and enforce defined rules and restrictions and associated processes, and to ensure timely data sharing among relevant units and stakeholders.",
+                "source": "RPF Outcome Study"
+            }
+        ]
+    },
+    "Gender Based Violence": {
+        "result": "Deliver coordinated measures to prevent and address GBV, including. preventative measures like norms and behavioral change at individual, societal, and institutional levels; integrated multi-sector victim/survivor-centered support services; accountability measures for perpetrators; and financial and logistical support to organizations that play a critical role in addressing GBV.",
+        "publicSectorChallenges": [
+            {
+                "name": "Inadequate GBV interventions are not sustained:",
+                "description": "There are inadequate GBV prevention, survivor support services and accountability and behavior change interventions to achieve policy objectives. Often, when gender programs are initiated, they are not sustained over the long-term.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "Fragmented, uncoordinated GBV services",
+                "description": "Fragmented, uncoordinated GBV services: Effective coordination across various public sector systems and institutions is lacking, which impedes the delivery of integrated services for GBV survivors.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "GBV Policies are not supported by systems and capability to implement.  ",
+                "description": "GBV Policies are often incoherent: Policies are sometimes developed without the systems in place to implement them effectively, especially across multiple sectors and levels of government involved in GBV prevention and response",
+                "source": "RPF Outcome Study"
+            }
+        ]
+    },
+    "Education": {
+        "result": "Increased access and completion rates to education, and enhanced education quality, which is equitably delivered across genders, locations and socioeconomic groups.",
+        "publicSectorChallenges": [
+            {
+                "name": "Poor quality teaching means students fail to learn.",
+                "description": "Despite attending school students often fail to learn due because they do not have access to quality teaching. There may be gaps in teacher deployment to schools and teachers that are deployed may lack motivation and skills due to a combination of inadequate, unreliable and/or inappropriate teacher training, civil servants’ beliefs, oversight, learning materials, curricula and school infrastructure.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "There are disparities in Equity and access to education:",
+                "description": "Disparities in Equity and access to education: Marginalized groups, including low-income households, rural communities, and girls, face significant barriers to quality education. Infrastructure deficits, long travel distances, socio-cultural norms, and inadequate learning materials limit equitable access and contribute to high dropout rates.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "Education policies are not aligned to delivery capability and poorly coordinated.",
+                "description": "Misalignment between education policies and practical delivery capabilities leads to fragmented service provision. Poor coordination among government agencies, local authorities, and stakeholders, combined with weak data systems and accountability mechanisms, makes it difficult to track progress, allocate resources effectively, and improve learning outcomes.",
+                "source": "RPF Outcome Study"
+            }
+        ]
+    },
+    "Universal Healthcare": {
+        "result": "Achieving universal health coverage, including financial risk protection, access to quality essential health-care services and access to safe, effective, quality and affordable essential medicines and vaccines for all (SDG target 3.8).",
+        "publicSectorChallenges": [
+            {
+                "name": "Poor quality of healthcare provision, with misdiagnosis of common diseases common and treatment unavailable.",
+                "description": "Facilities often don’t have the staff required to diagnose and treat patients and poor motivation and absenteeism of staff common. There are often shortages in key medical supplies equipment and other operational inputs. Quality is exacerbated by weaknesses in management, oversight and governance within healthcare systems.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "Inequitable access to key health services and inadequate preventative care. ",
+                "description": "The distribution of health facilities is often inequitable, and there is bias in allocating resources towards secondary and tertiary levels of care relative to primary care which further undermines equity in access. Meanwhile there is insufficient attention to health prevention.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "The demand for publicly funded health services is limited due to the  poor quality of available care. ",
+                "description": "The demand for publicly funded health services is limited as a result of the poor quality of health care available and weaknesses in the health system. This results in the public seeking costly private alternatives, which tend to be under-regulated and high out of pocket expenses, which are often catastrophic. It also creating a vicious circle, further undermining the achievement of UHC as a policy goal.",
+                "source": "RPF Outcome Study"
+            }
+        ]
+    },
+    "The Energy Transition": {
+        "result": "Adequate investments are made at the right time by the public and/or private sector to achieve energy generation, transition, accessibility and affordability that can be sustained",
+        "publicSectorChallenges": [
+            {
+                "name": "Uncoordinated policies do not resolve trade-offs, including between de-carbonization and affordability.",
+                "description": "Policy Coordination: Incoherent, uncoordinated and poorly prioritized interventions, which don’t resolve trade-offs internal to the sector or across sectors, for example between affordability and decarbonization; or between climate and industrial policy.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "The up-front costs of the transition are high. ",
+                "description": "Financing the huge upfront costs to develop and deploy new technologies, which entails coordinating and incentivizing public, private and development finance resources into a coherent financing package.",
+                "source": "RPF Outcome Study"
+            },
+            {
+                "name": "Organizations are not capable or committed  to delivering the transition.",
+                "description": "The credibility, commitment and capability of public and private institutions for providing, distributing and overseeing power is not in place to attract the necessary financing or to deliver a viable transition.",
+                "source": "RPF Outcome Study"
+            }
+        ]
+    }
+}

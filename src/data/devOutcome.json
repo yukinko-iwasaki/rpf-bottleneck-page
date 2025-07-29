@@ -1,0 +1,24 @@
+{
+    "Economic Resilience": {
+        "name": "Economic Resilience",
+        "description": "A resilient economy (in terms of growth in economic output per capita) over the course of the business cycle, which sustains growth whilst reducing vulnerability to shocks."
+       
+    },
+    "Gender-Based Violence":{
+        "name": "Gender Based Violence",
+        "description": "The primary outcome of gender equality is to eliminate all forms of gender-based violence (GBV), particularly intimate partner violence (IPV). The desired results include prevention through norms and behavioral change, integrated survivor-centered support, accountability and behavior change for perpetrators, and financial support to combat GBV."
+    },
+    "Education": {
+        "name": "Education",
+        "description": "Universal quality basic education for all, which provides functional numeracy and literacy of all learners as measured by learning assessments."
+    },
+    "Universal Healthcare":{
+        
+        "name": "Universal Healthcare",
+        "description": "Ensure healthy lives and promote well-being for all at all ages (Sustainable Development Goal 3)."
+    },
+    "The Energy Transition": {
+        "name": "The Energy Transition",
+        "description": "A transition to a low-carbon energy system that is affordable, reliable, and sustainable, with universal access to electricity and clean cooking solutions."
+    }
+}
