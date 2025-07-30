@@ -54,7 +54,7 @@ function VerticalNavbarPermanent() {
                     </div>
                     <CircleVisual onClick={handleVizClick} selectedItem={selectedItem} />
                 </Col>
-                <Content outcome={outcome} selectedItem={selectedItem} />
+                <Content outcome={outcome} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
             </Row>
         </Container>
     );

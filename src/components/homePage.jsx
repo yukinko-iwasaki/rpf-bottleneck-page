@@ -26,8 +26,8 @@ function HomePage() {
     { title: 'Education', icon: <div style={{ backgroundColor: 'pink', borderRadius: '50%', padding: '5px' }}><FaGraduationCap size={30} color='red' /></div>, path: '/Education' },
     { title: 'Economic Resilience', icon: <div style={{ backgroundColor: 'lightblue', borderRadius: '50%', padding: '5px' }}><FaChartLine size={30} color='blue' /></div>, path: '/EconomicResilience' },
     { title: 'Gender-Based Violence', icon: <div style={{ backgroundColor: 'lightgreen', borderRadius: '50%', padding: '5px' }}><FaShieldAlt size={30} color='green' /></div>, path: '/GenderBasedViolence' },
-    { title: 'Renewable Energy', icon: <div style={{ backgroundColor: 'yellow', borderRadius: '50%', padding: '5px' }}><FaLeaf size={30} /></div>, path: '/RenewableEnergy' },
-    { title: 'Universal Health Care', icon: <div style={{ backgroundColor: 'lavender', borderRadius: '50%', padding: '5px' }}><FaHeartbeat color='purple' size={30} /></div>, path: '/UniversalHealthCare' },
+    { title: 'The Energy Transition', icon: <div style={{ backgroundColor: 'yellow', borderRadius: '50%', padding: '5px' }}><FaLeaf size={30} /></div>, path: '/RenewableEnergy' },
+    { title: 'Universal Healthcare', icon: <div style={{ backgroundColor: 'lavender', borderRadius: '50%', padding: '5px' }}><FaHeartbeat color='purple' size={30} /></div>, path: '/UniversalHealthCare' },
   ];
 
   return (

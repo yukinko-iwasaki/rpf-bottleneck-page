@@ -7,10 +7,10 @@ function PublicSectorResult() {
     const { outcome } = useContext(OutcomeContext);
     const publicSectorResult = data[outcome] || {};
     return (
-        <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'start' }}> {/* Center content */}
+        <> {/* Center content */}
             <div style={{
                 padding: '20px',
-                height:'86vh',
+                height:'83vh',
                 overflow:'scroll',
                 border: '1px solid #ccc',
                 borderRadius: '12px',
@@ -57,7 +57,7 @@ function PublicSectorResult() {
                     ))}
                 </ul>
             </div>
-        </div>
+        </>
     );
 }
 

@@ -90,8 +90,8 @@ const bottlenectDict = {
 const roleDict = {
   'groupA': { name: 'A. Commitment to Feasible Policy' },
   'groupB': { name: 'B. Fiscal sustainability' },
-  'groupC': { name: 'C. Effective Resource Mobilization & Distribution' },
-  'groupD': { name: 'D. Performance & Accountability in Delivery' }
+  'groupC': { name: 'C. Inadequate and inequitable resources mobilized and deployed for policy implementation' },
+  'groupD': { name: 'D. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements' }
 };
 function Evidence(props){
     const {outcome, selectedItem} = props;
@@ -101,7 +101,7 @@ function Evidence(props){
     const selectedItemDisplay = bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group1'; // Default to group1 if not found
     const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
     return (
-        <div className="content" style={{height:'90vh', background:'rgb(240, 240, 240)', padding:'20px' }}>
+        <>
                 {selectedItem && <div style={{
                   maxWidth: '900px',
                   padding: '30px',
@@ -156,7 +156,7 @@ function Evidence(props){
           {
           !selectedItem && <div style={{height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}> <span style={{ color: 'black', fontSize: '1.5rem', fontStyle: 'italic' , textAlign:'center'}}>Please select a public finance concept/region from the left navigation to explore detailed insights and data</span> </div>
         }
-        </div>
+        </>
     );
 }
 
