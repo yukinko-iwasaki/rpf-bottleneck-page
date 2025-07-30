@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/rpf-bottleneck-page/static/css/main.eb96451b.css",
-    "main.js": "/rpf-bottleneck-page/static/js/main.a8cbb6d2.js",
+    "main.css": "/rpf-bottleneck-page/static/css/main.cd259355.css",
+    "main.js": "/rpf-bottleneck-page/static/js/main.0eb8f0c4.js",
     "static/media/map.svg": "/rpf-bottleneck-page/static/media/map.2bb3e6881804531d978df12ce000a392.svg",
     "static/media/E-WEB-Goal-07.png": "/rpf-bottleneck-page/static/media/E-WEB-Goal-07.2ec0d1a25cbc81fdfadb.png",
     "static/media/E-WEB-Goal-03.png": "/rpf-bottleneck-page/static/media/E-WEB-Goal-03.f6b9f9379bff6be75230.png",
     "static/media/E-WEB-Goal-01.png": "/rpf-bottleneck-page/static/media/E-WEB-Goal-01.2869a96997aa1ed3009d.png",
     "static/media/E-WEB-Goal-04.png": "/rpf-bottleneck-page/static/media/E-WEB-Goal-04.f8a53f9bfef979a9796c.png",
     "static/media/E-WEB-Goal-05.png": "/rpf-bottleneck-page/static/media/E-WEB-Goal-05.2f81f05072595bdf2e59.png",
+    "static/media/nav.svg": "/rpf-bottleneck-page/static/media/nav.3a29ba6c33b3bee0a8146f6a284f409b.svg",
     "static/media/final.svg": "/rpf-bottleneck-page/static/media/final.b61dddec6fb613f888c5bc1324dcc9ae.svg",
     "index.html": "/rpf-bottleneck-page/index.html",
-    "main.eb96451b.css.map": "/rpf-bottleneck-page/static/css/main.eb96451b.css.map",
-    "main.a8cbb6d2.js.map": "/rpf-bottleneck-page/static/js/main.a8cbb6d2.js.map"
+    "main.cd259355.css.map": "/rpf-bottleneck-page/static/css/main.cd259355.css.map",
+    "main.0eb8f0c4.js.map": "/rpf-bottleneck-page/static/js/main.0eb8f0c4.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb96451b.css",
-    "static/js/main.a8cbb6d2.js"
+    "static/css/main.cd259355.css",
+    "static/js/main.0eb8f0c4.js"
   ]
 }
