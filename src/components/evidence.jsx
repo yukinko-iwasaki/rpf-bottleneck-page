@@ -116,9 +116,9 @@ function Evidence(props){
         }}>
         {texts[viz_type].title} <br/> <b>{selectedItemDisplay}</b>
         </div>}
-        <div style={{height: '200px', width: '80%'}}>    
+        {/* <div style={{height: '200px', width: '80%'}}>    
               <Map />
-         </div>
+         </div> */}
          {texts[viz_type].sub_title}
                   {selectedItem && <div class='container' style={{height: '100%'}}>
           <Accordion style={{ width: '100%', marginBottom: '20px' }}>

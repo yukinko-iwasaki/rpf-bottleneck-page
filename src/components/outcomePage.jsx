@@ -47,7 +47,7 @@ function OutcomePage() {
             lineHeight: '1.8',
             fontSize: '1.2rem',
             textAlign: 'justify'
-          }}>{outcomeData.description}</p>
+          }}>In {outcome}, the countries typically pursue the following <b>policy outcome:</b><br /> {outcomeData.description}</p>
         </div>
       )}
     </div>
