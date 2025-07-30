@@ -24,7 +24,7 @@ const createText = (data, viz_type) => {
             <div style={{ width:'100%'}}>
                 <p><span style={{'fontWeight':'bold'}}>{title}</span></p>
             </div>
-            <div style={{ marginTop: '10px', fontSize: '16px', color: '#333' }}>
+            <div style={{ fontSize: '16px', color: '#333' }}>
                  <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples</div> 
                 {data.examples && data.examples.map((example, index) => (
                     <p key={index} style={{ fontSize: '16px', marginLeft:'20px'}}>
@@ -43,7 +43,7 @@ function ContentText(props) {
     const text = createText(data, viz_type)
 
     return (
-        <div className="content-text" style={{ margin: '20px 0'}}>
+        <div className="content-text">
             {text}
         </div>
     );

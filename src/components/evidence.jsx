@@ -8,8 +8,8 @@ const bottleneckData = require('../data/bottleneck.json');
 const roleData = require('../data/roles.json');
 
 const texts = {
-  'Role': {'title': 'The outcome-led framework identifies four broad roles that public finance plays in the achievement of public sector results as it interacts with broader public policy and public sector institutions. \n You have selected: ', 'sub_title': ' This role contributes to the sector outcome as follows: '},
-  'Bottleneck Group': {'title': 'The outcome-led framework then identifies nine common bottlenecks which undermine the potential role of public finance across development outcomes.\n  You have selected:', 'sub_title': ' This typically constrains the achievement of public sector results as follows:  '}
+  'Role': {'title': 'The outcome-led framework identifies four broad roles that public finance plays in the achievement of public sector results as it interacts with broader public policy and public sector institutions. ', 'sub_title': ' This role contributes to the sector outcome as follows: '},
+  'Bottleneck Group': {'title': 'The outcome-led framework then identifies nine common bottlenecks which undermine the potential role of public finance across development outcomes.', 'sub_title': ' This typically constrains the achievement of public sector results as follows:  '}
 }
 const bottlenectDict = {
   'group1': {
@@ -88,10 +88,10 @@ const bottlenectDict = {
 };
 
 const roleDict = {
-  'groupA': { name: 'A. Insufficient Stakeholder Commitment to Policy Action' },
-  'groupB': { name: 'B. Unsustainable fiscal situation of governments and organizations' },
-  'groupC': { name: 'C. Inadequate and inequitable resources mobilized and deployed for policy implementation' },
-  'groupD': { name: 'D. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements' }
+  'groupA': { name: 'A. Commitment to Feasible Policy' },
+  'groupB': { name: 'B. Fiscal sustainability' },
+  'groupC': { name: 'C. Effective Resource Mobilization & Distribution' },
+  'groupD': { name: 'D. Performance & Accountability in Delivery' }
 };
 function Evidence(props){
     const {outcome, selectedItem} = props;
@@ -101,38 +101,50 @@ function Evidence(props){
     const selectedItemDisplay = bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group1'; // Default to group1 if not found
     const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
     return (
-        <div className="content" style={{height:'90vh'}}>
+        <div className="content" style={{height:'90vh', background:'rgb(240, 240, 240)', padding:'20px' }}>
                 {selectedItem && <div style={{
-                  textAlign: 'center',
-            padding: '20px',
-            marginTop: '20px',
-            marginBottom: '20px',
-            textAlign: 'left',
-            background: 'linear-gradient(90deg, rgba(76, 159, 210, 0.1), rgba(76, 159, 210, 0.3))',
-            borderRadius: '8px',
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '1.0rem', // Adjusted font size to fit text within each line
-            lineHeight: '1.5' // Improved line spacing for readability
-        }}>
-        {texts[viz_type].title} <br/> <b>{selectedItemDisplay}</b>
+                  maxWidth: '900px',
+                  padding: '30px',
+                  paddingBottom: '5px',
+                  border: '1px solid #ccc',
+                  borderRadius: '12px',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
+                  backgroundColor: '#fff',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'left'
+                }}>
+        <p style={{
+                    fontFamily: 'Arial, sans-serif',
+                    color: '#444',
+                    lineHeight: '1.8',
+                    fontSize: '1.0rem',
+                    textAlign: 'left' /* Align text to the left */
+                }}>{texts[viz_type].title} <br/></p>
+                <p>You have selected: </p>
+                <p style={{textAlign: 'left', fontWeight:'bold'}}>{selectedItemDisplay}</p>
         </div>}
         {/* <div style={{height: '200px', width: '80%'}}>    
               <Map />
          </div> */}
-         {texts[viz_type].sub_title}
-                  {selectedItem && <div class='container' style={{height: '100%'}}>
+         <div style={{paddingTop: '30px'}}>
+         {<b style={{paddingLeft:'15px'}}>{texts[viz_type].sub_title}</b>}
+                  {selectedItem && <div class='container' style={{height: '100%', paddingTop: '10px'}}>
           <Accordion style={{ width: '100%', marginBottom: '20px' }}>
             {data.map((item, index) => {
               return (
                 <Accordion.Item eventKey={index.toString()} key={index}>
                   <Accordion.Header>{item.title}</Accordion.Header>
-                  <Accordion.Body style={{maxHeight: '70vh', overflow: 'scroll'}}>
-                    {data.map((text, index) => (
+                  <Accordion.Body style={{maxHeight: '45vh', overflow: 'scroll'}}>
+                    {/* {data.map((text, index) => (
                       <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
                         <ContentText data={text} viz_type={viz_type} />
                     </div>
                 ))
-                }
+                } */}
+                      <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
+                        <ContentText data={item} viz_type={viz_type} />
+                    </div>
             </Accordion.Body>
             </Accordion.Item> 
           );
@@ -140,6 +152,7 @@ function Evidence(props){
             
           </Accordion>
         </div>}
+        </div>
           {
           !selectedItem && <div style={{height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}> <span style={{ color: 'black', fontSize: '1.5rem', fontStyle: 'italic' , textAlign:'center'}}>Please select a public finance concept/region from the left navigation to explore detailed insights and data</span> </div>
         }

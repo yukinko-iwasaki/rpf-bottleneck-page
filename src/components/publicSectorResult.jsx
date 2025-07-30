@@ -7,10 +7,10 @@ function PublicSectorResult() {
     const { outcome } = useContext(OutcomeContext);
     const publicSectorResult = data[outcome] || {};
     return (
-        <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> {/* Center content */}
+        <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'start' }}> {/* Center content */}
             <div style={{
                 padding: '20px',
-                height:'83vh',
+                height:'86vh',
                 overflow:'scroll',
                 border: '1px solid #ccc',
                 borderRadius: '12px',
@@ -18,11 +18,12 @@ function PublicSectorResult() {
                 backgroundColor: '#fff'
             }}> {/* Add container styling */}
                 <h5 style={{
+                    textAlign: 'left', /* Align text to the left */
                     fontFamily: 'Arial, sans-serif',
                     fontWeight: 'bold',
                     color: '#333',
                     marginBottom: '20px'
-                }}>The public sector results which countries aim to deliver to achieve the outcome</h5>
+                }}>The public sector results which countries aim to deliver to achieve the outcome are: </h5>
                 <p style={{
                     fontFamily: 'Arial, sans-serif',
                     color: '#444',
@@ -49,7 +50,7 @@ function PublicSectorResult() {
                 }}>
                     {publicSectorResult.publicSectorChallenges && publicSectorResult.publicSectorChallenges.map((challenge, index) => (
                         <li key={index} style={{ marginBottom: '15px' }}>
-                            <strong style={{ color: '#333' }}>{challenge.name}:</strong> {challenge.description}
+                            <strong style={{ color: '#333' }}>{challenge.name}</strong> <br/>{challenge.description}
                             <br />
                             <em style={{ color: '#777' }}>Source: {challenge.source}</em>
                         </li>

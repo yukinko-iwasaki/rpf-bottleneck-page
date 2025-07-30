@@ -2,7 +2,6 @@
         {
             "role": "A. Commitment to Feasible Policy",
             "title": "Developing counter-cyclical economic and fiscal policies and plans which are consistent with the fiscal and economic reality and capability to implement them. ",
-            "description": "Finance ministries and other central agencies play a fundamental coordinating role when it comes to policy decisions, functioning as a clearing house for various policy proposals across sector institutions, promoting dialogue and consultation around policy trade-offs, and ultimately linking policy objectives with resorce availablility, mobilization and use.  This helps build commitment to policy decisions that are made and improves their feasibiltiy and the likelihood that they will be implemented.",
             "examples": [{
                 "text": "Chile: The Ministry of Finance (Ministerio de Hacienda) and its Budget Office (Dipres) implement a rule-based counter-cyclical fiscal policy. Since the early 2000s Chile has used a structural budget balance rule to save excess revenue in boom years and permit deficits in recessions. Under this framework (adopted in 2001 and strengthened by the Fiscal Responsibility Law of 2006), the government plans budgets based on long-term copper prices and trend GDP, ensuring fiscal policy leans against the business cycle. For example, President Bachelet’s administration saved windfall copper revenues in sovereign funds during the 2005–2008 boom, despite political pressure to spend, then used those savings for a stimulus when the 2009 recession hit. This institutional design (including independent expert panels for projections) has allowed Chile to implement counter-cyclical policy within its means. ",
                 "ref": "https://foreignpolicy.com/2012/06/27/chiles-countercyclical-triumph/#:~:text=Chile’s%20rule%20beats%20the%20one,the%20revenues%20must%20be%20saved",
@@ -17,5 +16,27 @@
                 "source": "RPF Outcome Study"
             }]
         
+        },
+        {
+            "role": "A. Commitment to Feasible Policy",
+            "title": "Coordinating action by fiscal and monetary authorities, actively facilitated by the finance ministry. ",
+            "examples": [{
+                "text": "Rwanda: MINECOFIN and National Bank of Rwanda (BNR) work closely to align fiscal and monetary policies. A formal mechanism is the Treasury Management Committee (TMC) (and a Debt Management Committee) that links BNR and MINECOFIN. The TMC serves as a platform to analyze cash flow, debt, and policy impacts, refining implementation in a coordinated way. Through a technical working group known as “Macroframe,” officials from MINECOFIN and BNR set medium-term targets for growth and inflation together. This coordination ensures the budget stance and monetary stance are consistent (e.g. avoiding excessive government borrowing that would force money expansion). The legal independence of BNR (enshrined in law n°55/2007 and updated 2017) is respected, but both authorities recognize that sound fiscal discipline is needed for effective monetary policy. Regular high-level consultations (often with the Prime Minister’s office) and IMF support under programs further facilitate synchronized fiscal-monetary actions.",
+                "ref": "https://foreignpolicy.com/2012/06/27/chiles-countercyclical-triumph/#:~:text=Chile’s%20rule%20beats%20the%20one,the%20revenues%20must%20be%20saved",
+                "source": "RPF Outcome Study"
+            },{
+                "text": "Rwanda: MINECOFIN and National Bank of Rwanda (BNR) work closely to align fiscal and monetary policies. A formal mechanism is the Treasury Management Committee (TMC) (and a Debt Management Committee) that links BNR and MINECOFIN. The TMC serves as a platform to analyze cash flow, debt, and policy impacts, refining implementation in a coordinated way. Through a technical working group known as “Macroframe,” officials from MINECOFIN and BNR set medium-term targets for growth and inflation together. This coordination ensures the budget stance and monetary stance are consistent (e.g. avoiding excessive government borrowing that would force money expansion). The legal independence of BNR (enshrined in law n°55/2007 and updated 2017) is respected, but both authorities recognize that sound fiscal discipline is needed for effective monetary policy. Regular high-level consultations (often with the Prime Minister’s office) and IMF support under programs further facilitate synchronized fiscal-monetary actions.",
+                "ref": "https://foreignpolicy.com/2012/06/27/chiles-countercyclical-triumph/#:~:text=Chile’s%20rule%20beats%20the%20one,the%20revenues%20must%20be%20saved",
+                "source": "RPF Outcome Study"
+            }]
+        },
+        {
+            "role": "A. Commitment to Feasible Policy",
+            "title": "Understanding and communicating the fiscal position ",
+            "examples": [{
+                "text": "Vietnam: The Ministry of Finance (MOF) leads on fiscal transparency in Vietnam. In recent years, MOF has begun publishing comprehensive fiscal data: for example, it issues a Statistical Public Debt Bulletin every six months covering debt stock, debt service, and even projections, as required by the 2017 Public Debt Management Law. These debt bulletins (available on MOF’s website) greatly improve understanding of Vietnam’s debt position. The State Budget Law (2015) also mandates that the government present medium-term budget plans to the National Assembly and report on execution, enhancing clarity on fiscal policy. Vietnam’s transparency has room to grow, but it has come far – the World Bank’s 2013 Fiscal Transparency Review noted significant progress, like MOF’s publication of more budget reports and simpler presentation of budget data. Additionally, Vietnam participates in the IMF’s Government Finance Statistics, and General Statistics Office (GSO) releases fiscal indicators in its statistical yearbooks. Communication is also done via National Assembly sessions (televised) where the Finance Minister explains budget outcomes and plans to legislators and the public. While some areas (e.g. off-budget SOE debt) remain opaque (2023 Fiscal Transparency Report: Vietnam - Department of State), the sustained efforts in publishing budgets, debt data, and audit results are helping foster a shared understanding of Vietnam’s fiscal position.",
+                "ref": "https://foreignpolicy.com/2012/06/27/chiles-countercyclical-triumph/#:~:text=Chile’s%20rule%20beats%20the%20one,the%20revenues%20must%20be%20saved",
+                "source": "RPF Outcome Study"
+            }]
         }
     ]

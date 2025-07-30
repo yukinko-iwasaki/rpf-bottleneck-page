@@ -44,15 +44,15 @@ function HomePage() {
         <p style={{
           fontFamily: 'Arial, sans-serif',
           color: '#444',
-          lineHeight: '1.8',
-          fontSize: '1.2rem',
+          lineHeight: '1.4',
+          fontSize: '1.0rem',
           textAlign: 'justify'
         }}>The outcome-led framework starts by identifying the development outcomes governments seek and then works backward to determine how public finance can contribute effectively to these goals. This visualization allows you to explore the framework and evidence collected from outcome studies.</p>
         <p style={{
           fontFamily: 'Arial, sans-serif',
           color: '#444',
-          lineHeight: '1.8',
-          fontSize: '1.2rem',
+          lineHeight: '1.4',
+          fontSize: '1.0rem',
           textAlign: 'justify'
         }}>First, select a development outcome below. Then explore the public sector context for achieving the development outcome:</p>
         <ul style={{
@@ -60,8 +60,8 @@ function HomePage() {
           paddingLeft: '20px',
           fontFamily: 'Arial, sans-serif',
           color: '#444',
-          lineHeight: '1.8',
-          fontSize: '1.2rem',
+          lineHeight: '1.4',
+          fontSize: '1.0rem',
           textAlign: 'justify'
         }}>
           <li>A description of the policy outcome itself.</li>
@@ -71,8 +71,8 @@ function HomePage() {
         <p style={{
           fontFamily: 'Arial, sans-serif',
           color: '#444',
-          lineHeight: '1.8',
-          fontSize: '1.2rem',
+          lineHeight: '1.4',
+          fontSize: '1.0rem',
           textAlign: 'justify'
         }}>Then explore the answers to the two questions posed by the outcome-led framework:</p>
         <ul style={{
@@ -80,21 +80,22 @@ function HomePage() {
           paddingLeft: '20px',
           fontFamily: 'Arial, sans-serif',
           color: '#444',
-          lineHeight: '1.8',
-          fontSize: '1.2rem',
+          lineHeight: '1.4',
+          fontSize: '1.0rem',
           textAlign: 'justify'
         }}>
-          <li>What are the roles that public finance can play in achieving the outcome? Explore each of the four roles of public finance identified and country examples of these roles in practice.</li>
-          <li>What are the bottlenecks which prevent this from happening? Explore each of the nine public finance bottlenecks identified and country examples of these roles in practice.</li>
+          <li><i>What are the roles that public finance can play in achieving the outcome?</i> <br/>Explore each of the four roles of public finance identified and country examples of these roles in practice.</li>
+          <li><i>What are the bottlenecks which prevent this from happening?</i> <br/>Explore each of the nine public finance bottlenecks identified and country examples of these roles in practice.</li>
         </ul>
-        <p style={{
+ 
+      </div>
+      <p style={{
           fontFamily: 'Arial, sans-serif',
           color: '#444',
           lineHeight: '1.8',
-          fontSize: '1.2rem',
+          fontSize: '1.0rem',
           textAlign: 'justify'
         }}>Select a development outcome below to start exploring:</p>
-      </div>
       <div className="tile-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', paddingTop: '10px' }}> {/* Adjusted icon positioning */}
         {tiles_custom.map((tile) => (
           <div

@@ -7,11 +7,14 @@ function PolicyCapability() {
     const { outcome } = useContext(OutcomeContext);
     const policyData = data[outcome] || {};
     return (
-        <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> {/* Center content */}
+        <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'start' }}> {/* Center content */}
             <div style={{
+                textAlign: 'left', /* Align text to the left */
                 maxWidth: '900px',
                 padding: '30px',
                 border: '1px solid #ccc',
+                overflow: 'scroll',
+                height: '86vh',
                 borderRadius: '12px',
                 boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
                 backgroundColor: '#fff'
