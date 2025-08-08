@@ -3,15 +3,13 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import OutcomeContext from '../OutcomeContext';
 
-// Import icons
-import { FaGraduationCap, FaChartLine, FaShieldAlt, FaLeaf, FaHeartbeat } from 'react-icons/fa';
-
 // Import images
-import EducationImg from '../assets/E-WEB-Goal-04.png';
-import EconomicResilienceImg from '../assets/E-WEB-Goal-01.png';
-import GenderBasedViolenceImg from '../assets/E-WEB-Goal-05.png';
-import RenewableEnergyImg from '../assets/E-WEB-Goal-07.png';
-import UniversalHealthCareImg from '../assets/E-WEB-Goal-03.png';
+import EducationImg from '../assets/icon-education.svg';
+import EconomicResilienceImg from '../assets/icon-resilience.svg';
+import GenderBasedViolenceImg from '../assets/icon-gbv.svg';
+import RenewableEnergyImg from '../assets/icon-energy.svg';
+import UniversalHealthCareImg from '../assets/icon-health.svg';
+import frameworkImg from '../assets/framework.jpg';
 
 function HomePage() {
   const { setOutcome } = useContext(OutcomeContext);
@@ -23,15 +21,36 @@ function HomePage() {
   };
 
   const tiles_custom = [
-    { title: 'Education', icon: <div style={{ backgroundColor: 'pink', borderRadius: '50%', padding: '5px' }}><FaGraduationCap size={30} color='red' /></div>, path: '/Education' },
-    { title: 'Economic Resilience', icon: <div style={{ backgroundColor: 'lightblue', borderRadius: '50%', padding: '5px' }}><FaChartLine size={30} color='blue' /></div>, path: '/EconomicResilience' },
-    { title: 'Gender-Based Violence', icon: <div style={{ backgroundColor: 'lightgreen', borderRadius: '50%', padding: '5px' }}><FaShieldAlt size={30} color='green' /></div>, path: '/GenderBasedViolence' },
-    { title: 'The Energy Transition', icon: <div style={{ backgroundColor: 'yellow', borderRadius: '50%', padding: '5px' }}><FaLeaf size={30} /></div>, path: '/RenewableEnergy' },
-    { title: 'Universal Healthcare', icon: <div style={{ backgroundColor: 'lavender', borderRadius: '50%', padding: '5px' }}><FaHeartbeat color='purple' size={30} /></div>, path: '/UniversalHealthCare' },
+    {
+      title: 'Education',
+      icon: EducationImg,
+      path: '/Education'
+    },
+    {
+      title: 'Economic Resilience',
+      icon: EconomicResilienceImg,
+      path: '/EconomicResilience'
+    },
+    {
+      title: 'Gender-Based Violence',
+      icon: GenderBasedViolenceImg,
+      path: '/GenderBasedViolence'
+    },
+    {
+      title: 'The Energy Transition',
+      icon: RenewableEnergyImg,
+      path: '/RenewableEnergy'
+    },
+    {
+      title: 'Universal Healthcare',
+      icon: UniversalHealthCareImg,
+      path: '/UniversalHealthCare'
+    },
   ];
 
   return (
-    <div className="home-page" style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> {/* Ensure full viewport height and no scrolling */}
+    <div className="home-page" style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <img src={frameworkImg} alt="framework" style={{ width: '85%', marginBottom: '20px' }} />
       <div style={{
         maxWidth: '1200px',
         padding: '20px',
@@ -96,7 +115,8 @@ function HomePage() {
           fontSize: '1.0rem',
           textAlign: 'justify'
         }}>Select a development outcome below to start exploring:</p>
-      <div className="tile-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', paddingTop: '10px' }}> {/* Adjusted icon positioning */}
+
+      <div className="tile-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', paddingTop: '10px' }}>
         {tiles_custom.map((tile) => (
           <div
             key={tile.title}
@@ -117,8 +137,7 @@ function HomePage() {
             }}
             onClick={() => handleNavigation(tile.title, tile.path)}
           >
-            {tile.icon}
-            <p style={{ margin: '10px 0', fontWeight: 'bold', fontFamily: 'Arial, sans-serif', color: '#333' }}>{tile.title}</p>
+            <img src={tile.icon} alt={tile.tile} style={{ width: '100%', height: '90%' }} />
           </div>
         ))}
       </div>

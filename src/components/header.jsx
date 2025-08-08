@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { FaHome } from "react-icons/fa";
 import OutcomeContext from '../OutcomeContext';
 
-import EducationImg from '../assets/E-WEB-Goal-04.png';
-import EconomicResilienceImg from '../assets/E-WEB-Goal-01.png';
-import GenderBasedViolenceImg from '../assets/E-WEB-Goal-05.png';
-import RenewableEnergyImg from '../assets/E-WEB-Goal-07.png';
-import UniversalHealthCareImg from '../assets/E-WEB-Goal-03.png';
+import EducationImg from '../assets/icon-education.svg';
+import EconomicResilienceImg from '../assets/icon-resilience.svg';
+import GenderBasedViolenceImg from '../assets/icon-gbv.svg';
+import RenewableEnergyImg from '../assets/icon-energy.svg';
+import UniversalHealthCareImg from '../assets/icon-health.svg';
 
 const imageMap = {
   "Education": EducationImg,

@@ -3,11 +3,12 @@ import OutcomeContext from '../OutcomeContext';
 import { useContext } from 'react';
 import { FaGraduationCap, FaChartLine, FaShieldAlt, FaLeaf, FaHeartbeat } from 'react-icons/fa';
 
-import EducationImg from '../assets/E-WEB-Goal-04.png';
-import EconomicResilienceImg from '../assets/E-WEB-Goal-01.png';
-import GenderBasedViolenceImg from '../assets/E-WEB-Goal-05.png';
-import RenewableEnergyImg from '../assets/E-WEB-Goal-07.png';
-import UniversalHealthCareImg from '../assets/E-WEB-Goal-03.png';
+import EducationImg from '../assets/icon-education.svg';
+import EconomicResilienceImg from '../assets/icon-resilience.svg';
+import GenderBasedViolenceImg from '../assets/icon-gbv.svg';
+import RenewableEnergyImg from '../assets/icon-energy.svg';
+import UniversalHealthCareImg from '../assets/icon-health.svg';
+
 const data = require('../data/devOutcome.json')
 
 const imageMap = {
