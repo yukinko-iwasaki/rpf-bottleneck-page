@@ -8,7 +8,15 @@ import ArrowNav from './arrowNav';
 
 function Content({selectedItem, setSelectedItem}) {
   return (
-    <div className="content" style={{height:'100%', background:'rgb(240, 240, 240)', padding:'0 20px' }}>
+    <div
+      className="content"
+      style={{
+        height:'100%',
+        background:'rgb(240, 240, 240)',
+        padding:'0 20px',
+        overflow: 'scroll',
+      }}
+    >
       <ArrowNav selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
       {selectedItem === 'results' && <PublicSectorResult />}
       {selectedItem === 'outcome' && <OutcomePage />}
