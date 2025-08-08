@@ -1,7 +1,6 @@
 import React from 'react';
 import OutcomeContext from '../OutcomeContext';
 import { useContext } from 'react';
-import { FaGraduationCap, FaChartLine, FaShieldAlt, FaLeaf, FaHeartbeat } from 'react-icons/fa';
 
 import EducationImg from '../assets/icon-education.svg';
 import EconomicResilienceImg from '../assets/icon-resilience.svg';
@@ -15,22 +14,13 @@ const imageMap = {
   "Education": EducationImg,
   "Economic Resilience": EconomicResilienceImg,
   "Gender-Based Violence": GenderBasedViolenceImg,
-  "Renewable Energy": RenewableEnergyImg,
-  "Universal Health Care": UniversalHealthCareImg
+  "The Energy Transition": RenewableEnergyImg,
+  "Universal Healthcare": UniversalHealthCareImg
 };
 
-const iconMap = {
-  "Education":  <div style={{ backgroundColor: 'pink', borderRadius: '50%', padding: '5px' }}><FaGraduationCap size={100} color='red' /></div>,
-  "Economic Resilience":  <div style={{ backgroundColor: 'lightgreen', borderRadius: '50%', padding: '5px' }}><FaShieldAlt size={100} color='green' /></div>,
-  "Gender-Based Violence":<div style={{ backgroundColor: 'lightgreen', borderRadius: '50%', padding: '5px' }}><FaShieldAlt size={100} color='green' /></div>,
-  "The Energy Transition": <div style={{ backgroundColor: 'yellow', borderRadius: '50%', padding: '5px' }}><FaLeaf size={100} /></div>,
-  "Universal Healthcare": <div style={{ backgroundColor: 'lavender', borderRadius: '50%', padding: '5px' }}><FaHeartbeat color='purple' size={100} /></div>
-
-}
-
 function OutcomePage() {
-    const { outcome } = useContext(OutcomeContext);
-    const outcomeData = data[outcome] || {};
+  const { outcome } = useContext(OutcomeContext);
+  const outcomeData = data[outcome] || {};
   return (
     <> {/* Center content */}
       {outcome && (
@@ -51,21 +41,13 @@ function OutcomePage() {
             color: '#333',
             marginBottom: '25px'
           }}>{outcomeData.name}</h2>
-          {/* <img src={imageMap[outcome]} alt={outcome} style={{ width: '250px', height: 'auto', marginBottom: '25px' }} /> Centered image */}
-          {<div style={{
-              width: '200px',
-              marginBottom: '10px',
-              height: '120px',
-              textAlign: 'center',
-              cursor: 'pointer',
-              boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'space-evenly',
-            }}>{iconMap[outcome]}</div> || <div style={{ width: '250px', height: 'auto', marginBottom: '25px' }}></div> /* Fallback if no icon is found */}
+          <div style={{
+            width: '200px',
+            height: '180px',
+            overflow: 'hidden',
+          }}>
+            <img src={imageMap[outcome]} alt={outcome} style={{ width: '85%' }}/>
+          </div>
           <p style={{
             fontFamily: 'Arial, sans-serif',
             color: '#444',
