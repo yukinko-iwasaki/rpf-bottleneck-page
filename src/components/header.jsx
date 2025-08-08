@@ -25,7 +25,13 @@ function Header() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="px-4 shadow">
       <Container fluid>
-        <Navbar.Brand className="fw-bold fs-3 me-auto">Reimagine Public Finance</Navbar.Brand>
+        <Navbar.Brand as={Link} 
+          to="/" 
+          onClick={() => setOutcome('')}
+          className="fw-bold fs-3 me-auto text-white text-decoration-none"
+        >
+          Reimagine Public Finance
+        </Navbar.Brand>
 
         {outcome && (
           <div className="d-flex justify-content-center align-items-center mx-auto">
