@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { Container, Card } from 'react-bootstrap';
 import OutcomeContext from "../OutcomeContext";
 const data = require("../data/publicSectorResult.json");
 
@@ -7,16 +8,9 @@ function PublicSectorResult() {
     const { outcome } = useContext(OutcomeContext);
     const publicSectorResult = data[outcome] || {};
     return (
-        <> {/* Center content */}
-            <div style={{
-                padding: '20px',
-                height:'83vh',
-                overflow:'scroll',
-                border: '1px solid #ccc',
-                borderRadius: '12px',
-                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-                backgroundColor: '#fff'
-            }}> {/* Add container styling */}
+      <Container className="d-flex justify-content-center">
+        <Card className="w-100" style={{ maxWidth: '900px' }}>
+          <Card.Body className="text-left">
                 <h5 style={{
                     textAlign: 'left', /* Align text to the left */
                     fontFamily: 'Arial, sans-serif',
@@ -56,9 +50,10 @@ function PublicSectorResult() {
                         </li>
                     ))}
                 </ul>
-            </div>
-        </>
-    );
+          </Card.Body>
+        </Card>
+    </Container>
+  );
 }
 
 export default PublicSectorResult;

@@ -1,24 +1,17 @@
 import React from "react";
 import { useContext } from "react";
 import OutcomeContext from "../OutcomeContext";
+import { Container, Card } from 'react-bootstrap';
+
 const data = require("../data/publicSectorResult.json");
 
 function PolicyCapability() {
     const { outcome } = useContext(OutcomeContext);
     const policyData = data[outcome] || {};
     return (
-        <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'start' }}> {/* Center content */}
-            <div style={{
-                textAlign: 'left', /* Align text to the left */
-                maxWidth: '900px',
-                padding: '30px',
-                border: '1px solid #ccc',
-                overflow: 'scroll',
-                height: '83vh',
-                borderRadius: '12px',
-                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-                backgroundColor: '#fff'
-            }}> {/* Add container styling */}
+      <Container className="d-flex justify-content-center">
+        <Card className="w-100" style={{ maxWidth: '900px' }}>
+          <Card.Body className="text-start">
                 <h5 style={{
                     fontFamily: 'Arial, sans-serif',
                     fontWeight: 'bold',
@@ -60,8 +53,9 @@ function PolicyCapability() {
                     fontSize: '1.0rem',
                     textAlign: 'justify'
                 }}>{policyData.effectiveDelivery}</p>
-            </div>
-        </div>
+          </Card.Body>
+        </Card>
+      </Container>
     );
 }
 

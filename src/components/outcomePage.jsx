@@ -24,7 +24,7 @@ function OutcomePage() {
   const outcomeData = data[outcome] || {};
 
   return (
-    <Container className="d-flex justify-content-center my-4">
+    <Container className="d-flex justify-content-center">
       {outcome && (
         <Card className="w-100" style={{ maxWidth: '900px' }}>
           <Card.Body className="text-center">

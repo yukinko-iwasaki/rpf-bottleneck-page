@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import OutcomeContext from '../OutcomeContext';
-import Content from './contenxt';
+import Content from './content';
 import CircleVisual from './circleVisual';
 import verticalNavImg from '../assets/vertical-nav.png';
 
@@ -30,7 +30,7 @@ function VerticalNavbarPermanent() {
         const target = event.target.closest('g');
         if (!target) return;
         setSelectedItem(target.id);
-        setTopDivHeight('40vh'); // Shrink when CircleVisual is clicked
+        setTopDivHeight('35vh'); // Shrink when CircleVisual is clicked
     };
 
     const handleZoneClick = (zone) => {
@@ -39,27 +39,24 @@ function VerticalNavbarPermanent() {
     };
 
     return (
-        <Container fluid style={{ height: '100%' }}>
+        <Container fluid style={{ height: '100%', padding: 0 }}>
             <Row className="flex-nowrap" style={{ height: '100%' }}>
                 {/* Sidebar Column */}
-                <Col xs={12} md={3} lg={2}
-                    className="bg-paper sidebar-wrapper-35 d-flex flex-column"
-                    style={{
-                      paddingTop: '20px',
-                      gap: '20px'
-                    }}>
-                    <div style={{ 
-                        width: '100%', 
+                <Col xs={12} md={4} lg={4}
+                    className="bg-paper d-flex flex-column"
+                    style={{ gap: '30px', padding: '20px 0' }}>
+                    <div style={{
+                        width: '100%',
                         height: topDivHeight,
-                        display: 'flex', 
-                        flexDirection: 'column', 
-                        alignItems: 'center', 
-                        justifyContent: 'center', 
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         position: 'relative',
                         transition: 'height 0.3s ease-in-out' // Add smooth transition
                     }}>
                         {/* Image Reveal with Hover Zones */}
-                        <div className="reveal-image" style={{ width: '100%', height: '100%' }}>
+                        <div className="reveal-image" style={{ width: '60%', height: '100%' }}>
                             {/* Hover zones */}
                             {HOVER_ZONES.map((zone) => (
                               <div
@@ -75,12 +72,12 @@ function VerticalNavbarPermanent() {
                             <div className="mask bottom-mask"></div>
 
                             {/* Image */}
-                            <img 
-                                src={verticalNavImg} 
-                                alt='Vertical Navigation' 
-                                style={{ 
-                                    width: '100%', 
-                                    height: '100%', 
+                            <img
+                                src={verticalNavImg}
+                                alt='Vertical Navigation'
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
                                     objectFit: 'contain',
                                     transition: 'all 0.3s ease-in-out'
                                 }}
@@ -89,7 +86,9 @@ function VerticalNavbarPermanent() {
                     </div>
                     <CircleVisual onClick={handleVizClick} selectedItem={selectedItem} />
                 </Col>
-                <Content outcome={outcome} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+                <Col>
+                  <Content outcome={outcome} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+                </Col>
             </Row>
         </Container>
     );
