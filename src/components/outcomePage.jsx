@@ -1,6 +1,7 @@
 import React from 'react';
 import OutcomeContext from '../OutcomeContext';
 import { useContext } from 'react';
+import { Container, Card, Image, Row, Col } from 'react-bootstrap';
 
 import EducationImg from '../assets/icon-education.svg';
 import EconomicResilienceImg from '../assets/icon-resilience.svg';
@@ -21,43 +22,42 @@ const imageMap = {
 function OutcomePage() {
   const { outcome } = useContext(OutcomeContext);
   const outcomeData = data[outcome] || {};
+
   return (
-    <> {/* Center content */}
+    <Container className="d-flex justify-content-center my-4">
       {outcome && (
-        <div style={{
-          maxWidth: '900px',
-          padding: '30px',
-          border: '1px solid #ccc',
-          borderRadius: '12px',
-          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-          backgroundColor: '#fff',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}> {/* Center image and text */}
-          <h2 style={{
-            fontFamily: 'Arial, sans-serif',
-            fontWeight: 'bold',
-            color: '#333',
-            marginBottom: '25px'
-          }}>{outcomeData.name}</h2>
-          <div style={{
-            width: '200px',
-            height: '180px',
-            overflow: 'hidden',
-          }}>
-            <img src={imageMap[outcome]} alt={outcome} style={{ width: '85%' }}/>
-          </div>
-          <p style={{
-            fontFamily: 'Arial, sans-serif',
-            color: '#444',
-            lineHeight: '1.8',
-            fontSize: '1.2rem',
-            textAlign: 'justify'
-          }}>In {outcome}, the countries typically pursue the following <b>policy outcome:</b><br /><p style={{paddingTop:'20px'}}> {outcomeData.description}</p></p>
-        </div>
+        <Card className="w-100" style={{ maxWidth: '900px' }}>
+          <Card.Body className="text-center">
+            <Card.Title as="h2" className="mb-4 fw-bold text-dark">
+              {outcomeData.name}
+            </Card.Title>
+
+            <Row className="justify-content-center mb-4">
+              <Col xs={6} md={4}>
+                <div style={{
+                  width: '180px',
+                  height: '190px',
+                  overflow: 'hidden',
+                  margin: '0 auto'
+                }}>
+                  <Image
+                    src={imageMap[outcome]}
+                    alt={outcome}
+                    fluid
+                    style={{ width: '100%' }}
+                  />
+                </div>
+              </Col>
+            </Row>
+
+            <Card.Text className="text-start text-secondary lh-lg fs-5">
+              In {outcome}, the countries typically pursue the following <strong>policy outcome:</strong>
+              <p className="mt-3">{outcomeData.description}</p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       )}
-    </>
+    </Container>
   );
 }
 
