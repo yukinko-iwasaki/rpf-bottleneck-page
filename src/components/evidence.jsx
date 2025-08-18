@@ -1,31 +1,39 @@
-import React, { useEffect } from "react";
-import { useState, useRef } from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 import ContentText from "./contentText";
 import Accordion from 'react-bootstrap/Accordion';
-import {ReactComponent as Map} from '../assets/map.svg';
+import { ReactComponent as Map } from '../assets/map.svg';
 const bottleneckData = require('../data/bottleneck.json');
 const roleData = require('../data/roles.json');
 
 const texts = {
-  'Role': {'title': 'The outcome-led framework identifies four broad roles that public finance plays in the achievement of public sector results as it interacts with broader public policy and public sector institutions. ', 'sub_title': ' This role contributes to the sector outcome as follows: '},
-  'Bottleneck Group': {'title': 'The outcome-led framework then identifies nine common bottlenecks which undermine the potential role of public finance across development outcomes.', 'sub_title': ' This typically constrains the achievement of public sector results as follows:  '}
-}
+  Role: {
+    title:
+      'The outcome-led framework identifies four broad roles that public finance plays in the achievement of public sector results as it interacts with broader public policy and public sector institutions.',
+    sub_title: 'This role contributes to the sector outcome as follows:',
+  },
+  'Bottleneck Group': {
+    title:
+      'The outcome-led framework then identifies nine common bottlenecks which undermine the potential role of public finance across development outcomes.',
+    sub_title: 'This typically constrains the achievement of public sector results as follows:',
+  },
+};
+
 const bottlenectDict = {
-  'group1': {
+  group1: {
     name: "1. Insufficient Stakeholder Commitment to Policy Action",
     children: [
       "1.1 Inadequate commitment of political and technical leadership to policy action and associated resource mobilization and use within or across sectors",
       "1.2 Inadequately broad-based stakeholder involvement, understanding and support for policy action and associated resource mobilization and use",
     ],
   },
-  'group2': {
+  group2: {
     name: "2. Incoherent, fragmented and poorly prioritized policy",
     children: [
       "2.1 Fragmented, over ambitious, inconsistent, uncoordinated and poorly prioritized policies across or within sectors",
     ],
   },
-  'group3': {
+  group3: {
     name: "3. Mismatch between policy goals, priorities, capability and resources",
     children: [
       "3.1 Domestic revenue policies generate insufficient resources to achieve policy goals given fiscal reality",
@@ -33,7 +41,7 @@ const bottlenectDict = {
       "3.3 Policies do not take into account context, including the available organizational capability to achieve goals",
     ],
   },
-  'group4': {
+  group4: {
     name: "4. Unsustainable fiscal situation of governments and organizations",
     children: [
       "4.1 Short term incentives and perspectives leads to a failure to manage fiscal risks and procyclical spending which forces deep cuts during downturns",
@@ -42,7 +50,7 @@ const bottlenectDict = {
       "4.4 Pre-existing spending commitments and debt burdens create limited fiscal space and options for fiscal consolidation and/or increasing fiscal space.",
     ],
   },
-  'group5': {
+  group5: {
     name: "5. Inadequate and inequitable resources mobilized and deployed for policy implementation",
     children: [
       "5.1 Fragmented, uncoordinated and poorly prioritized policies across or within sectors",
@@ -51,7 +59,7 @@ const bottlenectDict = {
       "5.4 Resource deployment is not informed by demand for, the costs of or effectiveness of achieving public policy objectives.",
     ],
   },
-  'group6': {
+  group6: {
     name: "6. Unreliable, delayed and fragmented funding for delivery",
     children: [
       "6.1 Ad hoc, political and fragmented funding channels contribute to unreliable and insufficient funding",
@@ -59,7 +67,7 @@ const bottlenectDict = {
       "6.3 Shortfalls, delays and diversion of funding for delivery",
     ],
   },
-  'group7': {
+  group7: {
     name: "7. Inefficient deployment and management of resources and inputs for delivery",
     children: [
       "7.1 Resource deployment is inefficient overall due to high overheads and unbalanced allocations to delivery inputs and sectoral programs",
@@ -69,7 +77,7 @@ const bottlenectDict = {
       "7.5 High cost and inflated cost of procurement for infrastructure and operational inputs.",
     ],
   },
-  'group8': {
+  group8: {
     name: "8. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements",
     children: [
       "8.1 The design of regulatory, incentive, control and management systems limits autonomy and discourages performance",
@@ -77,7 +85,7 @@ const bottlenectDict = {
       "8.3 Weaknesses in fiscal governance undermine public and private sector accountability.",
     ],
   },
-  'group9': {
+  group9: {
     name: "9. Inadequate availability and use of data in decision making, policy delivery and accountability",
     children: [
       "9.1 Inadequate transparency, oversight, monitoring, evaluation and accountability for resources and performance",
@@ -88,81 +96,56 @@ const bottlenectDict = {
 };
 
 const roleDict = {
-  'groupA': { name: 'A. Commitment to Feasible Policy' },
-  'groupB': { name: 'B. Fiscal sustainability' },
-  'groupC': { name: 'C. Inadequate and inequitable resources mobilized and deployed for policy implementation' },
-  'groupD': { name: 'D. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements' }
+  groupA: { name: 'A. Commitment to Feasible Policy' },
+  groupB: { name: 'B. Fiscal sustainability' },
+  groupC: { name: 'C. Inadequate and inequitable resources mobilized and deployed for policy implementation' },
+  groupD: { name: 'D. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements' },
 };
-function Evidence(props){
-    const {outcome, selectedItem} = props;
 
-    const viz_type = Object.keys(bottlenectDict).includes(selectedItem) ? 'Bottleneck Group' : 'Role'; // Default to group1 if viz_type is not found
-    const type_options = viz_type === 'Bottleneck Group' ? bottlenectDict[selectedItem].children : [];
-    const selectedItemDisplay = bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group1'; // Default to group1 if not found
-    const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
-    return (
-        <>
-                {selectedItem && <div style={{
-                  maxWidth: '900px',
-                  padding: '30px',
-                  paddingBottom: '5px',
-                  border: '1px solid #ccc',
-                  borderRadius: '12px',
-                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-                  backgroundColor: '#fff',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'left'
-                }}>
-        <p style={{
-                    fontFamily: 'Arial, sans-serif',
-                    color: '#444',
-                    lineHeight: '1.8',
-                    fontSize: '1.0rem',
-                    textAlign: 'left' /* Align text to the left */
-                }}>{texts[viz_type].title} <br/></p>
-                <p>You have selected: </p>
-                <p style={{textAlign: 'left', fontWeight:'bold'}}>{selectedItemDisplay}</p>
-        </div>}
-        {/* <div style={{height: '200px', width: '80%'}}>    
-              <Map />
-         </div> */}
-         <div style={{paddingTop: '30px'}}>
-         {<b style={{paddingLeft:'15px'}}>{texts[viz_type].sub_title}</b>}
-                  {selectedItem && <div class='container' style={{height: '100%', paddingTop: '10px'}}>
-          <Accordion style={{ width: '100%', marginBottom: '20px' }}>
-            {data.map((item, index) => {
-              return (
-                <Accordion.Item eventKey={index.toString()} key={index}>
-                  <Accordion.Header>{item.title}</Accordion.Header>
-                  <Accordion.Body style={{maxHeight: '45vh', overflow: 'scroll'}}>
-                    {/* {data.map((text, index) => (
-                      <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
-                        <ContentText data={text} viz_type={viz_type} />
-                    </div>
-                ))
-                } */}
-                      <div key={index} style={{ borderBottom: '1px solid rgba(76, 159, 210, 0.3)', paddingBottom: '10px', marginBottom: '10px' }}>
-                        <ContentText data={item} viz_type={viz_type} />
-                    </div>
-            </Accordion.Body>
-            </Accordion.Item> 
-          );
-        })}
-            
-          </Accordion>
-        </div>}
+function Evidence({ outcome, selectedItem }) {
+  const viz_type = Object.keys(bottlenectDict).includes(selectedItem)
+    ? 'Bottleneck Group'
+    : 'Role';
+
+  const selectedItemDisplay =
+    bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group1';
+
+  const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
+
+  return (
+    <>
+      {selectedItem && (
+        <div className="container p-4 mb-4 border rounded shadow bg-white text-start" style={{ maxWidth: '900px' }}>
+          <p className="mb-2">{texts[viz_type].title}</p>
+          <p className="mb-1">You have selected:</p>
+          <p className="fw-bold">{selectedItemDisplay}</p>
         </div>
-          {
-          !selectedItem && <div style={{height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}> <span style={{ color: 'black', fontSize: '1.5rem', fontStyle: 'italic' , textAlign:'center'}}>Please select a public finance concept/region from the left navigation to explore detailed insights and data</span> </div>
-        }
-        </>
-    );
+      )}
+
+      <div className="pt-4">
+        <div className="container text-start">
+          <p className="fw-bold ps-2">{texts[viz_type].sub_title}</p>
+          <Accordion className="mb-4">
+            {data.map((item, index) => (
+              <Accordion.Item eventKey={index.toString()} key={index}>
+                <Accordion.Header>{item.title}</Accordion.Header>
+                <Accordion.Body>
+                  <div>
+                    <ContentText data={item} viz_type={viz_type} />
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
+            ))}
+          </Accordion>
+        </div>
+      </div>
+    </>
+  );
 }
 
 Evidence.propTypes = {
-    viz_type: PropTypes.string.isRequired,
-    selectedItem: PropTypes.string.isRequired, // Added selectedItem prop type
+  outcome: PropTypes.any,
+  selectedItem: PropTypes.string.isRequired,
 };
 
 export default Evidence;
