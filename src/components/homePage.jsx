@@ -31,7 +31,7 @@ function HomePage() {
 
   return (
     <Container fluid className="bg-light min-vh-100 d-flex flex-column align-items-center py-4">
-      <Image src={frameworkImg} alt="framework" fluid className="w-75 mb-4" />
+      <Image src={frameworkImg} alt="framework" fluid className="w-75 mb-4 d-none d-md-block" />
 
       <Card className="w-75 mb-4" style={{ maxWidth: '1200px' }}>
         <Card.Body>
@@ -39,7 +39,7 @@ function HomePage() {
             The outcome-led framework starts by identifying the development outcomes governments seek and then works backward to determine how public finance can contribute effectively to these goals. This visualization allows you to explore the framework and evidence collected from outcome studies.
           </Card.Text>
 
-          <Card.Text>
+          <Card.Text as="div">
             First, select a development outcome below. Then explore the public sector context for achieving the development outcome:
             <ul>
               <li>
@@ -54,7 +54,7 @@ function HomePage() {
             </ul>
           </Card.Text>
 
-          <Card.Text>
+          <Card.Text as="div">
             Then explore the answers to the two questions posed by the outcome-led framework:
             <ul>
               <li>
@@ -76,7 +76,7 @@ function HomePage() {
 
       <Row className="justify-content-center mb-4" style={{ maxWidth: '1200px' }}>
         {tiles.map((tile) => (
-          <Col key={tile.title} xs={6} sm={4} md={3} lg={2}>
+          <Col key={tile.title} xs={12} sm={6} md={4} lg={3} xl={2} className="mb-3">
             <Card
               className="h-100 text-center transition-all shadow-sm hover-shadow"
               onClick={() => handleNavigation(tile.title, tile.path)}

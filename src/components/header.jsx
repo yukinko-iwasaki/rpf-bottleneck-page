@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaHome } from "react-icons/fa";
 import { Navbar, Container, Nav, Image } from 'react-bootstrap';
 import OutcomeContext from '../OutcomeContext';
@@ -21,6 +21,7 @@ const imageMap = {
 
 function Header() {
   const { outcome, setOutcome } = useContext(OutcomeContext);
+  const location = useLocation();
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="px-4 shadow">
@@ -47,14 +48,16 @@ function Header() {
         )}
 
         <Nav className="ms-auto">
-          <Nav.Link
-            as={Link}
-            to="/"
-            onClick={() => setOutcome('')}
-            className="text-white p-0"
-          >
-            <FaHome size={24} />
-          </Nav.Link>
+          {location.pathname !== "/" && (
+            <Nav.Link
+              as={Link}
+              to="/"
+              onClick={() => setOutcome('')}
+              className="text-white p-0"
+            >
+              <FaHome size={24} />
+            </Nav.Link>
+          )}
         </Nav>
       </Container>
     </Navbar>
