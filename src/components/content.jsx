@@ -12,9 +12,10 @@ function Content({selectedItem, setSelectedItem}) {
       className="content"
       style={{
         height:'100%',
+        minHeight: 0,
         background:'rgb(240, 240, 240)',
         padding:'0 20px',
-        overflow: 'scroll',
+        overflow: 'auto',
       }}
     >
       <ArrowNav selectedItem={selectedItem} setSelectedItem={setSelectedItem} />

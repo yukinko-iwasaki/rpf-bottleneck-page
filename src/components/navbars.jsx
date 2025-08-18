@@ -39,11 +39,11 @@ function VerticalNavbarPermanent() {
     };
 
     return (
-        <Container fluid style={{ height: '100%', padding: 0 }}>
-            <Row className="flex-nowrap" style={{ height: '100%' }}>
+        <Container fluid style={{ height: 'calc(100vh - 60px)', padding: 0 }}>
+            <Row className="h-100">
                 {/* Sidebar Column */}
                 <Col xs={12} md={4} lg={4}
-                    className="bg-paper d-flex flex-column"
+                    className="bg-paper d-flex flex-column h-100"
                     style={{ gap: '30px', padding: '20px 0' }}>
                     <div style={{
                         width: '100%',
@@ -86,7 +86,7 @@ function VerticalNavbarPermanent() {
                     </div>
                     <CircleVisual onClick={handleVizClick} selectedItem={selectedItem} />
                 </Col>
-                <Col>
+                <Col xs={12} md={8} lg={8} className="h-100" style={{ overflowY: 'auto' }}>
                   <Content outcome={outcome} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
                 </Col>
             </Row>
