@@ -40,7 +40,7 @@ const pageTransition = {
   return (
     <AnimatePresence mode='wait'>
       <BrowserRouter basename="/rpf-bottleneck-page">
-        <div style={{ minHeight: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}> {/* Ensure full viewport height and no scrolling */}
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}> {/* Ensure full viewport height and no scrolling */}
           <Header /> {/* Include the Header component */}
           <Routes>
             <Route path="/" element={<motion.div

@@ -1,80 +1,63 @@
 import React from 'react';
 import OutcomeContext from '../OutcomeContext';
 import { useContext } from 'react';
-import { FaGraduationCap, FaChartLine, FaShieldAlt, FaLeaf, FaHeartbeat } from 'react-icons/fa';
+import { Container, Card, Image, Row, Col } from 'react-bootstrap';
 
-import EducationImg from '../assets/E-WEB-Goal-04.png';
-import EconomicResilienceImg from '../assets/E-WEB-Goal-01.png';
-import GenderBasedViolenceImg from '../assets/E-WEB-Goal-05.png';
-import RenewableEnergyImg from '../assets/E-WEB-Goal-07.png';
-import UniversalHealthCareImg from '../assets/E-WEB-Goal-03.png';
+import EducationImg from '../assets/icon-education.svg';
+import EconomicResilienceImg from '../assets/icon-resilience.svg';
+import GenderBasedViolenceImg from '../assets/icon-gbv.svg';
+import RenewableEnergyImg from '../assets/icon-energy.svg';
+import UniversalHealthCareImg from '../assets/icon-health.svg';
+
 const data = require('../data/devOutcome.json')
 
 const imageMap = {
   "Education": EducationImg,
   "Economic Resilience": EconomicResilienceImg,
   "Gender-Based Violence": GenderBasedViolenceImg,
-  "Renewable Energy": RenewableEnergyImg,
-  "Universal Health Care": UniversalHealthCareImg
+  "The Energy Transition": RenewableEnergyImg,
+  "Universal Healthcare": UniversalHealthCareImg
 };
 
-const iconMap = {
-  "Education":  <div style={{ backgroundColor: 'pink', borderRadius: '50%', padding: '5px' }}><FaGraduationCap size={100} color='red' /></div>,
-  "Economic Resilience":  <div style={{ backgroundColor: 'lightgreen', borderRadius: '50%', padding: '5px' }}><FaShieldAlt size={100} color='green' /></div>,
-  "Gender-Based Violence":<div style={{ backgroundColor: 'lightgreen', borderRadius: '50%', padding: '5px' }}><FaShieldAlt size={100} color='green' /></div>,
-  "The Energy Transition": <div style={{ backgroundColor: 'yellow', borderRadius: '50%', padding: '5px' }}><FaLeaf size={100} /></div>,
-  "Universal Healthcare": <div style={{ backgroundColor: 'lavender', borderRadius: '50%', padding: '5px' }}><FaHeartbeat color='purple' size={100} /></div>
-
-}
-
 function OutcomePage() {
-    const { outcome } = useContext(OutcomeContext);
-    const outcomeData = data[outcome] || {};
+  const { outcome } = useContext(OutcomeContext);
+  const outcomeData = data[outcome] || {};
+
   return (
-    <> {/* Center content */}
+    <Container className="d-flex justify-content-center">
       {outcome && (
-        <div style={{
-          maxWidth: '900px',
-          padding: '30px',
-          border: '1px solid #ccc',
-          borderRadius: '12px',
-          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-          backgroundColor: '#fff',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}> {/* Center image and text */}
-          <h2 style={{
-            fontFamily: 'Arial, sans-serif',
-            fontWeight: 'bold',
-            color: '#333',
-            marginBottom: '25px'
-          }}>{outcomeData.name}</h2>
-          {/* <img src={imageMap[outcome]} alt={outcome} style={{ width: '250px', height: 'auto', marginBottom: '25px' }} /> Centered image */}
-          {<div style={{
-              width: '200px',
-              marginBottom: '10px',
-              height: '120px',
-              textAlign: 'center',
-              cursor: 'pointer',
-              boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'space-evenly',
-            }}>{iconMap[outcome]}</div> || <div style={{ width: '250px', height: 'auto', marginBottom: '25px' }}></div> /* Fallback if no icon is found */}
-          <p style={{
-            fontFamily: 'Arial, sans-serif',
-            color: '#444',
-            lineHeight: '1.8',
-            fontSize: '1.2rem',
-            textAlign: 'justify'
-          }}>In {outcome}, the countries typically pursue the following <b>policy outcome:</b><br /><p style={{paddingTop:'20px'}}> {outcomeData.description}</p></p>
-        </div>
+        <Card className="w-100" style={{ maxWidth: '900px' }}>
+          <Card.Body className="text-center">
+            <Card.Title as="h2" className="mb-4 fw-bold text-dark">
+              {outcomeData.name}
+            </Card.Title>
+
+            <Row className="justify-content-center mb-4">
+              <Col xs={6} md={4}>
+                <div style={{
+                  width: '180px',
+                  height: '190px',
+                  overflow: 'hidden',
+                  margin: '0 auto'
+                }}>
+                  <Image
+                    src={imageMap[outcome]}
+                    alt={outcome}
+                    fluid
+                    style={{ width: '100%' }}
+                  />
+                </div>
+              </Col>
+            </Row>
+
+            <Card.Text className="text-start text-secondary lh-lg fs-5">
+              In {outcome}, the countries typically pursue the following <strong>policy outcome:</strong>
+              <p className="mt-3">{outcomeData.description}</p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       )}
-    </>
+    </Container>
   );
 }
 
