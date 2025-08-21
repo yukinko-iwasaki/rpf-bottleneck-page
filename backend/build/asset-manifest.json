@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "./static/css/main.6eccebc1.css",
+    "main.js": "./static/js/main.c7f4481b.js",
+    "static/media/map.svg": "./static/media/map.2bb3e6881804531d978df12ce000a392.svg",
+    "static/media/framework.jpg": "./static/media/framework.cc4b5c76f08a3855a0bb.jpg",
+    "static/media/vertical-nav.png": "./static/media/vertical-nav.42de472d9bafc2adb980.png",
+    "static/media/icon-gbv.svg": "./static/media/icon-gbv.491c9f7d6a627e4aecbd984ca41ebaf9.svg",
+    "static/media/icon-education.svg": "./static/media/icon-education.e335973c816664ce25df306e66755dfd.svg",
+    "static/media/icon-energy.svg": "./static/media/icon-energy.9e029bed93214e0c3348a78d5806e350.svg",
+    "static/media/icon-health.svg": "./static/media/icon-health.c5b3bbfb09c360cc33fac10995d4ce9c.svg",
+    "static/media/icon-resilience.svg": "./static/media/icon-resilience.a7cb10f2407deba35d8a58eb4898ee11.svg",
+    "static/media/final.svg": "./static/media/final.e5c1196f86523a300d8bf0c0686c8345.svg",
+    "index.html": "./index.html",
+    "main.6eccebc1.css.map": "./static/css/main.6eccebc1.css.map",
+    "main.c7f4481b.js.map": "./static/js/main.c7f4481b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6eccebc1.css",
+    "static/js/main.c7f4481b.js"
+  ]
+}

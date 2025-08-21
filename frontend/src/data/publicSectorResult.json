@@ -1,0 +1,117 @@
+{
+    "Economic Resilience": {
+        "result": "Building and preserving fiscal space that is stable throughout the economic cycle (in terms of the fiscal balance, revenue, expenditure and debt levels), withstanding any shocks, through implementing prudent, timely and appropriate counter cyclical fiscal policy.",
+        "feasiblePolicy": "Effectively committed fiscal arrangements and policies that contribute to reduce revenue volatility and constrain unsustainable spending, deficits, and debt, generating future fiscal space over the course of the business cycle. These enable governments to respond to short-term shocks with counter-cyclical policies, without making public finances unsustainable, and allowing conducting long-term investments that contribute to higher productivity and growth. Such arrangements and policies include feasible tax policy decisions for revenue mobilization, diversification and smoothing mechanisms, prudent and well-informed medium-term fiscal and debt strategies, with an efficient prioritization and allocation of available resources in the medium-term, and controlled spending commitments and arrears. To be feasible, these policies need to be backed up by collective political commitment and broader private sector and public understanding, so that revenue and borrowing and spending policies can actually be implemented during periods of economic growth and contraction.",
+        "effectiveDelivery": "Technical capacity to support well-informed fiscal policy decisions, robust coordination and enforcement capacity to manage structured fiscal and budgetary decision-making processes and enforce restrictions and rules across the government, efficient and well-resourced revenue administrations to achieve satisfactory collection levels, independent and functioning control and oversight institutions to oversee an enforce a sound and transparent fiscal policy, and the development of systems to ensure an efficient flow of data and information to inform the technical work and the processes for fiscal decision-making.",
+        "publicSectorChallenges": [
+            {
+                "name": "Incentives for fiscal policy action are usually pro-cyclical.",
+                "description": "Incentives for fiscal policy action are usually pro-cyclical.  In the expansionary phase of the business cycle governments tend be under pressure to spend more to satisfy short term demands and continue to borrow beyond what is sustainable, which results in the increased need for fiscal consolidation in times economic contraction, which amplifies economic fluctuations and undermines resilience.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "Many countries already face unsustainable fiscal situations.",
+                "description": "Many countries already face unsustainable fiscal situations.  Following multiple crises many countries face sluggish growth or contracting economies, persistently low revenues, and unsustainably high debt burdens and require significant fiscal consolidation. From this situation it is challenging to initiate pro-cyclical fiscal policy that establishes a sustainable fiscus, stimulates the economy and creates fiscal space.  ",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "Although counter-cyclical fiscal policies may be in place, policy action is the reverse.",
+                "description": "Although counter-cyclical fiscal policies may be in place, policy action is the reverse:  There is inconsistency and incoherence in policy action. For example, whilst issuance of short-term debt may be to smooth expenditure, in practice it is used to finance short term expenditure pressures. Monetary and fiscal policy and/or tax and expenditure policy may work against each other as a result. For example, during expansions, governments may continue to spend whist monetary policy is tightened.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "Poor quality, often over-optimistic, economic and fiscal policy, forecasting and management.",
+                "description": "Poor quality, often over-optimistic, economic and fiscal policy, forecasting and management. Macro-fiscal forecasts may be consistently biased – and typically towards being overly optimistic. This is often the result of weak technical capacity to produce quality data, and to make projections, to manage critical fiscal policy decision-making processes, to monitor and enforce defined rules and restrictions and associated processes, and to ensure timely data sharing among relevant units and stakeholders.",
+                "source": "RPF Outcome Study" 
+            }
+        ]
+    },
+    "Gender-Based Violence": {
+        "result": "Deliver coordinated measures to prevent and address GBV, including. preventative measures like norms and behavioral change at individual, societal, and institutional levels; integrated multi-sector victim/survivor-centered support services; accountability measures for perpetrators; and financial and logistical support to organizations that play a critical role in addressing GBV.",
+        "feasiblePolicy": "To be feasible, GBV policy demands political commitment, with an explicit and effective prioritization and mainstreaming across the government strategy, policy coordination and coherence across multiple ministries and levels of government, including service providers, as well as having the necessary specialized technical capacities and resources, jointly with a suitable legal, institutional, financial and data systems.",
+        "effectiveDelivery": "The ability to effectively deliver gender-focused services depends on coordination and data-sharing mechanisms, as well as on the allocated resources (both human and financial). Service integration, data-sharing mechanisms among health services, law enforcement, and social support systems strengthen survivor support and accountability for perpetrators, and adequate funding contributes to sustained assistance, addressing root causes of gender-based violence, and implement evidence-based strategies for long-term change.",
+        "publicSectorChallenges": [
+            {
+                "name": "Inadequate GBV interventions are not sustained:",
+                "description": "There are inadequate GBV prevention, survivor support services and accountability and behavior change interventions to achieve policy objectives. Often, when gender programs are initiated, they are not sustained over the long-term.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "Fragmented, uncoordinated GBV services",
+                "description": "Fragmented, uncoordinated GBV services: Effective coordination across various public sector systems and institutions is lacking, which impedes the delivery of integrated services for GBV survivors.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "GBV Policies are not supported by systems and capability to implement.  ",
+                "description": "GBV Policies are often incoherent: Policies are sometimes developed without the systems in place to implement them effectively, especially across multiple sectors and levels of government involved in GBV prevention and response",
+                "source": "RPF Outcome Study" 
+            }
+        ]
+    },
+    "Education": {
+        "result": "Increased access and completion rates to education, and enhanced education quality, which is equitably delivered across genders, locations and socioeconomic groups.",
+        "feasiblePolicy": "Basic education policy objectives and delivery modalities which can feasibly achieve universal, equitable access whilst increasing access to effective learning for attendees. This involves a balance between investments in underserved areas, the quality of teaching, and addresses barriers to education. Combined, they are affordable, involve modalities for which there is capacity to deliver, and are accepted by politicians and citizens.",
+        "effectiveDelivery": "To be able to deliver quality education, the teaching workforce needs to be adequate in number and skills, equitably deployed in line with established norms and motivated. This involves deploying the existing workforce efficiently, growing it over time and concurrently investing in training focused on appropriate pedagogical practices and subject expertise based on curricula consistent with their ability to impart knowledge. Investing in training related to professionalism and tackling the beliefs of teachers and other actors is also critical. Timely provision of adequate teaching materials based on needs is fundamental. Creating safe, well-equipped classrooms with appropriate technology enhances the learning environment. Promoting equity in education involves consistent targeted investment in addressing disparities in access and quality in line with policy objectives over the medium and long term. Different measures may respond to different conceptions of equity.",
+        "publicSectorChallenges": [
+            {
+                "name": "Poor quality teaching means students fail to learn.",
+                "description": "Despite attending school students often fail to learn due because they do not have access to quality teaching. There may be gaps in teacher deployment to schools and teachers that are deployed may lack motivation and skills due to a combination of inadequate, unreliable and/or inappropriate teacher training, civil servants’ beliefs, oversight, learning materials, curricula and school infrastructure.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "There are disparities in Equity and access to education:",
+                "description": "Disparities in Equity and access to education: Marginalized groups, including low-income households, rural communities, and girls, face significant barriers to quality education. Infrastructure deficits, long travel distances, socio-cultural norms, and inadequate learning materials limit equitable access and contribute to high dropout rates.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "Education policies are not aligned to delivery capability and poorly coordinated.",
+                "description": "Misalignment between education policies and practical delivery capabilities leads to fragmented service provision. Poor coordination among government agencies, local authorities, and stakeholders, combined with weak data systems and accountability mechanisms, makes it difficult to track progress, allocate resources effectively, and improve learning outcomes.",
+                "source": "RPF Outcome Study" 
+            }
+        ]
+    },
+    "Universal Healthcare": {
+        "result": "Achieving universal health coverage, including financial risk protection, access to quality essential health-care services and access to safe, effective, quality and affordable essential medicines and vaccines for all (SDG target 3.8).",
+        "feasiblePolicy": "Universal Health Coverage is the result of a bundle of policy initiatives that ensure broad and equitable access to an adequate set of basic health services without relying on excessive fees paid by individuals and families. A feasible policy involves clearly defining a health benefits package that are made up cost-effective set of interventions and delivery models that are affordable over the medium to long term given the fiscal context. This needs to be complemented by commitment to provide sufficient resources to be to UHC-related programs and interventions, whilst respecting overall public and private sector resource constraints. There also needs to be latent community demand for healthcare services that can be unlocked.",
+        "effectiveDelivery": "The successful implementation of UHC policies and delivery of defined benefit packages first requires a to be able to deliver UHC, there first need to be adequate inputs to delivery, includes a skilled health workforce deployed to an adequate network of health facilities in line with staffing norms; and adequate medical supplies equipment and infrastructure. This complex set of inter-related capabilities within the public and private sectors relate to: (a) the management of human resources in a way that ensures the knowledge, skills, motivation and deployment of the personnel responsible for organizing and delivering health services; (b) an adequate degree of autonomy and accountability for health providers of different types and at different levels and b) systems and processes for managing heathlcare provision and the associated inputs and resources for delivery.",
+        "publicSectorChallenges": [
+            {
+                "name": "Poor quality of healthcare provision, with misdiagnosis of common diseases common and treatment unavailable.",
+                "description": "Facilities often don’t have the staff required to diagnose and treat patients and poor motivation and absenteeism of staff common. There are often shortages in key medical supplies equipment and other operational inputs. Quality is exacerbated by weaknesses in management, oversight and governance within healthcare systems.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "Inequitable access to key health services and inadequate preventative care. ",
+                "description": "The distribution of health facilities is often inequitable, and there is bias in allocating resources towards secondary and tertiary levels of care relative to primary care which further undermines equity in access. Meanwhile there is insufficient attention to health prevention.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "The demand for publicly funded health services is limited due to the  poor quality of available care. ",
+                "description": "The demand for publicly funded health services is limited as a result of the poor quality of health care available and weaknesses in the health system. This results in the public seeking costly private alternatives, which tend to be under-regulated and high out of pocket expenses, which are often catastrophic. It also creating a vicious circle, further undermining the achievement of UHC as a policy goal.",
+                "source": "RPF Outcome Study" 
+            }
+        ]
+    },
+    "The Energy Transition": {
+        "result": "Adequate investments are made at the right time by the public and/or private sector to achieve energy generation, transition, accessibility and affordability that can be sustained",
+        "feasiblePolicy": "Coordinated and collectively agreed development, climate, and energy policies have the potential to provide for a feasible  transition to low carbon energy supply while increasing energy efficiency and winding down fossil fuel-based energy sources. Policies include appropriate low carbon energy technologies; institutional strengthening energy utilities and regulatory bodies; mixes of finance, subsidies and other incentive instruments; underlying capabilities are identified and resources; and public and political approval are established constituting a feasible pathway to affordable and accessible national grid power supplied (primarily) by renewable sources by 2050;",
+        "effectiveDelivery": "Coordinated action and capacity to mobilize investment financing for public and private sector, including climate finance; capacity to model supply demand and costs over the medium term to inform polices, plans and investment decisions; technical capacity within energy utility, regulator and private actors to oversee and deliver required investments; strong and consistent enforcement of the regulatory framework ensures financial sustainability and provides incentives to achieve accessibility and transition objectives.",
+        "publicSectorChallenges": [
+            {
+                "name": "Uncoordinated policies do not resolve trade-offs, including between de-carbonization and affordability.",
+                "description": "Policy Coordination: Incoherent, uncoordinated and poorly prioritized interventions, which don’t resolve trade-offs internal to the sector or across sectors, for example between affordability and decarbonization; or between climate and industrial policy.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "The up-front costs of the transition are high. ",
+                "description": "Financing the huge upfront costs to develop and deploy new technologies, which entails coordinating and incentivizing public, private and development finance resources into a coherent financing package.",
+                "source": "RPF Outcome Study" 
+            },
+            {
+                "name": "Organizations are not capable or committed  to delivering the transition.",
+                "description": "The credibility, commitment and capability of public and private institutions for providing, distributing and overseeing power is not in place to attract the necessary financing or to deliver a viable transition.",
+                "source": "RPF Outcome Study" 
+            }
+        ]
+    }
+}
