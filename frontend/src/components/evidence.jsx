@@ -20,20 +20,20 @@ const texts = {
 };
 
 const bottlenectDict = {
-  group1: {
+  "group-1": {
     name: "1. Insufficient Stakeholder Commitment to Policy Action",
     children: [
       "1.1 Inadequate commitment of political and technical leadership to policy action and associated resource mobilization and use within or across sectors",
       "1.2 Inadequately broad-based stakeholder involvement, understanding and support for policy action and associated resource mobilization and use",
     ],
   },
-  group2: {
+  "group-2": {
     name: "2. Incoherent, fragmented and poorly prioritized policy",
     children: [
       "2.1 Fragmented, over ambitious, inconsistent, uncoordinated and poorly prioritized policies across or within sectors",
     ],
   },
-  group3: {
+  "group-3": {
     name: "3. Mismatch between policy goals, priorities, capability and resources",
     children: [
       "3.1 Domestic revenue policies generate insufficient resources to achieve policy goals given fiscal reality",
@@ -41,7 +41,7 @@ const bottlenectDict = {
       "3.3 Policies do not take into account context, including the available organizational capability to achieve goals",
     ],
   },
-  group4: {
+  "group-4": {
     name: "4. Unsustainable fiscal situation of governments and organizations",
     children: [
       "4.1 Short term incentives and perspectives leads to a failure to manage fiscal risks and procyclical spending which forces deep cuts during downturns",
@@ -50,7 +50,7 @@ const bottlenectDict = {
       "4.4 Pre-existing spending commitments and debt burdens create limited fiscal space and options for fiscal consolidation and/or increasing fiscal space.",
     ],
   },
-  group5: {
+  "group-5": {
     name: "5. Inadequate and inequitable resources mobilized and deployed for policy implementation",
     children: [
       "5.1 Fragmented, uncoordinated and poorly prioritized policies across or within sectors",
@@ -59,7 +59,7 @@ const bottlenectDict = {
       "5.4 Resource deployment is not informed by demand for, the costs of or effectiveness of achieving public policy objectives.",
     ],
   },
-  group6: {
+  "group-6": {
     name: "6. Unreliable, delayed and fragmented funding for delivery",
     children: [
       "6.1 Ad hoc, political and fragmented funding channels contribute to unreliable and insufficient funding",
@@ -67,7 +67,7 @@ const bottlenectDict = {
       "6.3 Shortfalls, delays and diversion of funding for delivery",
     ],
   },
-  group7: {
+  "group-7": {
     name: "7. Inefficient deployment and management of resources and inputs for delivery",
     children: [
       "7.1 Resource deployment is inefficient overall due to high overheads and unbalanced allocations to delivery inputs and sectoral programs",
@@ -77,7 +77,7 @@ const bottlenectDict = {
       "7.5 High cost and inflated cost of procurement for infrastructure and operational inputs.",
     ],
   },
-  group8: {
+  "group-8": {
     name: "8. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements",
     children: [
       "8.1 The design of regulatory, incentive, control and management systems limits autonomy and discourages performance",
@@ -85,7 +85,7 @@ const bottlenectDict = {
       "8.3 Weaknesses in fiscal governance undermine public and private sector accountability.",
     ],
   },
-  group9: {
+  "group-9": {
     name: "9. Inadequate availability and use of data in decision making, policy delivery and accountability",
     children: [
       "9.1 Inadequate transparency, oversight, monitoring, evaluation and accountability for resources and performance",
@@ -96,10 +96,10 @@ const bottlenectDict = {
 };
 
 const roleDict = {
-  groupA: { name: 'A. Commitment to Feasible Policy' },
-  groupB: { name: 'B. Fiscal sustainability' },
-  groupC: { name: 'C. Inadequate and inequitable resources mobilized and deployed for policy implementation' },
-  groupD: { name: 'D. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements' },
+  "group-A": { name: 'A. Commitment to Feasible Policy' },
+  "group-B": { name: 'B. Fiscal sustainability' },
+  "group-C": { name: 'C. Inadequate and inequitable resources mobilized and deployed for policy implementation' },
+  "group-D": { name: 'D. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements' },
 };
 
 function Evidence({ outcome, selectedItem }) {
@@ -108,7 +108,7 @@ function Evidence({ outcome, selectedItem }) {
     : 'Role';
 
   const selectedItemDisplay =
-    bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group1';
+    bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group-1';
 
   const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
 

@@ -4,7 +4,7 @@ import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi";
 import PropTypes from "prop-types";
 
 function ArrowNav({ selectedItem, setSelectedItem }) {
-  // navigationOrder except for group, which can be group1, group2, ... or groupA, groupB, ...
+  // navigationOrder except for group, which can be group-1, group-2, ... or group-A, group-B, ...
   const baseOrder = ["outcome", "results", "policy"];
   const navigationMap = {"outcome": "Development Outcome", "results": "Public Sector Results", "policy": "Delivery Capability and Feasible Policy", "group": "Evidence"};
   const groupMatch = selectedItem.match(/^group(\d+|[A-D])$/);

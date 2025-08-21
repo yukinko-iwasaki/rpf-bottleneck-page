@@ -1,11 +1,24 @@
 import React from "react";
-import { useEffect, useRef } from "react";
-import { ReactComponent as MySvg } from '../assets/final.svg';
+import { useEffect, useRef, useState } from "react";
+import { ReactComponent as DefaultWheel } from '../assets/default-visual.svg';
+import { ReactComponent as BottleneckWheel } from '../assets/focus-bottleneck.svg';
+import { ReactComponent as RoleWheel } from '../assets/focus-roles.svg';
+
 import PropTypes from 'prop-types';
+import { ButtonGroup, ToggleButton } from "react-bootstrap";
 
 const CircleVisual = ({ onClick, selectedItem }) => {
     const svgRef = useRef(null);
+    const [wheelType, setWheelType] = useState('');
 
+    const wheel_types = [
+        { name: 'Roles of public finance', value: '1' },
+        { name: 'Public Finance Bottlenecks', value: '2' },
+    ];
+    const handleButtonClick = (e) => {
+         setWheelType(e.currentTarget.value)
+         onClick(e);
+    }
     useEffect(() => {
         if (selectedItem === 'group0') return;
 
@@ -20,9 +33,33 @@ const CircleVisual = ({ onClick, selectedItem }) => {
                 }
             }
         }
+        if (selectedItem.endsWith('roles')) {
+            // Do something specific for group-roles
+            setWheelType('1');
+        }else if (selectedItem.endsWith('bottlenecks')) {
+            setWheelType('2');
+        }
     }, [selectedItem]);
+    const MySvg = wheelType === '1' ? RoleWheel : wheelType === '2' ? BottleneckWheel : DefaultWheel;
 
     return (
+        <>
+      <ButtonGroup style={{'marginLeft': '20px'}}>
+        {wheel_types.map((radio, idx) => (
+          <ToggleButton
+            key={idx}
+            id={`radio-${idx}`}
+            type="radio"
+            variant={idx % 2 ? 'outline-success' : 'outline-danger'}
+            name="radio"
+            value={radio.value}
+            checked={wheelType === radio.value}
+            onChange={(e) => handleButtonClick(e)}
+          >
+            {radio.name}
+          </ToggleButton>
+        ))}
+      </ButtonGroup>
         <div style={{
             flex: 1,
             minHeight: 0, // Important for flex children
@@ -44,6 +81,7 @@ const CircleVisual = ({ onClick, selectedItem }) => {
                 }}
             />
         </div>
+        </>
     );
 };
 

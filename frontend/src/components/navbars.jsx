@@ -27,15 +27,15 @@ function VerticalNavbarPermanent() {
     const { outcome } = useContext(OutcomeContext);
 
     const handleVizClick = (event) => {
+        setTopDivHeight('35vh'); // Shrink when CircleVisual is clicked
         const target = event.target.closest('g');
         if (!target) return;
         setSelectedItem(target.id);
-        setTopDivHeight('35vh'); // Shrink when CircleVisual is clicked
     };
 
     const handleZoneClick = (zone) => {
         setSelectedItem(zone);
-        setTopDivHeight('55vh'); // Expand when top nav is clicked
+        setTopDivHeight('50vh'); // Expand when top nav is clicked
     };
 
     return (
