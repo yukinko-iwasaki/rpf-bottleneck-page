@@ -3,17 +3,17 @@ import { useEffect, useRef, useState } from "react";
 import { ReactComponent as DefaultWheel } from '../assets/default-visual.svg';
 import { ReactComponent as BottleneckWheel } from '../assets/focus-bottleneck.svg';
 import { ReactComponent as RoleWheel } from '../assets/focus-roles.svg';
-
+import '../custom.scss';
 import PropTypes from 'prop-types';
-import { ButtonGroup, ToggleButton } from "react-bootstrap";
+import { Button, ButtonGroup, ToggleButton } from "react-bootstrap";
 
 const CircleVisual = ({ onClick, selectedItem }) => {
     const svgRef = useRef(null);
     const [wheelType, setWheelType] = useState('');
 
     const wheel_types = [
-        { name: 'Roles of public finance', value: '1' },
-        { name: 'Public Finance Bottlenecks', value: '2' },
+        { name: 'Roles of public finance', value: '1', color:'#f74b65'},
+        { name: 'Public Finance Bottlenecks', value: '2', color:'#4d9fd2' },
     ];
     const handleButtonClick = (e) => {
          setWheelType(e.currentTarget.value)
@@ -33,33 +33,34 @@ const CircleVisual = ({ onClick, selectedItem }) => {
                 }
             }
         }
-        if (selectedItem.endsWith('roles')) {
+        if (selectedItem.endsWith('roles') || /[A-D]$/.test(selectedItem)) {
             // Do something specific for group-roles
             setWheelType('1');
-        }else if (selectedItem.endsWith('bottlenecks')) {
+        }else if (selectedItem.endsWith('bottlenecks') || /([1-9]|10)$/.test(selectedItem)) {
             setWheelType('2');
+        }else{
+            setWheelType('');
         }
     }, [selectedItem]);
     const MySvg = wheelType === '1' ? RoleWheel : wheelType === '2' ? BottleneckWheel : DefaultWheel;
 
     return (
         <>
-      <ButtonGroup style={{'marginLeft': '20px'}}>
+        <div className="bg-paper d-flex justify-content-center" style={{ gap: '10px', padding: '10px' }}>
         {wheel_types.map((radio, idx) => (
-          <ToggleButton
+          <Button
             key={idx}
             id={`radio-${idx}`}
-            type="radio"
-            variant={idx % 2 ? 'outline-success' : 'outline-danger'}
+            variant={idx % 2 ? 'outline-bottleneck' : 'outline-role'}
             name="radio"
             value={radio.value}
-            checked={wheelType === radio.value}
-            onChange={(e) => handleButtonClick(e)}
+            active={wheelType === radio.value}
+            onClick={(e) => handleButtonClick(e)}
           >
             {radio.name}
-          </ToggleButton>
+          </Button>
         ))}
-      </ButtonGroup>
+        </div>
         <div style={{
             flex: 1,
             minHeight: 0, // Important for flex children

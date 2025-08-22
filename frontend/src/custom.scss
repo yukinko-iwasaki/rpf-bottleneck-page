@@ -77,3 +77,17 @@
 .page-wrapper {
     height: calc(100vh - 70px);
 }
+
+$bottleneck-color: #4d9fd2;
+$role-color: #f74b65;
+
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "role": $role-color,
+    "bottleneck": $bottleneck-color
+  )
+);
+
+// Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap";
