@@ -42,6 +42,22 @@ const CircleVisual = ({ onClick, selectedItem }) => {
             setWheelType('');
         }
     }, [selectedItem]);
+
+    useEffect(() => {
+        if (wheelType == '1') {
+            if (!/[A-D]$/.test(selectedItem)) {
+                // Do something specific for group-roles
+                onClick(null, 'group-A');
+            }
+        }
+        if (wheelType == '2') {
+            if (!/([1-9]|10)$/.test(selectedItem)) {
+                // Do something specific for group-bottlenecks
+                onClick(null, 'group-1');
+            }
+        }
+    }, [wheelType]);
+
     const MySvg = wheelType === '1' ? RoleWheel : wheelType === '2' ? BottleneckWheel : DefaultWheel;
 
     return (

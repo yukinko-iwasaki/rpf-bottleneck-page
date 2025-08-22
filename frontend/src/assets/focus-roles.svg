@@ -11,7 +11,8 @@
       }
 
       .cls-2 {
-        font-size: 18px;
+        font-size: 20px;
+        font-weight: 'bold'
       }
 
       .cls-2, .cls-3 {
@@ -82,10 +83,10 @@
       <text class="cls-3" transform="translate(134 276.37)"><tspan x="0" y="0">in Delivery</tspan></text>
     </g>
     <g class="cls-1">
-      <text class="cls-2" transform="translate(153.5 87.67)"><tspan x="0" y="0">PUBLIC POLIC</tspan><tspan class="cls-8" x="127" y="0">Y</tspan></text>
+      <text class="cls-2" transform="translate(153.5 87.67)"><tspan x="0" y="0">PUBLIC POLICY</tspan></text>
     </g>
     <g class="cls-1">
-      <text class="cls-2" transform="translate(147 393.87)"><tspan x="0" y="0">PUBLIC SEC</tspan><tspan class="cls-8" x="109.01" y="0">T</tspan><tspan x="119.68" y="0">OR </tspan></text>
+      <text class="cls-2" transform="translate(147 393.87)"><tspan x="0" y="0">PUBLIC SECTOR</tspan></text>
       <text class="cls-2" transform="translate(160.5 415.47)"><tspan x="0" y="0">INSTITUTIONS</tspan></text>
     </g>
   </g>
