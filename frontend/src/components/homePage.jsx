@@ -9,8 +9,9 @@ import EconomicResilienceImg from '../assets/icon-resilience.jpg';
 import GenderBasedViolenceImg from '../assets/icon-gbv.jpg';
 import RenewableEnergyImg from '../assets/icon-energy.jpg';
 import UniversalHealthCareImg from '../assets/icon-health.jpg';
+import OutcomeCombinedImg from '../assets/icon-combined.jpg';
 import frameworkImg from '../assets/framework.jpg';
-
+const BASE_URL = 'https://datanalytics.worldbank.org/content/56dff2d3-4e4c-49f9-996b-1ad18c6cf404'
 function HomePage() {
   const { setOutcome } = useContext(OutcomeContext);
 
@@ -25,28 +26,29 @@ function HomePage() {
     { title: 'Gender-Based Violence', icon: GenderBasedViolenceImg, path: '/GenderBasedViolence' },
     { title: 'The Energy Transition', icon: RenewableEnergyImg, path: '/RenewableEnergy' },
     { title: 'Universal Healthcare', icon: UniversalHealthCareImg, path: '/UniversalHealthCare' },
+    { title: 'Outcome Combined', icon: OutcomeCombinedImg, path: '/OutcomeCombined' },
   ];
 
-  // useEffect(() => {
-  //   const API_URL = 'http://localhost:5000/api/data'; // Adjust the URL as needed
+  useEffect(() => {
+    const API_URL = `${BASE_URL}/api/data`; // Adjust the URL as needed
 
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch(API_URL);
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       const result = await response.json();
-  //       setData(result);
-  //       console.log(result);
+    async function fetchData() {
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        setData(result);
+        console.log(result);
 
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <Container fluid className="bg-light min-vh-100 d-flex flex-column align-items-center py-4">

@@ -2,6 +2,7 @@ import os
 from flask import Flask, send_from_directory, request
 from flask_cors import CORS
 
+BASE_URL = "https://datanalytics.worldbank.org/content/5b7c203b-ee6f-4bc5-87df-9492e61a2bb9/"
 # Define the absolute path to the React build folder.
 REACT_BUILD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'build')
 
@@ -11,7 +12,7 @@ def create_app():
     app = Flask(__name__, static_folder=os.path.join(REACT_BUILD_DIR, 'static'), template_folder=REACT_BUILD_DIR)
     
     # Enable CORS for local development
-    CORS(app)
+    CORS(app, origins=[BASE_URL, 'http://localhost:3000'])
 
     # 1. Register the API Blueprint FIRST.
     # This must be done before the catch-all route to ensure API requests are prioritized.

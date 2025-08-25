@@ -6,7 +6,7 @@ api_bp = Blueprint('api', __name__)
 
 # Define the path to your Excel file
 # Use a more secure and robust way to manage file paths in a real app
-EXCEL_FILE_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'my_data.xlsx')
+EXCEL_FILE_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'PFM_data.xlsx')
 
 @api_bp.route('/data', methods=['GET'])
 def get_all_data():
