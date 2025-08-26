@@ -6,4 +6,4 @@ if __name__ == '__main__':
     # Run the app in debug mode for development
         # Import and register the Blueprint from routes.py
 
-    app.run('localhost', port=5000, debug=True)
+    app.run('localhost', port=5000)
