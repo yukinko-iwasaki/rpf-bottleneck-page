@@ -6,9 +6,10 @@ import PolicyCapability from './policyCapability';
 import ArrowNav from './arrowNav';
 
 
-function Content({selectedItem, setSelectedItem}) {
+function Content({selectedItem, setSelectedItem, contentRef}) {
   return (
     <div
+      ref={contentRef}
       className="content"
       style={{
         height:'100%',
@@ -31,6 +32,7 @@ function Content({selectedItem, setSelectedItem}) {
 Content.propTypes = {
     selectedItem : PropTypes.object.isRequired,
     setSelectedItem: PropTypes.func.isRequired,
+    contentRef: PropTypes.object.isRequired
 };
 
 export default Content;

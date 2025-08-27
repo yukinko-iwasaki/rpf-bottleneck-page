@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import OutcomeContext from '../OutcomeContext';
@@ -25,6 +25,15 @@ function VerticalNavbarPermanent() {
     const [selectedItem, setSelectedItem] = useState('outcome');
     const [topDivHeight, setTopDivHeight] = useState('55vh');
     const { outcome } = useContext(OutcomeContext);
+    const contentRef = useRef();
+
+    useEffect(() => {
+        if (selectedItem){
+            if (contentRef.current) {
+                contentRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [selectedItem]);
 
     const handleVizClick = (event, defaultGroup='') => {
         setTopDivHeight('35vh'); // Shrink when CircleVisual is clicked
@@ -91,7 +100,7 @@ function VerticalNavbarPermanent() {
                     <CircleVisual onClick={handleVizClick} selectedItem={selectedItem} />
                 </Col>
                 <Col xs={12} md={8} lg={8} className="h-100" style={{ overflowY: 'auto' }}>
-                  <Content outcome={outcome} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+                  <Content contentRef={contentRef} outcome={outcome} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
                 </Col>
             </Row>
         </Container>
