@@ -1,12 +1,48 @@
 import PropTypes from 'prop-types';
+import { useContext, useEffect, useState } from 'react';
 import Evidence from './evidence';
 import OutcomePage from './outcomePage';
 import PublicSectorResult from './publicSectorResult';
 import PolicyCapability from './policyCapability';
 import ArrowNav from './arrowNav';
-
+import OutcomeContext from '../OutcomeContext';
+import Bottlenecks from './bottleneck';
+import {OUTCOMES} from "../constants"
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 function Content({selectedItem, setSelectedItem, contentRef}) {
+    const { outcome } = useContext(OutcomeContext);
+      const [data, setData] = useState({});
+  
+      useEffect(() => {
+      async function fetchData() {
+      try {
+        const url = new URL(`${BASE_URL}/api/data`);
+        const outcome_name = OUTCOMES[outcome]
+        const params = {filter: outcome_name}
+        url.search = new URLSearchParams(params).toString();
+
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        setData(result);
+        console.log(result);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  const bottleneckData = data?.['Bottlenecks']
+  const rolesData = data?.['Roles'];
+
+  const bottleneck_list = bottleneckData ? Object.keys(bottleneckData) : []
+
   return (
     <div
       ref={contentRef}
@@ -23,7 +59,8 @@ function Content({selectedItem, setSelectedItem, contentRef}) {
       {selectedItem === 'results' && <PublicSectorResult />}
       {selectedItem === 'outcome' && <OutcomePage />}
       {selectedItem === 'policy' && <PolicyCapability />}
-      {selectedItem.startsWith('group') && <Evidence selectedItem={selectedItem} />}
+      {bottleneck_list?.includes(selectedItem) && <Bottlenecks selectedItem={selectedItem} bottleneckData={bottleneckData}/>}
+      {/* {selectedItem.startsWith('group') && <Evidence selectedItem={selectedItem} data={data}/>} */}
 
     </div>
   );

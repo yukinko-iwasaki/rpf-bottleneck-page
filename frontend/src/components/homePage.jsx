@@ -19,7 +19,6 @@ function HomePage() {
     setOutcome(newOutcome);
   };
 
-  const [data, setData] = useState({});
   const tiles = [
     { title: 'Education', icon: EducationImg, path: '/Education' },
     { title: 'Economic Resilience', icon: EconomicResilienceImg, path: '/EconomicResilience' },
@@ -29,26 +28,6 @@ function HomePage() {
     { title: 'Outcome Combined', icon: OutcomeCombinedImg, path: '/OutcomeCombined' },
   ];
 
-  useEffect(() => {
-    const API_URL = `${BASE_URL}/api/data`; // Adjust the URL as needed
-
-    async function fetchData() {
-      try {
-        const response = await fetch(API_URL);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const result = await response.json();
-        setData(result);
-        console.log(result);
-
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
-
-    fetchData();
-  }, []);
 
   return (
     <Container fluid className="bg-light min-vh-100 d-flex flex-column align-items-center py-4">

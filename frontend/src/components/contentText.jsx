@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-const createSampleText = (length = 50) =>{
-    return Array.from({ length }, () => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.").join(" ");
-}
 
 const COUNTRIES = ["Rwanda"]
 const anonymizeCountry = (text) => {
@@ -14,7 +11,7 @@ const anonymizeCountry = (text) => {
     return text;
 }
 
-const createText = (data, viz_type) => {
+const createText = (data, viz_type, show) => {
     let title = null
     if (viz_type === 'Bottleneck Group'){
         title = data.outcomeBottleneck || data.description
@@ -24,9 +21,10 @@ const createText = (data, viz_type) => {
             <div style={{ width:'100%'}}>
                 <p><span style={{'fontWeight':'bold'}}>{title}</span></p>
             </div>
-            <div style={{ fontSize: '16px', color: '#333' }}>
-                 <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples</div> 
-                {data.examples && data.examples.map((example, index) => (
+            
+           <div style={{ fontSize: '16px', color: '#333' }}>
+                 <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples: </div> 
+                {show && data.examples && data.examples.map((example, index) => (
                     <p key={index} style={{ fontSize: '16px', marginLeft:'20px'}}>
                        {anonymizeCountry(example.text)}
                         {example.ref && <span style={{ fontStyle: 'italic',fontSize: '12px' }}><br/> Reference:  {anonymizeCountry(example.ref)}, Source: {anonymizeCountry(example.source)}</span>}
@@ -38,9 +36,9 @@ const createText = (data, viz_type) => {
     )
 }
 function ContentText(props) {
-    const { data, viz_type } = props;
+    const { data, viz_type, show } = props;
 
-    const text = createText(data, viz_type)
+    const text = createText(data, viz_type, show)
 
     return (
         <div className="content-text">

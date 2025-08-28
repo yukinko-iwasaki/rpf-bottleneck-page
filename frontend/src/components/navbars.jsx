@@ -6,6 +6,7 @@ import Content from './content';
 import CircleVisual from './circleVisual';
 import verticalNavImg from '../assets/vertical-nav.png';
 
+
 const HOVER_ZONES = [
   {
     id: 'outcome',

@@ -53,7 +53,7 @@ const CircleVisual = ({ onClick, selectedItem }) => {
         if (wheelType == '2') {
             if (!/([1-9]|10)$/.test(selectedItem)) {
                 // Do something specific for group-bottlenecks
-                onClick(null, 'group-1');
+                onClick(null, '1. Insufficient Stakeholder Commitment to Policy Action');
             }
         }
     }, [wheelType]);

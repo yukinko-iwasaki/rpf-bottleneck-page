@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import ContentText from "./contentText";
 import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
 import { ReactComponent as Map } from '../assets/map.svg';
 const bottleneckData = require('../data/bottleneck.json');
 const roleData = require('../data/roles.json');
@@ -111,7 +112,7 @@ function Evidence({ outcome, selectedItem }) {
     bottlenectDict[selectedItem]?.name || roleDict[selectedItem]?.name || 'group-1';
 
   const data = viz_type === 'Bottleneck Group' ? bottleneckData : roleData;
-
+  const SHOW_EVIDENCE = process.env.REACT_APP_SHOW_EXAMPLES === 'True';
   return (
     <>
       {selectedItem && (
@@ -125,18 +126,19 @@ function Evidence({ outcome, selectedItem }) {
       <div className="pt-4">
         <div className="container text-start">
           <p className="fw-bold ps-2">{texts[viz_type].sub_title}</p>
-          <Accordion className="mb-4">
-            {data.map((item, index) => (
-              <Accordion.Item eventKey={index.toString()} key={index}>
-                <Accordion.Header>{item.title}</Accordion.Header>
-                <Accordion.Body>
-                  <div>
-                    <ContentText data={item} viz_type={viz_type} />
-                  </div>
-                </Accordion.Body>
-              </Accordion.Item>
-            ))}
-          </Accordion>
+            <Accordion className="mb-4">
+              {data.map((item, index) => (
+                <Accordion.Item eventKey={index.toString()} key={index}>
+                  <Accordion.Header disabled={true}>{item.title}</Accordion.Header>
+                  <Accordion.Body>
+                    <div>
+                      <ContentText show={SHOW_EVIDENCE} data={item} viz_type={viz_type} />
+                    </div>
+                  </Accordion.Body>
+                </Accordion.Item>
+              ))}
+            </Accordion>
+          
         </div>
       </div>
     </>

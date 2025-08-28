@@ -1,4 +1,3 @@
-
 from flask import jsonify, Blueprint
 import os
 import pandas as pd
@@ -116,23 +115,23 @@ def create_bottlenecks_outcomes():
     return data_dict
 
 # --- API Route ---
-@api_bp.route('/data', methods=['GET'])
-def get_all_data():
-    """API endpoint to retrieve all data from the Excel file."""
-    data = {
-        'taxonomy-bottlenecks': create_taxonomy_bottleneck(),
-        'taxonomy-roles': create_flat_data('Taxonomy-roles'),
-        'taxonomy-overview': create_flat_data('Taxonomy-overview'),
-        'outcome-results': create_outcome_results(),
-        'Public Sector Challenges': create_public_sector_challenges(),
-        'Roles - Outcome': create_roles_outcomes(),
-        'Bottlenecks - Outcomes': create_bottlenecks_outcomes(),
-    }
-    return safe_jsonify(data)
+# @api_bp.route('/data', methods=['GET'])
+# def get_all_data():
+#     """API endpoint to retrieve all data from the Excel file."""
+#     data = {
+#         'taxonomy-bottlenecks': create_taxonomy_bottleneck(),
+#         'taxonomy-roles': create_flat_data('Taxonomy-roles'),
+#         'taxonomy-overview': create_flat_data('Taxonomy-overview'),
+#         'outcome-results': create_outcome_results(),
+#         'Public Sector Challenges': create_public_sector_challenges(),
+#         'Roles - Outcome': create_roles_outcomes(),
+#         'Bottlenecks - Outcomes': create_bottlenecks_outcomes(),
+#     }
+#     return safe_jsonify(data)
 
 from flask import request
 
-@api_bp.route('/test', methods=['GET'])
+@api_bp.route('/data', methods=['GET'])
 def get_example_data():
     """API endpoint to retrieve filtered data from the Excel file."""
     filter_value = request.args.get('filter')
@@ -142,18 +141,33 @@ def get_example_data():
     bottleneck_examples = read_excel('Bottlenecks - Examples')
     if isinstance(bottleneck_examples, tuple):
         return bottleneck_examples
-    filtered_bottleneck_data = bottleneck_examples[bottleneck_examples['Primary PFM Challenge'] == filter_value]
+    filtered_bottleneck_data = bottleneck_examples[bottleneck_examples['Primary PFM Challenge'] == filter_value].dropna(subset=["Public Finance Bottleneck Group", "Public Finance Bottleneck"])
     data_dict = {}
     for _, row in filtered_bottleneck_data.iterrows():
-        row_data = {"Country":row["Country"], "Description of  Examples of Bottlenecks": row["Description of  Examples of Bottlenecks"], "References": row["References"]}
-        data_dict.setdefault(row["Public Finance Bottleneck Group"], []).append(row_data)
+        parent = row["Public Finance Bottleneck Group"]
+        child = row["Public Finance Bottleneck"]
+        # Exclude parent and child columns from the nested dict
+        nested = {c: str(row[c]) for c in filtered_bottleneck_data.columns if c not in ["Public Finance Bottleneck Group", "Public Finance Bottleneck"]}
+        if parent not in data_dict:
+            data_dict[parent] = {}
+        if child not in data_dict[parent]:
+            data_dict[parent][child] = [nested]
+        else:
+            data_dict[parent][child].append(nested)
 
     roles_examples = read_excel('Roles - Examples')
     if isinstance(roles_examples, tuple):
         return roles_examples
-    filtered_roles_data = roles_examples[roles_examples['Outcome'] == filter_value]
+    filtered_roles_data = roles_examples[roles_examples['Outcome'] == filter_value].dropna(subset="Role of Public Finance")
+    dict_data_role = {}
+    for _, row in filtered_roles_data.iterrows():
+        parent = row["Role of Public Finance"]
+        child = {c: str(row[c]) for c in filtered_roles_data.columns if c != "Role of Public Finance"}
 
+        if parent not in dict_data_role:
+            dict_data_role[parent] = []
+        dict_data_role[parent].append(child)
     return safe_jsonify({
         'Bottlenecks': data_dict,
-        'Roles': json.loads(filtered_roles_data.to_json(orient='records'))
+        'Roles': dict_data_role
     })
