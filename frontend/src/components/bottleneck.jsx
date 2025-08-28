@@ -6,7 +6,7 @@ import Accordion from 'react-bootstrap/Accordion';
 function Bottlenecks({ selectedItem, bottleneckData }) {
 
 
-  const data = bottleneckData[selectedItem]?.child || [];
+  const data = bottleneckData[selectedItem] || [];
   const bottleneck_group = bottleneckData[selectedItem]?.name || '';
   const SHOW_EVIDENCE = process.env.REACT_APP_SHOW_EXAMPLES === 'True';
   return (
@@ -25,24 +25,31 @@ function Bottlenecks({ selectedItem, bottleneckData }) {
             <Accordion className="mb-4">
               {Object.keys(data).map((bottleneckName, index) => {
                 if (bottleneckName === 'name') return null; // Skip the 'name' key
-                const bottleneckData = data[bottleneckName].child || [];
+                const bottleneckData = data[bottleneckName] || [];
                 const bottleneck_name = data[bottleneckName]?.['name'] || '';
                 return (
                   <Accordion.Item eventKey={index.toString()} key={index}>
                     <Accordion.Header>{bottleneck_name}</Accordion.Header>
                     <Accordion.Body>
-                      {bottleneckData.map((item, index) => {
-                        const title = item['Outcome Bottleneck'];
-                            const example = item["Description of  Examples of Bottlenecks"]
-                            const exampleRef = item["References"]
-                            const source = item["Source"]
+                      {Object.keys(bottleneckData).map((bottleneck_outcome, index) => {
+                            const item = bottleneck_outcome !== 'name' ? bottleneckData[bottleneck_outcome] : [];
                         return (
-                          <div key={index} style={{ padding: '10px', lineHeight: '1.2', fontFamily: 'Arial, sans-serif', textAlign: 'left' }}>
+                          item.length > 0 && <div key={index} style={{ padding: '10px', lineHeight: '1.2', fontFamily: 'Arial, sans-serif', textAlign: 'left' }}>
                             <div style={{ width:'100%'}}>
-                                <p><span style={{'fontWeight':'bold'}}>{title}</span></p>
+                                <p><span style={{'fontWeight':'bold'}}>{bottleneck_outcome}</span></p>
                             </div>
-                            <ContentText show={true} example={example} exampleRef={exampleRef} source={source} />
-                          </div>
+                            <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples: </div> 
+                            {
+                              item.map((example, index) => {
+                                const exampleText = example["Description of  Examples of Bottlenecks"];
+                                const exampleRef = example["References"];
+                                const source = example["Source"];
+                                return (
+                                  <ContentText show={true} example={exampleText} exampleRef={exampleRef} source={source} key={index} />
+                                );
+                              })
+                            }
+                                                      </div>
                         );
                       })}
                     </Accordion.Body>

@@ -7,6 +7,7 @@ import PolicyCapability from './policyCapability';
 import ArrowNav from './arrowNav';
 import OutcomeContext from '../OutcomeContext';
 import Bottlenecks from './bottleneck';
+import Roles from './role';
 import {OUTCOMES} from "../constants"
 const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
@@ -59,7 +60,7 @@ function Content({selectedItem, setSelectedItem, contentRef}) {
       {selectedItem === 'outcome' && <OutcomePage />}
       {selectedItem === 'policy' && <PolicyCapability />}
       {selectedItem.startsWith('bottleneck') && <Bottlenecks selectedItem={selectedItem} bottleneckData={bottleneckData}/>}
-      {/* {selectedItem.startsWith('group') && <Evidence selectedItem={selectedItem} data={data}/>} */}
+      {selectedItem.startsWith('role') && <Roles selectedItem={selectedItem} rolesData={rolesData}/>}
 
     </div>
   );

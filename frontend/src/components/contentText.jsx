@@ -16,7 +16,6 @@ const createText = (example, exampleRef, source, show) => {
 
             
            <div style={{ fontSize: '16px', color: '#333' }}>
-                 <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples: </div> 
                 {show && example && (
                     <p  style={{ fontSize: '16px', marginLeft:'20px'}}>
                        {anonymizeCountry(example)}

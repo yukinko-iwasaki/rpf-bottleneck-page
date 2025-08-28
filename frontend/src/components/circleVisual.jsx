@@ -47,7 +47,7 @@ const CircleVisual = ({ onClick, selectedItem }) => {
         if (wheelType == '1') {
             if (!/[A-D]$/.test(selectedItem)) {
                 // Do something specific for group-roles
-                onClick(null, 'group-A');
+                onClick(null, 'role_A');
             }
         }
         if (wheelType == '2') {

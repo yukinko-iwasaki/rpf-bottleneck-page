@@ -151,6 +151,7 @@ def get_example_data():
     for _, row in filtered_bottleneck_data.iterrows():
         parent_name = str(row["Public Finance Bottleneck Group"]).strip()
         child_name = str(row["Public Finance Bottleneck"]).strip()
+        grandchild_name = str(row["Outcome Bottleneck"]).strip()
         parent_num = extract_bottleneck_number(parent_name)
         child_num = extract_bottleneck_number(child_name)
         parent_key = f"bottleneck_{parent_num}" if parent_num else parent_name
@@ -159,31 +160,42 @@ def get_example_data():
         nested = {c: str(row[c]) for c in filtered_bottleneck_data.columns if c not in ["Public Finance Bottleneck Group", "Public Finance Bottleneck"]}
         # Parent
         if parent_key not in data_dict:
-            data_dict[parent_key] = {"name": parent_name, "child": []}
-        # Find or create the child entry as a list
-        # Check if child_key already exists in any child_obj in the parent's child list
-        child_list = data_dict[parent_key]["child"]
-        child_entry = next((item for item in child_list if child_key in item), None)
-        if child_entry is None:
-            # Create a new list for this child_key
-            child_entry = {"child": [{"name": child_name, **nested}], "name": child_name}
-            child_list.append(child_entry)
-        else:
-            # Append to the existing list for this child_key
-            child_entry[child_key].append({"name": child_name, **nested})
+            data_dict[parent_key] = {"name": parent_name}
+        # Group all examples for the same child_key under an object with 'name' and 'child' list
+        if child_key not in data_dict[parent_key]:
+            data_dict[parent_key][child_key] = {"name": child_name}
+        if grandchild_name not in data_dict[parent_key][child_key]:
+            data_dict[parent_key][child_key][grandchild_name] = []
+        data_dict[parent_key][child_key][grandchild_name].append({**nested})
 
     roles_examples = read_excel('Roles - Examples')
     if isinstance(roles_examples, tuple):
         return roles_examples
     filtered_roles_data = roles_examples[roles_examples['Outcome'] == filter_value].dropna(subset="Role of Public Finance")
     dict_data_role = {}
+    def extract_role_letter(text):
+        match = re.match(r"([A-Z])", text)
+        return match.group(1) if match else None
+    
     for _, row in filtered_roles_data.iterrows():
-        parent = row["Role of Public Finance"]
-        child = {c: str(row[c]) for c in filtered_roles_data.columns if c != "Role of Public Finance"}
-
-        if parent not in dict_data_role:
-            dict_data_role[parent] = []
-        dict_data_role[parent].append(child)
+        parent_name = str(row["Role of Public Finance"]).strip()
+        child_name = str(row["Outcome Role"]).strip()
+        parent_num = extract_role_letter(parent_name)
+        parent_key = f"role_{parent_num}" if parent_num else parent_name
+        # Exclude parent and child columns from the nested dict
+        nested = {c: str(row[c]) for c in filtered_roles_data.columns if c not in ["Role of Public Finance", "Outcome Role"]}
+        # Parent
+        if parent_key not in dict_data_role:
+            dict_data_role[parent_key] = {"name": parent_name, "child": []}
+        # Find or create the child entry as a dict with 'name' and 'child' list
+        child_list = dict_data_role[parent_key]["child"]
+        child_entry = next((item for item in child_list if item["name"] == child_name), None)
+        if child_entry is None:
+            child_entry = {"name": child_name, "child": []}
+            child_list.append(child_entry)
+        child_entry["child"].append({**nested})
+    
+    
     return safe_jsonify({
         'Bottlenecks': data_dict,
         'Roles': dict_data_role
