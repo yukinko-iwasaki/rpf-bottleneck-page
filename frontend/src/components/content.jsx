@@ -41,7 +41,6 @@ function Content({selectedItem, setSelectedItem, contentRef}) {
   const bottleneckData = data?.['Bottlenecks']
   const rolesData = data?.['Roles'];
 
-  const bottleneck_list = bottleneckData ? Object.keys(bottleneckData) : []
 
   return (
     <div
@@ -59,7 +58,7 @@ function Content({selectedItem, setSelectedItem, contentRef}) {
       {selectedItem === 'results' && <PublicSectorResult />}
       {selectedItem === 'outcome' && <OutcomePage />}
       {selectedItem === 'policy' && <PolicyCapability />}
-      {bottleneck_list?.includes(selectedItem) && <Bottlenecks selectedItem={selectedItem} bottleneckData={bottleneckData}/>}
+      {selectedItem.startsWith('bottleneck') && <Bottlenecks selectedItem={selectedItem} bottleneckData={bottleneckData}/>}
       {/* {selectedItem.startsWith('group') && <Evidence selectedItem={selectedItem} data={data}/>} */}
 
     </div>

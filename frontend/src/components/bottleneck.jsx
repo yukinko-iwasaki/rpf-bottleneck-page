@@ -2,89 +2,12 @@ import React from "react";
 import PropTypes from 'prop-types';
 import ContentText from "./contentText";
 import Accordion from 'react-bootstrap/Accordion';
-const bottleneckData = require('../data/bottleneck.json');
-
-const bottlenectDict = {
-  "group-1": {
-    name: "1. Insufficient Stakeholder Commitment to Policy Action",
-    children: [
-      "1.1 Inadequate commitment of political and technical leadership to policy action and associated resource mobilization and use within or across sectors",
-      "1.2 Inadequately broad-based stakeholder involvement, understanding and support for policy action and associated resource mobilization and use",
-    ],
-  },
-  "group-2": {
-    name: "2. Incoherent, fragmented and poorly prioritized policy",
-    children: [
-      "2.1 Fragmented, over ambitious, inconsistent, uncoordinated and poorly prioritized policies across or within sectors",
-    ],
-  },
-  "group-3": {
-    name: "3. Mismatch between policy goals, priorities, capability and resources",
-    children: [
-      "3.1 Domestic revenue policies generate insufficient resources to achieve policy goals given fiscal reality",
-      "3.2 Public policy goals and delivery models are unaffordable given current and future costs and fiscal reality.",
-      "3.3 Policies do not take into account context, including the available organizational capability to achieve goals",
-    ],
-  },
-  "group-4": {
-    name: "4. Unsustainable fiscal situation of governments and organizations",
-    children: [
-      "4.1 Short term incentives and perspectives leads to a failure to manage fiscal risks and procyclical spending which forces deep cuts during downturns",
-      "4.2 Biased or inaccurate fiscal forecasting and unpredictable, volatile resource flows result in budgets being under funded.",
-      "4.3 Un-strategic, ad hoc and supply driven debt management contributes to unsustainable fiscal situations and burdens",
-      "4.4 Pre-existing spending commitments and debt burdens create limited fiscal space and options for fiscal consolidation and/or increasing fiscal space.",
-    ],
-  },
-  "group-5": {
-    name: "5. Inadequate and inequitable resources mobilized and deployed for policy implementation",
-    children: [
-      "5.1 Fragmented, uncoordinated and poorly prioritized policies across or within sectors",
-      "5.2 Limited or costly financing mobilized for investment and service delivery",
-      "5.3 Resource deployment is often incremental and disconnected from public policy priorities",
-      "5.4 Resource deployment is not informed by demand for, the costs of or effectiveness of achieving public policy objectives.",
-    ],
-  },
-  "group-6": {
-    name: "6. Unreliable, delayed and fragmented funding for delivery",
-    children: [
-      "6.1 Ad hoc, political and fragmented funding channels contribute to unreliable and insufficient funding",
-      "6.2 Intergovernmental financing systems for delivery are often inefficient, unbalanced and uncoordinated between levels of government.",
-      "6.3 Shortfalls, delays and diversion of funding for delivery",
-    ],
-  },
-  "group-7": {
-    name: "7. Inefficient deployment and management of resources and inputs for delivery",
-    children: [
-      "7.1 Resource deployment is inefficient overall due to high overheads and unbalanced allocations to delivery inputs and sectoral programs",
-      "7.2 Inefficient public investment decisions and management of assets",
-      "7.3 High cost, inefficient deployment, poor motivation and inadequate skills of human resources for delivery",
-      "7.4 Limited availability of operational funding to regulate and run services and maintain infrastructure and other assets.",
-      "7.5 High cost and inflated cost of procurement for infrastructure and operational inputs.",
-    ],
-  },
-  "group-8": {
-    name: "8. Insufficient, opaque and fragmented management, oversight, transparency and accountability systems and arrangements",
-    children: [
-      "8.1 The design of regulatory, incentive, control and management systems limits autonomy and discourages performance",
-      "8.2 Inconsistent application or enforcement of regulatory, PFM and public sector management systems undermine performance and accountability",
-      "8.3 Weaknesses in fiscal governance undermine public and private sector accountability.",
-    ],
-  },
-  "group-9": {
-    name: "9. Inadequate availability and use of data in decision making, policy delivery and accountability",
-    children: [
-      "9.1 Inadequate transparency, oversight, monitoring, evaluation and accountability for resources and performance",
-      "9.2 Available financial and non-financial information not used for decision making, management and accountability",
-      "9.3 Data systems are weak or poor quality information, are fragmented and do not interoperate.",
-    ],
-  },
-};
-
 
 function Bottlenecks({ selectedItem, bottleneckData }) {
 
 
-  const data = bottleneckData[selectedItem] || [];
+  const data = bottleneckData[selectedItem]?.child || [];
+  const bottleneck_group = bottleneckData[selectedItem]?.name || '';
   const SHOW_EVIDENCE = process.env.REACT_APP_SHOW_EXAMPLES === 'True';
   return (
     <>
@@ -92,26 +15,42 @@ function Bottlenecks({ selectedItem, bottleneckData }) {
         <div className="container p-4 mb-4 border rounded shadow bg-white text-start" style={{ maxWidth: '900px' }}>
           <p className="mb-2">'The outcome-led framework then identifies nine common bottlenecks which undermine the potential role of public finance across development outcomes.'</p>
           <p className="mb-1">You have selected:</p>
-          <p className="fw-bold">{selectedItem}</p>
+          <p className="fw-bold">{bottleneck_group}</p>
         </div>
       )}
 
       <div className="pt-4">
         <div className="container text-start">
-          <p className="fw-bold ps-2">This role contributes to the sector outcome as follows:</p>
+          <p className="fw-bold ps-2">This typically constrains the achievement of public sector results as follows:</p>
             <Accordion className="mb-4">
-              {Object.keys(data).map((item, index) => (
-                <Accordion.Item eventKey={index.toString()} key={index}>
-                  <Accordion.Header disabled={true}>{item}</Accordion.Header>
-                  <Accordion.Body>
-                    <div>
-                      <ContentText show={SHOW_EVIDENCE} data={item} viz_type='Bottleneck Group' />
-                    </div>
-                  </Accordion.Body>
-                </Accordion.Item>
-              ))}
+              {Object.keys(data).map((bottleneckName, index) => {
+                if (bottleneckName === 'name') return null; // Skip the 'name' key
+                const bottleneckData = data[bottleneckName].child || [];
+                const bottleneck_name = data[bottleneckName]?.['name'] || '';
+                return (
+                  <Accordion.Item eventKey={index.toString()} key={index}>
+                    <Accordion.Header>{bottleneck_name}</Accordion.Header>
+                    <Accordion.Body>
+                      {bottleneckData.map((item, index) => {
+                        const title = item['Outcome Bottleneck'];
+                            const example = item["Description of  Examples of Bottlenecks"]
+                            const exampleRef = item["References"]
+                            const source = item["Source"]
+                        return (
+                          <div key={index} style={{ padding: '10px', lineHeight: '1.2', fontFamily: 'Arial, sans-serif', textAlign: 'left' }}>
+                            <div style={{ width:'100%'}}>
+                                <p><span style={{'fontWeight':'bold'}}>{title}</span></p>
+                            </div>
+                            <ContentText show={true} example={example} exampleRef={exampleRef} source={source} />
+                          </div>
+                        );
+                      })}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                );
+              })}
             </Accordion>
-          
+
         </div>
       </div>
     </>

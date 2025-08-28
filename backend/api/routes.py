@@ -142,18 +142,35 @@ def get_example_data():
     if isinstance(bottleneck_examples, tuple):
         return bottleneck_examples
     filtered_bottleneck_data = bottleneck_examples[bottleneck_examples['Primary PFM Challenge'] == filter_value].dropna(subset=["Public Finance Bottleneck Group", "Public Finance Bottleneck"])
+    import re
     data_dict = {}
+    def extract_bottleneck_number(text):
+        match = re.match(r"(\d+(?:\.\d+)*)", text)
+        return match.group(1) if match else None
+
     for _, row in filtered_bottleneck_data.iterrows():
-        parent = row["Public Finance Bottleneck Group"]
-        child = row["Public Finance Bottleneck"]
+        parent_name = str(row["Public Finance Bottleneck Group"]).strip()
+        child_name = str(row["Public Finance Bottleneck"]).strip()
+        parent_num = extract_bottleneck_number(parent_name)
+        child_num = extract_bottleneck_number(child_name)
+        parent_key = f"bottleneck_{parent_num}" if parent_num else parent_name
+        child_key = f"bottleneck_{child_num.replace('.', '_')}" if child_num else child_name
         # Exclude parent and child columns from the nested dict
         nested = {c: str(row[c]) for c in filtered_bottleneck_data.columns if c not in ["Public Finance Bottleneck Group", "Public Finance Bottleneck"]}
-        if parent not in data_dict:
-            data_dict[parent] = {}
-        if child not in data_dict[parent]:
-            data_dict[parent][child] = [nested]
+        # Parent
+        if parent_key not in data_dict:
+            data_dict[parent_key] = {"name": parent_name, "child": []}
+        # Find or create the child entry as a list
+        # Check if child_key already exists in any child_obj in the parent's child list
+        child_list = data_dict[parent_key]["child"]
+        child_entry = next((item for item in child_list if child_key in item), None)
+        if child_entry is None:
+            # Create a new list for this child_key
+            child_entry = {"child": [{"name": child_name, **nested}], "name": child_name}
+            child_list.append(child_entry)
         else:
-            data_dict[parent][child].append(nested)
+            # Append to the existing list for this child_key
+            child_entry[child_key].append({"name": child_name, **nested})
 
     roles_examples = read_excel('Roles - Examples')
     if isinstance(roles_examples, tuple):

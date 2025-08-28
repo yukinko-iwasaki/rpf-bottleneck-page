@@ -11,34 +11,25 @@ const anonymizeCountry = (text) => {
     return text;
 }
 
-const createText = (data, viz_type, show) => {
-    let title = null
-    if (viz_type === 'Bottleneck Group'){
-        title = data.outcomeBottleneck || data.description
-    }
+const createText = (example, exampleRef, source, show) => {
     return (
-        <div style={{ padding: '10px', lineHeight: '1.2', fontFamily: 'Arial, sans-serif', textAlign: 'left' }}>
-            <div style={{ width:'100%'}}>
-                <p><span style={{'fontWeight':'bold'}}>{title}</span></p>
-            </div>
+
             
            <div style={{ fontSize: '16px', color: '#333' }}>
                  <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples: </div> 
-                {show && data.examples && data.examples.map((example, index) => (
-                    <p key={index} style={{ fontSize: '16px', marginLeft:'20px'}}>
-                       {anonymizeCountry(example.text)}
-                        {example.ref && <span style={{ fontStyle: 'italic',fontSize: '12px' }}><br/> Reference:  {anonymizeCountry(example.ref)}, Source: {anonymizeCountry(example.source)}</span>}
+                {show && example && (
+                    <p  style={{ fontSize: '16px', marginLeft:'20px'}}>
+                       {anonymizeCountry(example)}
+                        {exampleRef && <span style={{ fontStyle: 'italic',fontSize: '12px' }}><br/> Reference:  {anonymizeCountry(exampleRef)}, Source: {anonymizeCountry(source)}</span>}
                    </p>
-                ))}
+                )}
             </div>
 
-        </div>
     )
 }
-function ContentText(props) {
-    const { data, viz_type, show } = props;
+function ContentText({example, exampleRef, source, show}) {
 
-    const text = createText(data, viz_type, show)
+    const text = createText(example, exampleRef, source, show)
 
     return (
         <div className="content-text">
@@ -47,7 +38,9 @@ function ContentText(props) {
     );
 }
 ContentText.propTypes = {
-    data: PropTypes.string.isRequired,
-    viz_type: PropTypes.string.isRequired, // Added viz_type prop type
+    example: PropTypes.string.isRequired,
+    exampleRef: PropTypes.string,
+    source: PropTypes.string,
+    show: PropTypes.bool.isRequired
 };
 export default ContentText;
