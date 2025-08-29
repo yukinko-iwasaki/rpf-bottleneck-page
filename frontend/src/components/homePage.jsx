@@ -11,13 +11,13 @@ import RenewableEnergyImg from '../assets/icon-energy.jpg';
 import UniversalHealthCareImg from '../assets/icon-health.jpg';
 import OutcomeCombinedImg from '../assets/icon-combined.jpg';
 import frameworkImg from '../assets/framework.jpg';
-const BASE_URL = 'https://datanalytics.worldbank.org/content/56dff2d3-4e4c-49f9-996b-1ad18c6cf404'
 function HomePage() {
   const { setOutcome } = useContext(OutcomeContext);
 
   const handleNavigation = (newOutcome, path) => {
     setOutcome(newOutcome);
   };
+
 
   const tiles = [
     { title: 'Education', icon: EducationImg, path: '/Education' },

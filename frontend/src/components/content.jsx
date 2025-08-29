@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
-import Evidence from './evidence';
 import OutcomePage from './outcomePage';
 import PublicSectorResult from './publicSectorResult';
 import PolicyCapability from './policyCapability';
@@ -39,6 +38,29 @@ function Content({selectedItem, setSelectedItem, contentRef}) {
     fetchData();
   }, []);
 
+  const [frameworkData, setFrameworkData] = useState({});
+
+  useEffect(() => {
+  async function fetchData() {
+  try {
+    const url = new URL(`${BASE_URL}/api/framework`);
+
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const result = await response.json();
+    setFrameworkData(result);
+    console.log(result);
+
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+      }
+
+      fetchData();
+    }, []);
+
   const bottleneckData = data?.['Bottlenecks']
   const rolesData = data?.['Roles'];
 
@@ -56,9 +78,9 @@ function Content({selectedItem, setSelectedItem, contentRef}) {
       }}
     >
       <ArrowNav selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
-      {selectedItem === 'results' && <PublicSectorResult />}
-      {selectedItem === 'outcome' && <OutcomePage />}
-      {selectedItem === 'policy' && <PolicyCapability />}
+      {selectedItem === 'results' && frameworkData && frameworkData['outcome-results'] && <PublicSectorResult resultData={frameworkData['outcome-results']} challengeData={frameworkData['Public Sector Challenges']} />}
+      {selectedItem === 'outcome' && frameworkData && frameworkData['outcome-results'] &&<OutcomePage frameworkData={frameworkData['outcome-results']}/>}
+      {selectedItem === 'policy' && frameworkData && frameworkData['outcome-results'] && <PolicyCapability frameworkData={frameworkData['outcome-results']} />}
       {selectedItem.startsWith('bottleneck') && <Bottlenecks selectedItem={selectedItem} bottleneckData={bottleneckData}/>}
       {selectedItem.startsWith('role') && <Roles selectedItem={selectedItem} rolesData={rolesData}/>}
 

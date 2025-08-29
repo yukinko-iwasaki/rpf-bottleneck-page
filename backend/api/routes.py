@@ -54,10 +54,11 @@ def create_outcome_results():
         return df
     data_dict = {}
     parent_title = 'Outcome'
-    children = ["Public Sector Results", "Feasible Policy", "Delivery Capability", "Source"]
+    children = ["Public Sector Results", "Feasible Policy", "Delivery Capability", "Source", "Development Outcome"]
     for _, row in df.iterrows():
+        parent = row[parent_title]
         data = {child: row[child] for child in children}
-        data_dict.setdefault(row[parent_title], []).append(data)
+        data_dict[parent] = data
     return data_dict
 
 def create_public_sector_challenges():
@@ -115,19 +116,19 @@ def create_bottlenecks_outcomes():
     return data_dict
 
 # --- API Route ---
-# @api_bp.route('/data', methods=['GET'])
-# def get_all_data():
-#     """API endpoint to retrieve all data from the Excel file."""
-#     data = {
-#         'taxonomy-bottlenecks': create_taxonomy_bottleneck(),
-#         'taxonomy-roles': create_flat_data('Taxonomy-roles'),
-#         'taxonomy-overview': create_flat_data('Taxonomy-overview'),
-#         'outcome-results': create_outcome_results(),
-#         'Public Sector Challenges': create_public_sector_challenges(),
-#         'Roles - Outcome': create_roles_outcomes(),
-#         'Bottlenecks - Outcomes': create_bottlenecks_outcomes(),
-#     }
-#     return safe_jsonify(data)
+@api_bp.route('/framework', methods=['GET'])
+def get_all_data():
+    """API endpoint to retrieve all data from the Excel file."""
+    data = {
+        'taxonomy-bottlenecks': create_taxonomy_bottleneck(),
+        'taxonomy-roles': create_flat_data('Taxonomy-roles'),
+        'taxonomy-overview': create_flat_data('Taxonomy-overview'),
+        'outcome-results': create_outcome_results(),
+        'Public Sector Challenges': create_public_sector_challenges(),
+        'Roles - Outcome': create_roles_outcomes(),
+        'Bottlenecks - Outcomes': create_bottlenecks_outcomes(),
+    }
+    return safe_jsonify(data)
 
 from flask import request
 

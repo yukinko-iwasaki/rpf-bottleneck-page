@@ -1,12 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useContext } from "react";
 import { Container, Card } from 'react-bootstrap';
 import OutcomeContext from "../OutcomeContext";
-const data = require("../data/publicSectorResult.json");
+import { OUTCOMES } from "../constants";
 
-function PublicSectorResult() {
+function PublicSectorResult({resultData, challengeData}) {
     const { outcome } = useContext(OutcomeContext);
-    const publicSectorResult = data[outcome] || {};
+    const outcome_name = OUTCOMES[outcome]
+    const publicSectorResult = resultData[outcome_name] || {};
+    const allChallenges = challengeData[outcome_name] || {};
     return (
       <Container className="d-flex justify-content-center">
         <Card className="w-100" style={{ maxWidth: '900px' }}>
@@ -24,7 +27,7 @@ function PublicSectorResult() {
                     lineHeight: '1.8',
                     fontSize: '1.0rem',
                     textAlign: 'left' /* Align text to the left */
-                }}>{publicSectorResult.result}</p>
+                }}>{publicSectorResult['Public Sector Results']}</p>
                 <h5 style={{
                     fontFamily: 'Arial, sans-serif',
                     fontWeight: 'bold',
@@ -42,9 +45,9 @@ function PublicSectorResult() {
                     fontSize: '1.0rem',
                     textAlign: 'left' /* Align text to the left */
                 }}>
-                    {publicSectorResult.publicSectorChallenges && publicSectorResult.publicSectorChallenges.map((challenge, index) => (
+                    {allChallenges && allChallenges.map((challenge, index) => (
                         <li key={index} style={{ marginBottom: '15px' }}>
-                            <strong style={{ color: '#333' }}>{challenge.name}</strong> <br/>{challenge.description}
+                            <strong style={{ color: '#333' }}>{challenge['Public Sector Challenge']}</strong> <br/>{challenge["Description"]}
                             <br />
                             <em style={{ color: '#777' }}>Source: {challenge.source}</em>
                         </li>
@@ -54,6 +57,10 @@ function PublicSectorResult() {
         </Card>
     </Container>
   );
+}
+PublicSectorResult.propTypes = {
+    resultData: PropTypes.any,
+    challengeData: PropTypes.any
 }
 
 export default PublicSectorResult;

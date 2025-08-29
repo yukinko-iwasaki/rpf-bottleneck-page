@@ -1,13 +1,14 @@
 import React from "react";
+import propTypes from "prop-types";
 import { useContext } from "react";
 import OutcomeContext from "../OutcomeContext";
 import { Container, Card } from 'react-bootstrap';
+import { OUTCOMES } from "../constants";
 
-const data = require("../data/publicSectorResult.json");
-
-function PolicyCapability() {
+function PolicyCapability({frameworkData}) {
     const { outcome } = useContext(OutcomeContext);
-    const policyData = data[outcome] || {};
+    const outcome_name = OUTCOMES[outcome]
+    const policyData = frameworkData[outcome_name] || {};
     return (
       <Container className="d-flex justify-content-center">
         <Card className="w-100" style={{ maxWidth: '900px' }}>
@@ -38,7 +39,7 @@ function PolicyCapability() {
                     lineHeight: '1.8',
                     fontSize: '1.0rem',
                     textAlign: 'justify'
-                }}>{policyData.feasiblePolicy}</p>
+                }}>{policyData["Feasible Policy"]}</p>
                 <h5 style={{
                     fontFamily: 'Arial, sans-serif',
                     fontWeight: 'bold',
@@ -52,11 +53,14 @@ function PolicyCapability() {
                     lineHeight: '1.8',
                     fontSize: '1.0rem',
                     textAlign: 'justify'
-                }}>{policyData.effectiveDelivery}</p>
+                }}>{policyData["Delivery Capability"]}</p>
           </Card.Body>
         </Card>
       </Container>
     );
 }
 
+PolicyCapability.propTypes = {
+    frameworkData: propTypes.any
+}
 export default PolicyCapability;

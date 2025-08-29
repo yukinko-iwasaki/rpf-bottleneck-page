@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -13,10 +13,14 @@ import './App.css';
 import HomePage from './components/homePage';
 import VerticalNavbarPermanent from './components/navbars';
 import Header from './components/header'; // Import the Header component
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 
 export default function App() {
   const { outcome } = useContext(OutcomeContext);
+
+
+  
 
   const pageVariants = {
   "initial": { // State 1: When the component is first rendered (before 'animate')

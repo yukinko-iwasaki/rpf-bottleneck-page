@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import OutcomeContext from '../OutcomeContext';
 import { useContext } from 'react';
 import { Container, Card, Image, Row, Col } from 'react-bootstrap';
 
+import { OUTCOMES } from '../constants';
 import EducationImg from '../assets/icon-education.jpg';
 import EconomicResilienceImg from '../assets/icon-resilience.jpg';
 import GenderBasedViolenceImg from '../assets/icon-gbv.jpg';
 import RenewableEnergyImg from '../assets/icon-energy.jpg';
 import UniversalHealthCareImg from '../assets/icon-health.jpg';
 
-const data = require('../data/devOutcome.json')
 
 const imageMap = {
   "Education": EducationImg,
@@ -19,9 +20,11 @@ const imageMap = {
   "Universal Healthcare": UniversalHealthCareImg
 };
 
-function OutcomePage() {
+function OutcomePage({frameworkData}) {
   const { outcome } = useContext(OutcomeContext);
-  const outcomeData = data[outcome] || {};
+  const outcome_name = OUTCOMES[outcome]
+  const outcomeData = frameworkData[outcome_name] || {};
+  const developmentOutcome = outcomeData['Development Outcome'] || '';
 
   return (
     <Container className="d-flex justify-content-center">
@@ -29,7 +32,7 @@ function OutcomePage() {
         <Card className="w-100" style={{ maxWidth: '900px' }}>
           <Card.Body className="text-center">
             <Card.Title as="h2" className="mb-4 fw-bold text-dark">
-              {outcomeData.name}
+              {outcome}
             </Card.Title>
 
             <Row className="justify-content-center mb-4">
@@ -52,7 +55,7 @@ function OutcomePage() {
 
             <Card.Text className="text-start text-secondary lh-lg fs-5">
               In {outcome}, the countries typically pursue the following <strong>policy outcome:</strong>
-              <p className="mt-3">{outcomeData.description}</p>
+              <p className="mt-3">{developmentOutcome}</p>
             </Card.Text>
           </Card.Body>
         </Card>
@@ -60,6 +63,8 @@ function OutcomePage() {
     </Container>
   );
 }
-
+OutcomePage.propTypes = {
+  frameworkData: PropTypes.object.isRequired
+};
 
 export default OutcomePage;
