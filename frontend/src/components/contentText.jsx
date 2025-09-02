@@ -11,12 +11,12 @@ const anonymizeCountry = (text) => {
     return text;
 }
 
-const createText = (example, exampleRef, source, show) => {
+const createText = (example, exampleRef, source) => {
     return (
 
             
            <div style={{ fontSize: '16px', color: '#333' }}>
-                {show && example && (
+                {example && (
                     <p  style={{ fontSize: '16px', marginLeft:'20px'}}>
                        {anonymizeCountry(example)}
                         {exampleRef && <span style={{ fontStyle: 'italic',fontSize: '12px' }}><br/> Reference:  {anonymizeCountry(exampleRef)}, Source: {anonymizeCountry(source)}</span>}
@@ -26,9 +26,9 @@ const createText = (example, exampleRef, source, show) => {
 
     )
 }
-function ContentText({example, exampleRef, source, show}) {
+function ContentText({example, exampleRef, source}) {
 
-    const text = createText(example, exampleRef, source, show)
+    const text = createText(example, exampleRef, source)
 
     return (
         <div className="content-text">
@@ -40,6 +40,5 @@ ContentText.propTypes = {
     example: PropTypes.string.isRequired,
     exampleRef: PropTypes.string,
     source: PropTypes.string,
-    show: PropTypes.bool.isRequired
 };
 export default ContentText;

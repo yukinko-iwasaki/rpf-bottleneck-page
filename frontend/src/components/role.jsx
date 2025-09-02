@@ -9,6 +9,9 @@ function Roles({ selectedItem, rolesData }) {
   const data = rolesData[selectedItem]?.child || [];
   const role_name = rolesData[selectedItem]?.name || '';
   const SHOW_EVIDENCE = process.env.REACT_APP_SHOW_EXAMPLES === 'True';
+    const handleClick = (event) =>  {
+    event.stopPropagation();
+    }
   return (
     <>
       {selectedItem && (
@@ -22,14 +25,14 @@ function Roles({ selectedItem, rolesData }) {
       <div className="pt-4">
         <div className="container text-start">
           <p className="fw-bold ps-2">This role contributes to the sector outcome as follows:</p>
-            <Accordion className="mb-4">
+            <Accordion className="mb-4" >
               {Object.keys(data).map((roleName, index) => {
                 if (roleName === 'name') return null; // Skip the 'name' key
                 const roleData = data[roleName].child || [];
                 const role_name = data[roleName]?.['name'] || '';
                 return (
-                  <Accordion.Item eventKey={index.toString()} key={index}>
-                    <Accordion.Header>{role_name}</Accordion.Header>
+                  <Accordion.Item  disabled={true} eventKey={index.toString()}>
+                    <Accordion.Header >{role_name}</Accordion.Header>
                     <Accordion.Body>
                     <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples: </div> 
                       {roleData.map((item, index) => {
@@ -42,7 +45,7 @@ function Roles({ selectedItem, rolesData }) {
                             <div style={{ width:'100%'}}>
                                 <p><span style={{'fontWeight':'bold'}}>{title}</span></p>
                             </div>
-                            <ContentText show={true} example={example} exampleRef={exampleRef} source={source} />
+                            <ContentText example={example} exampleRef={exampleRef} source={source} />
                           </div>
                         );
                       })}

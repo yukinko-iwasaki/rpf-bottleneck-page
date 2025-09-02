@@ -38,6 +38,7 @@ function Bottlenecks({ selectedItem, bottleneckData }) {
                             <div style={{ width:'100%'}}>
                                 <p><span style={{'fontWeight':'bold'}}>{bottleneck_outcome}</span></p>
                             </div>
+                            {SHOW_EVIDENCE && <>
                             <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples: </div> 
                             {
                               item.map((example, index) => {
@@ -45,10 +46,10 @@ function Bottlenecks({ selectedItem, bottleneckData }) {
                                 const exampleRef = example["References"];
                                 const source = example["Source"];
                                 return (
-                                  <ContentText show={true} example={exampleText} exampleRef={exampleRef} source={source} key={index} />
+                                  <ContentText example={exampleText} exampleRef={exampleRef} source={source} key={index} />
                                 );
                               })
-                            }
+                            }</>}
                                                       </div>
                         );
                       })}
