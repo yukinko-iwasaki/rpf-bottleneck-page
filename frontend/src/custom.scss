@@ -77,7 +77,9 @@
 .page-wrapper {
     height: calc(100vh - 70px);
 }
-
+$outcome: #306844; // dark green
+$result: #8B8000; //dark yellow
+$capability: #00008B;
 $bottleneck-color: #4d9fd2;
 $role-color: #f74b65;
 
@@ -85,9 +87,24 @@ $theme-colors: map-merge(
   $theme-colors,
   (
     "role": $role-color,
-    "bottleneck": $bottleneck-color
+    "bottleneck": $bottleneck-color,
   )
 );
+
+.card-outcome {
+  color: $outcome !important;
+  font-family: 'Arial, sans-serif';
+}
+
+.card-result {
+  color: $result !important;
+  font-family: 'Arial, sans-serif';
+}
+
+.card-capability {
+  color: $capability !important;
+  font-family: 'Arial, sans-serif';
+}
 
 // Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap";

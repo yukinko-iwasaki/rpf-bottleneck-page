@@ -12,44 +12,34 @@ function PublicSectorResult({resultData, challengeData}) {
     const allChallenges = challengeData[outcome_name] || {};
     return (
       <Container className="d-flex justify-content-center">
-        <Card className="w-100" style={{ maxWidth: '900px' }}>
+        <Card className="w-100 card-result" style={{ maxWidth: '900px' }}>
           <Card.Body className="text-left">
-                <h5 style={{
-                    textAlign: 'left', /* Align text to the left */
-                    fontFamily: 'Arial, sans-serif',
-                    fontWeight: 'bold',
-                    color: '#333',
-                    marginBottom: '20px'
-                }}>The public sector results which countries aim to deliver to achieve the outcome are: </h5>
                 <p style={{
-                    fontFamily: 'Arial, sans-serif',
-                    color: '#444',
+                    textAlign: 'left', /* Align text to the left */
+                    marginBottom: '20px'
+                }}>The <b>public sector results</b> which countries aim to deliver to achieve the outcome are: </p>
+                <p style={{
                     lineHeight: '1.8',
                     fontSize: '1.0rem',
                     textAlign: 'left' /* Align text to the left */
                 }}>{publicSectorResult['Public Sector Results']}</p>
-                <h5 style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontWeight: 'bold',
-                    color: '#333',
+                <p style={{
                     marginTop: '35px',
                     marginBottom: '25px',
                     textAlign: 'left' /* Align text to the left */
-                }}>The main public sector challenges in delivering these public sector results typically include:</h5>
+                }}>The main <b>public sector challenges</b> in delivering these public sector results typically include:</p>
                 <ul style={{
                     listStyleType: 'disc',
                     paddingLeft: '20px',
-                    fontFamily: 'Arial, sans-serif',
-                    color: '#444',
                     lineHeight: '1.8',
                     fontSize: '1.0rem',
                     textAlign: 'left' /* Align text to the left */
                 }}>
                     {allChallenges && allChallenges.map((challenge, index) => (
                         <li key={index} style={{ marginBottom: '15px' }}>
-                            <strong style={{ color: '#333' }}>{challenge['Public Sector Challenge']}</strong> <br/>{challenge["Description"]}
+                            <strong >{challenge['Public Sector Challenge']}</strong> <br/>{challenge["Description"]}
                             <br />
-                            <em style={{ color: '#777' }}>Source: {challenge.source}</em>
+                            <em>Source: {challenge.source}</em>
                         </li>
                     ))}
                 </ul>

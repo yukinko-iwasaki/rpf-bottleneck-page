@@ -24,7 +24,7 @@ function Roles({ selectedItem, rolesData }) {
 
       <div className="pt-4">
         <div className="container text-start">
-          <p className="fw-bold ps-2">This role contributes to the sector outcome as follows:</p>
+          <p className="ps-2">This <b>role</b> contributes to public sector results the sector outcome as follows:”:</p>
             <Accordion className="mb-4" >
               {Object.keys(data).map((roleName, index) => {
                 if (roleName === 'name') return null; // Skip the 'name' key
@@ -34,7 +34,6 @@ function Roles({ selectedItem, rolesData }) {
                   <Accordion.Item  disabled={true} eventKey={index.toString()}>
                     <Accordion.Header >{role_name}</Accordion.Header>
                     <Accordion.Body>
-                    <div style={{ fontWeight: 'bold', paddingBottom: '10px' }}>Examples: </div> 
                       {roleData.map((item, index) => {
                         const title = item['Outcome role'];
                             const example = item["Description of  Examples where Roles have been played"]

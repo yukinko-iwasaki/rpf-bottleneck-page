@@ -11,45 +11,27 @@ function PolicyCapability({frameworkData}) {
     const policyData = frameworkData[outcome_name] || {};
     return (
       <Container className="d-flex justify-content-center">
-        <Card className="w-100" style={{ maxWidth: '900px' }}>
+        <Card className="w-100 card-capability" style={{ maxWidth: '900px' }}>
           <Card.Body className="text-start">
-                <h5 style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontWeight: 'bold',
-                    color: '#333',
-                    marginBottom: '25px'
-                }}>Policy Capability for {outcome}</h5>
                 <p style={{
-                    fontFamily: 'Arial, sans-serif',
-                    color: '#444',
                     lineHeight: '1.8',
                     fontSize: '1.0rem',
                     textAlign: 'justify'
                 }}>Making significant progress to deliver the policy outcome and public sector results demands a combination of both feasible policy and delivery capabilities.</p>
-                <h5 style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontWeight: 'bold',
-                    color: '#333',
+                <p style={{
                     marginTop: '35px',
                     marginBottom: '15px'
-                }}>Feasible Policy:</h5>
+                }}>Feasible Policy:</p>
                 <p style={{
-                    fontFamily: 'Arial, sans-serif',
-                    color: '#444',
                     lineHeight: '1.8',
                     fontSize: '1.0rem',
                     textAlign: 'justify'
                 }}>{policyData["Feasible Policy"]}</p>
-                <h5 style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontWeight: 'bold',
-                    color: '#333',
+                <p style={{
                     marginTop: '35px',
                     marginBottom: '15px'
-                }}>Delivery Capabilities:</h5>
+                }}>Delivery Capabilities:</p>
                 <p style={{
-                    fontFamily: 'Arial, sans-serif',
-                    color: '#444',
                     lineHeight: '1.8',
                     fontSize: '1.0rem',
                     textAlign: 'justify'
