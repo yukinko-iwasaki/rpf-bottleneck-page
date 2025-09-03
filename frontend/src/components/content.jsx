@@ -81,8 +81,8 @@ function Content({selectedItem, setSelectedItem, contentRef}) {
       {selectedItem === 'results' && frameworkData && frameworkData['outcome-results'] && <PublicSectorResult resultData={frameworkData['outcome-results']} challengeData={frameworkData['Public Sector Challenges']} />}
       {selectedItem === 'outcome' && frameworkData && frameworkData['outcome-results'] &&<OutcomePage frameworkData={frameworkData['outcome-results']}/>}
       {selectedItem === 'policy' && frameworkData && frameworkData['outcome-results'] && <PolicyCapability frameworkData={frameworkData['outcome-results']} />}
-      {selectedItem.startsWith('bottleneck') && <Bottlenecks selectedItem={selectedItem} bottleneckData={bottleneckData}/>}
-      {selectedItem.startsWith('role') && <Roles selectedItem={selectedItem} rolesData={rolesData}/>}
+      {selectedItem.startsWith('bottleneck') && bottleneckData && <Bottlenecks selectedItem={selectedItem} bottleneckData={bottleneckData}/>}
+      {selectedItem.startsWith('role') && frameworkData && rolesData && <Roles selectedItem={selectedItem} rolesData={rolesData} rolesDescription={frameworkData['taxonomy-roles']} />}
 
     </div>
   );

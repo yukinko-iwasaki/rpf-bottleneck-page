@@ -8,7 +8,7 @@ import EconomicResilienceImg from '../assets/icon-resilience.jpg';
 import GenderBasedViolenceImg from '../assets/icon-gbv.jpg';
 import RenewableEnergyImg from '../assets/icon-energy.jpg';
 import UniversalHealthCareImg from '../assets/icon-health.jpg';
-
+import RPF_logo from '../assets/rpf_logo.png';
 const imageMap = {
   "Education": EducationImg,
   "Economic Resilience": EconomicResilienceImg,
@@ -21,14 +21,15 @@ function Header() {
   const { outcome, setOutcome } = useContext(OutcomeContext);
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="px-4 shadow">
+    <Navbar expand="lg" className="px-4 header-custom">
       <Container fluid>
         <Navbar.Brand 
           to="/" 
           onClick={() => setOutcome('')}
           className="fw-bold fs-3 me-auto text-white text-decoration-none"
         >
-          Reimagine Public Finance
+          <Image src={RPF_logo} alt="RPF Logo" height="40" className="me-4" />
+          Outcome Explorer
         </Navbar.Brand>
 
         {outcome && (

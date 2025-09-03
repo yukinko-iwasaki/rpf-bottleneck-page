@@ -81,7 +81,9 @@ $outcome: #306844; // dark green
 $result: #8B8000; //dark yellow
 $capability: #00008B;
 $bottleneck-color: #4d9fd2;
+$bottleneck-text-color: #00008B;
 $role-color: #f74b65;
+$role-text-color: #950606;
 
 $theme-colors: map-merge(
   $theme-colors,
@@ -106,5 +108,28 @@ $theme-colors: map-merge(
   font-family: 'Arial, sans-serif';
 }
 
+.header-custom {
+  background-color: $bottleneck-color;
+}
+
+.container-role {
+  color: $role-text-color !important;
+  p {
+    color: $role-text-color !important;
+  }
+  button {
+    color: $role-text-color !important;
+  }
+}
+
+.container-bottleneck {
+  color: $bottleneck-color !important;
+  p {
+    color: $bottleneck-text-color !important;
+  }
+  button {
+    color: $bottleneck-text-color !important;
+  }
+}
 // Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap";

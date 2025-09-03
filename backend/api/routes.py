@@ -1,3 +1,4 @@
+import re
 from flask import jsonify, Blueprint
 import os
 import pandas as pd
@@ -23,6 +24,20 @@ def safe_jsonify(data):
     if isinstance(data, tuple) and isinstance(data[0], dict):
         return jsonify(data[0]), data[1]
     return jsonify(data)
+
+def extract_role_letter(text):
+    match = re.match(r"([A-Z])", text)
+    return match.group(1) if match else None
+
+def create_role_taxonomy(sheet_name):
+    """Create a flat data structure from the specified sheet in the Excel file."""
+    df = read_excel(sheet_name)
+    data_dict={}
+    for _, row in df.iterrows():
+        role_name = row["Role of Public Finance"]
+        role_key = f"role_{extract_role_letter(role_name)}" if extract_role_letter(role_name) else role_name
+        data_dict[role_key] = {col: row[col] for col in df.columns if col != "Role of Public Finance"}
+    return data_dict
 
 
 def create_outcome_results():
@@ -60,6 +75,8 @@ def get_all_data():
     data = {
         'outcome-results': create_outcome_results(),
         'Public Sector Challenges': create_public_sector_challenges(),
+        'taxonomy-roles': create_role_taxonomy('Taxonomy-roles'),
+
     }
     return safe_jsonify(data)
 
@@ -107,9 +124,7 @@ def get_example_data():
         return roles_examples
     filtered_roles_data = roles_examples[roles_examples['Outcome'] == filter_value].dropna(subset="Role of Public Finance")
     dict_data_role = {}
-    def extract_role_letter(text):
-        match = re.match(r"([A-Z])", text)
-        return match.group(1) if match else None
+
     
     for _, row in filtered_roles_data.iterrows():
         parent_name = str(row["Role of Public Finance"]).strip()

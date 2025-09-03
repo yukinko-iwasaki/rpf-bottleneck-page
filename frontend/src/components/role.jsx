@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ContentText from "./contentText";
 import Accordion from 'react-bootstrap/Accordion';
 
-function Roles({ selectedItem, rolesData }) {
+function Roles({ selectedItem, rolesData, rolesDescription }) {
 
 
   const data = rolesData[selectedItem]?.child || [];
@@ -15,14 +15,15 @@ function Roles({ selectedItem, rolesData }) {
   return (
     <>
       {selectedItem && (
-        <div className="container p-4 mb-4 border rounded shadow bg-white text-start" style={{ maxWidth: '900px' }}>
+        <div className="container p-4 mb-4 border rounded shadow bg-white text-start  container-role" style={{ maxWidth: '900px' }}>
           <p className="mb-2">The outcome-led framework identifies four broad roles that public finance plays in the achievement of public sector results as it interacts with broader public policy and public sector institutions.'</p>
           <p className="mb-1">You have selected:</p>
           <p className="fw-bold">{role_name}</p>
+          <p>{rolesDescription[selectedItem]?.["Role Description: Public Finance"]}</p>
         </div>
       )}
 
-      <div className="pt-4">
+      <div className="pt-4  container-role">
         <div className="container text-start">
           <p className="ps-2">This <b>role</b> contributes to public sector results the sector outcome as follows:”:</p>
             <Accordion className="mb-4" >
@@ -31,9 +32,9 @@ function Roles({ selectedItem, rolesData }) {
                 const roleData = data[roleName].child || [];
                 const role_name = data[roleName]?.['name'] || '';
                 return (
-                  <Accordion.Item  disabled={true} eventKey={index.toString()}>
-                    <Accordion.Header >{role_name}</Accordion.Header>
-                    <Accordion.Body>
+                  <Accordion.Item  disabled eventKey={undefined}>
+                    <Accordion.Button disabled>{role_name}</Accordion.Button>
+                    {SHOW_EVIDENCE && <Accordion.Body>
                       {roleData.map((item, index) => {
                         const title = item['Outcome role'];
                             const example = item["Description of  Examples where Roles have been played"]
@@ -48,7 +49,7 @@ function Roles({ selectedItem, rolesData }) {
                           </div>
                         );
                       })}
-                    </Accordion.Body>
+                    </Accordion.Body>}
                   </Accordion.Item>
                 );
               })}
@@ -63,6 +64,7 @@ function Roles({ selectedItem, rolesData }) {
 Roles.propTypes = {
   selectedItem: PropTypes.string.isRequired,
   rolesData: PropTypes.any,
+  rolesDescription: PropTypes.any
 };
 
 export default Roles;
