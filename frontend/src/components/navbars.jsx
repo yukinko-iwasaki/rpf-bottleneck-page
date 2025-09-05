@@ -4,8 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import OutcomeContext from '../OutcomeContext';
 import Content from './content';
 import CircleVisual from './circleVisual';
-import verticalNavImg from '../assets/vertical-nav.png';
-
+import verticalNavImg from '../assets/framework.svg';
+import roleButton from '../assets/role-button.png';
+import bottleneckButton from '../assets/bottleneck-button.png';
+import redArrow from '../assets/red-arrow.png';
+import blueArrow from '../assets/blue-arrow.png';
 
 const HOVER_ZONES = [
   {
@@ -19,12 +22,20 @@ const HOVER_ZONES = [
   {
     id: 'policy',
     className: 'bottom-zone',
+  },
+  {
+    id: 'role-A',
+    className: 'role-A-zone',
+  },
+  {
+    id: 'bottleneck-1',
+    className: 'bottleneck-1-zone',
   }
 ];
 
 function VerticalNavbarPermanent() {
     const [selectedItem, setSelectedItem] = useState('outcome');
-    const [topDivHeight, setTopDivHeight] = useState('55vh');
+    const [topDivHeight, setTopDivHeight] = useState(55);
     const { outcome } = useContext(OutcomeContext);
     const contentRef = useRef();
 
@@ -37,7 +48,7 @@ function VerticalNavbarPermanent() {
     }, [selectedItem]);
 
     const handleVizClick = (event, defaultGroup='') => {
-        setTopDivHeight('35vh'); // Shrink when CircleVisual is clicked
+        setTopDivHeight(45); // Shrink when CircleVisual is clicked
         if (!event){
           setSelectedItem(defaultGroup);
         }else{
@@ -49,7 +60,11 @@ function VerticalNavbarPermanent() {
 
     const handleZoneClick = (zone) => {
         setSelectedItem(zone);
-        setTopDivHeight('50vh'); // Expand when top nav is clicked
+        if (zone === 'outcome' || zone === 'results' || zone === 'policy'){
+            setTopDivHeight(55); // Expand for top three zones
+        } else {
+            setTopDivHeight(45); // Shrink for role and bottleneck zones
+        }
     };
 
     return (
@@ -58,10 +73,24 @@ function VerticalNavbarPermanent() {
                 {/* Sidebar Column */}
                 <Col xs={12} md={4} lg={4}
                     className="bg-paper d-flex flex-column h-100"
-                    style={{ gap: '30px', padding: '20px 0' }}>
+                    style={{ padding: '10px 0' }}>
+                                                  {/* Image */}
+                            <img
+                                src={verticalNavImg}
+                                alt='Vertical Navigation'
+                                style={{
+                                    width: '33vw',
+                                    height:  `${topDivHeight+10}vh`,
+                                    transition: 'all 0.3s ease-in-out',
+                                    position: 'absolute',
+                                }}
+                            />
+                            <img src={redArrow} alt="Red Arrow" className="red-arrow" style={{ position: 'absolute', top: '10%', left: '3.5%', width: '35px', height: `${topDivHeight}vh` }} />
+                            <img src={blueArrow} alt="Blue Arrow" className="blue-arrow" style={{ position: 'absolute', top: '35%', left: '25%', width: '35px', height: `${topDivHeight-25}vh` }} />
+
                     <div style={{
                         width: '100%',
-                        height: topDivHeight,
+                        height: `${topDivHeight}vh`,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -70,7 +99,7 @@ function VerticalNavbarPermanent() {
                         transition: 'height 0.3s ease-in-out' // Add smooth transition
                     }}>
                         {/* Image Reveal with Hover Zones */}
-                        <div className="reveal-image" style={{ width: '60%', height: '100%' }}>
+                        <div className="reveal-image" style={{ width: '80%', height: '100%' }}>
                             {/* Hover zones */}
                             {HOVER_ZONES.map((zone) => (
                               <div
@@ -85,18 +114,17 @@ function VerticalNavbarPermanent() {
                             <div className="mask middle-mask"></div>
                             <div className="mask bottom-mask"></div>
 
-                            {/* Image */}
-                            <img
-                                src={verticalNavImg}
-                                alt='Vertical Navigation'
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    transition: 'all 0.3s ease-in-out'
-                                }}
-                            />
                         </div>
+                    </div>
+                    <div className='d-flex justify-content-center' style={{width: '33vw', paddingTop: '30px'}}  >
+                    <div className='d-flex justify-content-between' style={{ width: '80%' }}>
+                    <button className="evidence-button role" onClick={() => handleZoneClick('role_A')}>
+                        <img src={roleButton} alt="Evidence" />
+                    </button>
+                      <button className="evidence-button bottleneck" onClick={() => handleZoneClick('bottleneck_1')}>
+                        <img src={bottleneckButton} alt="Evidence" />
+                    </button>
+                    </div>
                     </div>
                     <CircleVisual onClick={handleVizClick} selectedItem={selectedItem} />
                 </Col>

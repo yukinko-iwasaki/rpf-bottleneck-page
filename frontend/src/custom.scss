@@ -95,17 +95,14 @@ $theme-colors: map-merge(
 
 .card-outcome {
   color: $outcome !important;
-  font-family: 'Arial, sans-serif';
 }
 
 .card-result {
   color: $result !important;
-  font-family: 'Arial, sans-serif';
 }
 
 .card-capability {
   color: $capability !important;
-  font-family: 'Arial, sans-serif';
 }
 
 .header-custom {
@@ -133,3 +130,20 @@ $theme-colors: map-merge(
 }
 // Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap";
+
+
+.evidence-button {
+
+  background-color: white;
+  border: none;
+  padding: 5px;
+  z-index: 10;
+  &.bottleneck:hover {
+    transform: translateY(-3px);
+    box-shadow: 5px 5px 8px $bottleneck-color;
+  }
+  &.role:hover {
+    transform: translateY(-3px);
+    box-shadow: 5px 5px 8px $role-color;
+  }
+}

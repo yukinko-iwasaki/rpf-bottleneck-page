@@ -5,7 +5,6 @@ import { ReactComponent as BottleneckWheel } from '../assets/focus-bottleneck.sv
 import { ReactComponent as RoleWheel } from '../assets/focus-roles.svg';
 import '../custom.scss';
 import PropTypes from 'prop-types';
-import { Button, ButtonGroup, ToggleButton } from "react-bootstrap";
 
 const CircleVisual = ({ onClick, selectedItem }) => {
     const svgRef = useRef(null);
@@ -63,7 +62,7 @@ const CircleVisual = ({ onClick, selectedItem }) => {
     return (
         <>
         <div className="bg-paper d-flex justify-content-center" style={{ gap: '10px', padding: '10px' }}>
-        {wheel_types.map((radio, idx) => (
+        {/* {wheel_types.map((radio, idx) => (
           <Button
             key={idx}
             id={`radio-${idx}`}
@@ -75,7 +74,7 @@ const CircleVisual = ({ onClick, selectedItem }) => {
           >
             {radio.name}
           </Button>
-        ))}
+        ))} */}
         </div>
         <div style={{
             flex: 1,
