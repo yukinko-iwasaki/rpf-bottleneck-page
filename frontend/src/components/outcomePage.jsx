@@ -5,11 +5,11 @@ import { useContext } from 'react';
 import { Container, Card, Image, Row, Col } from 'react-bootstrap';
 
 import { OUTCOMES } from '../constants';
-import EducationImg from '../assets/icon-education.jpg';
-import EconomicResilienceImg from '../assets/icon-resilience.jpg';
-import GenderBasedViolenceImg from '../assets/icon-gbv.jpg';
-import RenewableEnergyImg from '../assets/icon-energy.jpg';
-import UniversalHealthCareImg from '../assets/icon-health.jpg';
+import EducationImg from '../assets/icon-education.png';
+import EconomicResilienceImg from '../assets/icon-economic.png';
+import GenderBasedViolenceImg from '../assets/icon-gender.png';
+import RenewableEnergyImg from '../assets/icon-energy.png';
+import UniversalHealthCareImg from '../assets/icon-health.png';
 import "../custom.scss"
 
 const imageMap = {

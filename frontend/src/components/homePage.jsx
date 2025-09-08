@@ -4,13 +4,16 @@ import { Container, Card, Image, Row, Col } from 'react-bootstrap';
 import OutcomeContext from '../OutcomeContext';
 
 // Import images
-import EducationImg from '../assets/icon-education.jpg';
-import EconomicResilienceImg from '../assets/icon-resilience.jpg';
-import GenderBasedViolenceImg from '../assets/icon-gbv.jpg';
-import RenewableEnergyImg from '../assets/icon-energy.jpg';
-import UniversalHealthCareImg from '../assets/icon-health.jpg';
-import OutcomeCombinedImg from '../assets/icon-combined.jpg';
+import EducationImg from '../assets/icon-education.png';
+import EconomicResilienceImg from '../assets/icon-economic.png';
+import GenderBasedViolenceImg from '../assets/icon-gender.png';
+import RenewableEnergyImg from '../assets/icon-energy.png';
+import UniversalHealthCareImg from '../assets/icon-health.png';
+import OutcomeCombinedImg from '../assets/icon-combined.png';
+import WaterImg from '../assets/icon-water.png';
+import RevenueImg from '../assets/icon-revenue.png';
 import frameworkImg from '../assets/framework.jpg';
+import horizontalImg from '../assets/horizontal.png'
 function HomePage() {
   const { setOutcome } = useContext(OutcomeContext);
 
@@ -26,11 +29,13 @@ function HomePage() {
     { title: 'The Energy Transition', icon: RenewableEnergyImg, path: '/RenewableEnergy' },
     { title: 'Universal Healthcare', icon: UniversalHealthCareImg, path: '/UniversalHealthCare' },
     { title: 'Outcome Combined', icon: OutcomeCombinedImg, path: '/OutcomeCombined' },
+    { title: 'Water', icon: WaterImg, path: '/Water' },
+    { title: 'Revenue', icon: RevenueImg, path: '/Revenue' },
   ];
 
 
   return (
-    <Container fluid className="bg-light min-vh-100 d-flex flex-column align-items-center py-4">
+    <Container fluid className="bg-light min-vh-100 d-flex flex-column align-items-center">
       <Image src={frameworkImg} alt="framework" fluid className="w-75 mb-4 d-none d-md-block" />
 
       <Card className="w-75 mb-4" style={{ maxWidth: '1200px' }}>

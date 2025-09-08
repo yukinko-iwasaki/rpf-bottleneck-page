@@ -3,11 +3,11 @@ import { useContext } from 'react';
 import { FaHome } from "react-icons/fa";
 import { Navbar, Container, Nav, Image } from 'react-bootstrap';
 import OutcomeContext from '../OutcomeContext';
-import EducationImg from '../assets/icon-education.jpg';
-import EconomicResilienceImg from '../assets/icon-resilience.jpg';
-import GenderBasedViolenceImg from '../assets/icon-gbv.jpg';
-import RenewableEnergyImg from '../assets/icon-energy.jpg';
-import UniversalHealthCareImg from '../assets/icon-health.jpg';
+import EducationImg from '../assets/icon-education.png';
+import EconomicResilienceImg from '../assets/icon-economic.png';
+import GenderBasedViolenceImg from '../assets/icon-gender.png';
+import RenewableEnergyImg from '../assets/icon-energy.png';
+import UniversalHealthCareImg from '../assets/icon-health.png';
 import RPF_logo from '../assets/rpf_logo.png';
 const imageMap = {
   "Education": EducationImg,
