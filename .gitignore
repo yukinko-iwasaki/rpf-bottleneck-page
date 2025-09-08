@@ -25,6 +25,9 @@ yarn-error.log*
 frontend/build
 frontend/node_modules
 backend/build
+backend/data
+
 
 .vscode
 rsconnect-python
+
